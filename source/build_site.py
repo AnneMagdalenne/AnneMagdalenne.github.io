@@ -13,6 +13,8 @@ s = re.sub(r'<meta name="claude:[^>]*>\n', '', s)
 s = re.sub(r'<link [^>]*fonts\.g[^>]*>\n', '', s)
 m = re.search(r'<style>.*?</style>\n', s, re.S)
 style, body = m.group(0), (s[:m.start()] + s[m.end():]).strip()
+# self-host Motion on the live site (the artifact preview loads it from jsDelivr)
+body = re.sub(r'https://cdn\.jsdelivr\.net/npm/motion@([0-9.]+)/dist/motion\.js', r'vendor/motion-\1.js', body)
 
 desc = ('Project portfolio of Anne Magdalene Helles Borgen: event producer, community builder and '
         'systems thinker. Kaospilot, Team 31. Available for internships from February 2027.')
@@ -24,7 +26,8 @@ head = f'''<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<meta name="theme-color" content="#1B1531">
+<meta name="theme-color" content="#F4F4F1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111114" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 {f'<link rel="canonical" href="{base}">' if base else ''}
 <meta property="og:type" content="website">
@@ -36,7 +39,7 @@ head = f'''<!doctype html>
 {f'<meta property="og:url" content="{base}">' if base else ''}
 <meta name="twitter:card" content="summary_large_image">
 <style>
-@font-face{{font-family:"Schibsted Grotesk";src:url("fonts/schibsted-grotesk-latin-wght-normal.woff2") format("woff2");font-weight:400 900;font-style:normal;font-display:swap}}
+@font-face{{font-family:"Archivo";src:url("fonts/archivo-latin-wdth-normal.woff2") format("woff2");font-weight:100 900;font-stretch:62% 125%;font-style:normal;font-display:swap}}
 @font-face{{font-family:"IBM Plex Mono";src:url("fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}}
 @font-face{{font-family:"IBM Plex Mono";src:url("fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}}
 html{{-webkit-text-size-adjust:100%;text-size-adjust:100%}}
