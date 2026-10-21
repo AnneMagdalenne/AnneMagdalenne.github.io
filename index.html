@@ -132,11 +132,13 @@ section > .wrap{padding-block:var(--sec)}
 .head{display:flex;flex-direction:column;gap:12px;margin-bottom:40px}
 .head p{color:var(--muted);max-width:40em}
 /* skills: a 4 x 2 table, heading in the first cell */
-.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1.5px solid var(--text);border-left:1px solid var(--border)}
-.skills > *{min-width:0;padding:26px 22px 22px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
-.skills-head{display:flex;align-items:flex-end;background:var(--text);color:var(--bg)}
+#skills > .wrap{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:48px;align-items:start}
+.skills-head{position:sticky;top:96px}
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1.5px solid var(--text);border-left:1px solid var(--border)}
+.skills > *{min-width:0;padding:26px 24px 22px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
 .skills-head h2{font-size:clamp(2.1rem,3.4vw,3rem)}
 .skill{display:flex;flex-direction:column;gap:10px;background:var(--surface)}
+.skills > .skill:last-child{grid-column:1 / -1}
 .skill h3{font-stretch:68%;font-weight:800;text-transform:uppercase;font-size:clamp(1.45rem,2vw,1.75rem);line-height:.95;letter-spacing:0}
 .skill h3 .sq{display:block;width:24px;height:4px;border-radius:2px;margin:0 0 14px}
 .skill p{color:var(--muted);font-size:.95rem;line-height:1.55}
@@ -146,8 +148,8 @@ section > .wrap{padding-block:var(--sec)}
 .pchip::after{content:"\2192";font-size:.9em;color:var(--primary);transition:transform .15s}
 .pchip:hover,.pchip:focus-visible{border-color:var(--primary);background:var(--primary-soft)}
 .pchip:hover::after{transform:translateX(2px)}
-@media screen and (max-width:1100px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media screen and (max-width:600px){.skills{grid-template-columns:minmax(0,1fr)}.skills-head{padding-block:28px}}
+@media screen and (max-width:900px){#skills > .wrap{grid-template-columns:minmax(0,1fr);gap:24px}.skills-head{position:static}}
+@media screen and (max-width:600px){.skills{grid-template-columns:minmax(0,1fr)}}
 /* Amplify Live keeps its own brand: the concept / what artists get / what I learned */
 .al{background:var(--al-black);color:var(--al-white)}
 .al .wrap{padding-block:var(--sec) 0}
@@ -161,7 +163,7 @@ section > .wrap{padding-block:var(--sec)}
 .al .artists{margin-top:16px;font-size:.9rem;color:#A9A9A9}
 .al .artists b{color:var(--al-white);font-weight:600}
 .al-hl{color:var(--al-white);font-weight:700;text-decoration:underline;text-decoration-color:var(--al-lime);text-decoration-thickness:3px;text-underline-offset:5px}
-.offer{margin-top:56px;background:var(--al-lime);color:var(--al-black);display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr))}
+.offer{margin-top:56px;background:var(--al-lime);color:var(--al-black);display:grid;grid-template-columns:auto repeat(2,minmax(0,1fr))}
 .offer > *{padding:20px 22px;min-width:0}
 .offer .t{font:600 .75rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.1em;border-right:1.5px solid var(--al-black);display:flex;align-items:center}
 .offer div + div{border-left:1.5px solid var(--al-black)}
@@ -189,32 +191,31 @@ section > .wrap{padding-block:var(--sec)}
 .al-vt b{font-family:"Aileron",var(--font);font-weight:800;text-transform:uppercase;font-size:1.05rem;line-height:1.05}
 .al-vt > span{font-size:.9rem}
 .al-yt{margin-top:auto;font:500 .7rem/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;opacity:.7}
-.al-photos{grid-column:1 / -1;display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:10px;height:clamp(320px,42vw,520px)}
-.al-photos figure{margin:0;min-width:0;min-height:0;overflow:hidden;border-radius:var(--r-card)}
-.al-photos figure:first-child{grid-row:1 / span 2}
+.al-photos{grid-column:1 / -1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.al-photos figure{margin:0;min-width:0;aspect-ratio:4/3;overflow:hidden;border-radius:var(--r-card)}
 .al-photos img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.28,.02,.1,.99)}
 .al-photos figure:hover img{transform:scale(1.04)}
 @media screen and (max-width:900px){.al-live{grid-template-columns:minmax(0,1fr);margin-top:56px}.al h2{font-size:clamp(2.6rem,10vw,4.4rem)}}
 @media screen and (max-width:640px){.al-videos{grid-template-columns:minmax(0,1fr)}.al-video{min-height:0;flex-direction:row;align-items:center}.al-yt{margin:0 0 0 auto}
-  .al-photos{grid-template-columns:1fr 1fr;grid-template-rows:auto;height:auto}.al-photos figure{aspect-ratio:4/3}.al-photos figure:first-child{grid-row:auto;grid-column:1 / -1;aspect-ratio:3/2}}
+  .al-photos{grid-template-columns:1fr 1fr}.al-photos figure:first-child{grid-column:1 / -1;aspect-ratio:3/2}}
 @media (prefers-reduced-motion:reduce){.al-logo,.al-photos img,.al-video{transition:none}}
 .al-learn{margin-top:72px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:48px;align-items:start}
-.al-hint{margin-top:18px;font:500 .72rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:#8C8C8C}
-.al-skills{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.al-skill{position:relative;display:flex;flex-direction:column;justify-content:flex-start;gap:10px;width:100%;min-height:128px;padding:18px 48px 18px 18px;text-align:left;cursor:pointer;
+.al-skills{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:start}
+.al-skill{position:relative;display:flex;flex-direction:column;justify-content:flex-start;gap:0;width:100%;min-height:0;padding:13px 44px 13px 16px;text-align:left;cursor:pointer;
   font:inherit;color:var(--al-white);background:transparent;border:1.5px solid #3A3A3A;border-radius:var(--r-card);transition:background .2s,border-color .2s,color .2s}
-.al-skill b{font-family:"Aileron",var(--font);font-weight:800;text-transform:uppercase;font-size:1.15rem;line-height:1.05;letter-spacing:-.01em}
-.al-desc{font-size:.92rem;line-height:1.45;opacity:0;transform:translateY(6px);transition:opacity .2s,transform .2s}
-.al-more{position:absolute;top:16px;right:16px;width:22px;height:22px;border-radius:50%;border:1.5px solid currentColor;opacity:.7}
+.al-skill b{font-family:"Aileron",var(--font);font-weight:800;text-transform:uppercase;font-size:1rem;line-height:1.1;letter-spacing:-.01em}
+.al-desc{display:grid;grid-template-rows:0fr;opacity:0;font-size:.92rem;line-height:1.45;transition:grid-template-rows .3s cubic-bezier(.28,.02,.1,.99),opacity .2s,margin .3s}
+.al-desc-in{overflow:hidden;min-height:0}
+.al-more{position:absolute;top:11px;right:12px;width:22px;height:22px;border-radius:50%;border:1.5px solid currentColor;opacity:.7}
 .al-more::before,.al-more::after{content:"";position:absolute;left:50%;top:50%;width:9px;height:1.5px;background:currentColor;transform:translate(-50%,-50%)}
 .al-more::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .2s}
 .al-skill[aria-expanded="true"],.al-skill:focus-visible{background:var(--al-lime);border-color:var(--al-lime);color:var(--al-black)}
-.al-skill[aria-expanded="true"] .al-desc,.al-skill:focus-visible .al-desc{opacity:1;transform:none}
+.al-skill[aria-expanded="true"] .al-desc,.al-skill:focus-visible .al-desc{grid-template-rows:1fr;opacity:1;margin-top:8px}
 .al-skill[aria-expanded="true"] .al-more::after{transform:translate(-50%,-50%) rotate(0deg)}
-@media (hover:hover) and (pointer:fine){.al-skill:hover{background:var(--al-lime);border-color:var(--al-lime);color:var(--al-black)}.al-skill:hover .al-desc{opacity:1;transform:none}}
+@media (hover:hover) and (pointer:fine){.al-skill:hover{background:var(--al-lime);border-color:var(--al-lime);color:var(--al-black)}.al-skill:hover .al-desc{grid-template-rows:1fr;opacity:1;margin-top:8px}.al-skill:hover .al-more::after{transform:translate(-50%,-50%) rotate(0deg)}}
 .al-foot{height:var(--sec)}
-@media screen and (max-width:900px){.al-top,.al-learn{grid-template-columns:minmax(0,1fr)}.al-learn{gap:28px;margin-top:56px}.offer{grid-template-columns:1fr 1fr 1fr}.offer .t{grid-column:1/-1;border-right:0;border-bottom:1.5px solid var(--al-black)}.offer .t + div{border-left:0}}
-@media screen and (max-width:560px){.offer{grid-template-columns:1fr}.offer div + div{border-left:0;border-top:1.5px solid var(--al-black)}.al-skills{grid-template-columns:minmax(0,1fr)}.al-skill{min-height:0}.al-desc{display:none}.al-skill[aria-expanded="true"] .al-desc{display:block}}
+@media screen and (max-width:900px){.al-top,.al-learn{grid-template-columns:minmax(0,1fr)}.al-learn{gap:28px;margin-top:56px}.offer{grid-template-columns:1fr 1fr}.offer .t{grid-column:1/-1;border-right:0;border-bottom:1.5px solid var(--al-black)}.offer .t + div{border-left:0}}
+@media screen and (max-width:560px){.offer{grid-template-columns:1fr}.offer div + div{border-left:0;border-top:1.5px solid var(--al-black)}.al-skills{grid-template-columns:minmax(0,1fr)}}
 /* work gallery (Motion page wipe) */
 html{scrollbar-gutter:stable}
 html.wlock{overflow:hidden}
@@ -252,6 +253,7 @@ html.wlock{overflow:hidden}
 [data-c="coral"]{--cv-bg:var(--accent);--cv-fg:#141418;--cv-line:transparent}
 [data-c="ink"]{--cv-bg:var(--text);--cv-fg:var(--bg);--cv-line:transparent}
 [data-c="paper"]{--cv-bg:var(--surface);--cv-fg:var(--text);--cv-line:var(--border)}
+[data-c="soft"]{--cv-bg:var(--primary-soft);--cv-fg:var(--primary);--cv-line:transparent}
 .wfull{display:none}
 @media screen and (max-width:1000px){.wgrid-side{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media screen and (max-width:640px){.wgrid-projects{grid-template-columns:minmax(0,1fr)}.wcard.project .wcover{min-height:200px}.wgrid-side{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -269,12 +271,26 @@ html.wlock{overflow:hidden}
 .wd-kind{font:500 .78rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.09em;opacity:.85}
 .wd-title{font-stretch:68%;font-weight:800;text-transform:uppercase;font-size:clamp(3rem,10vw,8rem);line-height:.86;letter-spacing:-.01em;margin-top:14px;width:fit-content;max-width:100%}
 .wd-meta{margin-top:22px;font:500 .8rem/1.5 var(--mono);text-transform:uppercase;letter-spacing:.08em;opacity:.85}
-.wd-content{margin-top:36px;padding-top:28px;border-top:1.5px solid currentColor;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px 48px}
+.wd-content{margin-top:36px;padding-top:28px;border-top:1.5px solid currentColor;max-width:46em}
 .wd-content .wwhere{display:none}
 .wd-content .wbody{font-size:clamp(1.15rem,1.8vw,1.4rem);line-height:1.5;max-width:34em}
 .wskills{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
 .wskills li{font-weight:600;font-size:.9rem;padding:7px 14px;border-radius:999px;border:1.5px solid currentColor}
-@media screen and (max-width:700px){.wd-content{grid-template-columns:minmax(0,1fr)}}
+.wsub{font:500 .75rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.09em;opacity:.8;margin:30px 0 12px}
+.wdid{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.wdid li{position:relative;padding-left:24px;font-size:1.05rem;line-height:1.45}
+.wdid li::before{content:"";position:absolute;left:0;top:.7em;width:12px;height:2px;background:currentColor}
+.wpeek{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:16px}
+.wp-backdrop{position:absolute;inset:0;background:rgb(17 17 20 / .55);backdrop-filter:blur(3px)}
+.wp-card{position:relative;width:min(540px,100%);max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:var(--r-pass);padding:28px 28px 30px;box-shadow:0 30px 60px -20px rgb(0 0 0 / .45)}
+.wp-close{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--text);background:var(--surface);color:var(--text);font-size:1.4rem;line-height:1;cursor:pointer}
+.wp-close:hover{background:var(--bg)}
+.wp-title{font-stretch:68%;font-weight:800;text-transform:uppercase;font-size:clamp(2rem,6vw,2.8rem);line-height:.9;margin-top:10px;padding-right:52px}
+.wp-content .wwhere{display:none}
+.wp-content .wbody{font-size:1.05rem;line-height:1.55;margin-top:18px;color:var(--muted)}
+.wp-content .wsub{margin-top:22px}
+.wp-content .wskills li{border-color:var(--border)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 ::view-transition-group(*){animation-timing-function:cubic-bezier(.28,.02,.1,.99)}
 /* kaospilot + background */
 .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px}
@@ -285,8 +301,10 @@ html.wlock{overflow:hidden}
 .sem b,.tl b{font-weight:600}
 .sem li > span + span > span,.tl span span{color:var(--muted);font-size:.94rem}
 .tl span span{display:block}
-.sem li.now .n{color:var(--primary)}
-.sem li.now b::after{content:"";display:inline-block;width:8px;height:8px;background:var(--accent);border-radius:50%;margin-left:8px;vertical-align:.1em}
+.sem li.now{margin-top:10px;padding:16px;border:0;border-radius:var(--r-card);background:var(--accent);color:#141418}
+.sem li.now .n,.sem li.now > span + span > span{color:#141418}
+.sem li.now .open{display:block;margin-top:8px;font-weight:600;font-size:1rem}
+.sem li.now .open a{color:inherit;text-decoration-thickness:2px}
 .extra{margin-top:20px;font-size:.94rem;color:var(--muted)}
 .extra b{color:var(--text);font-weight:600}
 /* about */
@@ -296,7 +314,7 @@ html.wlock{overflow:hidden}
 .story .intro{font-size:1.2rem;max-width:34em;margin-top:16px}
 #about > .story{padding-bottom:48px}
 #about > .lgal{padding-top:0}
-.lgal-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:16px}
+.lgal-bar{display:flex;justify-content:flex-end;align-items:center;gap:16px;margin-bottom:16px}
 .lgal-ctrl{display:flex;gap:8px}
 .lgal .wd-step{display:inline-flex;align-items:center;justify-content:center;width:44px;min-height:44px;border:1.5px solid var(--text);border-radius:999px;background:transparent;color:var(--text);cursor:pointer;font:600 1rem/1 var(--font)}
 .lgal .wd-step:hover{background:var(--bg)}
@@ -343,7 +361,7 @@ footer .wrap{padding-block:20px}
   @page{size:A4;margin:0}
   html{font-size:11.5px}
   body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  body::before,.bar,.copy,#ppop,.site-only,.skip,.lanyard,.actions,.wdetail,.wplus,.al-more,.al-hint,.lgal-bar,.lgal-progress{display:none!important}
+  body::before,.bar,.copy,#ppop,.site-only,.skip,.lanyard,.actions,.wdetail,.wplus,.al-more,.lgal-bar,.lgal-progress,.wpeek,.wsub,.wdid{display:none!important}
   :root{--sec:30px}
   .hero{padding-block:24px 28px}
   .hero .wrap{grid-template-columns:minmax(0,1fr) 190px;gap:32px}
@@ -355,11 +373,10 @@ footer .wrap{padding-block:20px}
   .al-learn{margin-top:28px;grid-template-columns:minmax(0,1fr);gap:14px}
   .al-live{margin-top:24px;grid-template-columns:minmax(0,1fr);gap:12px}
   .al-video{min-height:0;padding:10px 12px}
-  .al-photos{height:220px}
   .al-photos img{transition:none}
   .al-skills{grid-template-columns:repeat(4,minmax(0,1fr))}
   .al-skill{min-height:0;padding:10px 12px}
-  .al-desc{opacity:1;transform:none;display:block}
+  .al-desc{opacity:1;grid-template-rows:1fr;margin-top:4px}
   .side-head{margin:20px 0 10px}
   .lessons{display:grid;grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible}
   .lessons li{min-height:0;padding:14px 16px}
@@ -443,8 +460,8 @@ footer .wrap{padding-block:20px}
 </header>
 <section id="skills">
   <div class="wrap">
+    <div class="skills-head"><h2><span lang="en">What I bring to the table</span><span lang="da">Hvad jeg bringer til bords</span></h2></div>
     <div class="skills">
-      <div class="skills-head"><h2><span lang="en">What I bring to the table</span><span lang="da">Hvad jeg bringer til bords</span></h2></div>
       <article class="skill">
         <h3><span class="sq"></span><span lang="en">Event &amp; festival production</span><span lang="da">Event- og festivalproduktion</span></h3>
         <p lang="en">From booking and contracts to building the site and running stages on the day.</p>
@@ -498,12 +515,10 @@ footer .wrap{padding-block:20px}
         <div class="al-brand"><img class="al-logo" src="img/amplify/amplify-live-logo.svg" alt="Amplify Live logo" width="158" height="142"><h2>Amplify<br><em>Live</em></h2></div>
       </div>
       <div>
-        <p class="al-part"><span lang="en">The concept</span><span lang="da">Konceptet</span></p>
         <p class="al-tag" lang="en">Unique pop-up stages for grassroots artists, with a professional live session to take with them.</p>
         <p class="al-tag" lang="da">Unikke pop-up-scener for græsrodsartister, med en professionel live-session i bagagen.</p>
         <p class="lead" lang="en">Amplify Live is a non-profit association in Aarhus that gives emerging artists an intimate stage, professional live video and a way into the music industry. It runs entirely on foundation grants.</p>
         <p class="lead" lang="da">Amplify Live er en non-profit forening i Aarhus, der giver nye artister en intim scene, professionel livevideo og en vej ind i musikbranchen. Foreningen drives udelukkende af fondsmidler.</p>
-        <p class="artists"><span lang="en">Artists include</span><span lang="da">Artister bl.a.</span> <b>ANBEROSE</b> · <b>SOPHUS</b> · <b>CHÆK</b> · <b>MONSUN</b> · <b>Lygtevenner</b></p>
         <ul class="al-stats">
           <li><b>3</b><span lang="en">live sessions</span><span lang="da">live-sessions</span></li>
           <li><b>9</b><span lang="en">crew members, plus extra hands</span><span lang="da">i crewet, plus ekstra hænder</span></li>
@@ -513,9 +528,8 @@ footer .wrap{padding-block:20px}
     </div>
     <div class="offer">
       <p class="t"><span lang="en">What artists get</span><span lang="da">Det får artisterne</span></p>
-      <div><b lang="en">An intimate stage</b><b lang="da">En intim scene</b><span lang="en">Close-up concerts in Aarhus venues, for an audience that came to listen.</span><span lang="da">Tætte koncerter i Aarhus for et publikum, der er kommet for at lytte.</span></div>
-      <div><b lang="en">Professional live video</b><b lang="da">Professionel livevideo</b><span lang="en">Filmed sets they can use to pitch to venues, festivals and labels.</span><span lang="da">Filmede koncerter, de kan bruge over for spillesteder, festivaler og labels.</span></div>
-      <div><b lang="en">Guidance &amp; network</b><b lang="da">Sparring og netværk</b><span lang="en">Mentoring and contact with people already working in the industry.</span><span lang="da">Mentoring og kontakt til folk, der allerede arbejder i branchen.</span></div>
+      <div><b lang="en">An intimate stage</b><b lang="da">En intim scene</b><span lang="en">Trying out unique pop-up stages for a curious audience, perhaps for the first time.</span><span lang="da">At afprøve unikke pop-up-scener for et nysgerrigt publikum – evt. for første gang.</span></div>
+      <div><b lang="en">Professional live video</b><b lang="da">Professionel livevideo</b><span lang="en">A live session from their concert that they can use in future applications.</span><span lang="da">Live-session fra deres koncert, som kan bruges i fremtidige ansøgninger.</span></div>
     </div>
     <div class="al-live">
       <div class="al-live-head">
@@ -531,9 +545,9 @@ footer .wrap{padding-block:20px}
       </ul>
       <div class="al-photos">
         <figure><img src="img/amplify/hosting.jpg" alt="Three hosts introducing a concert on a garden stage" width="1400" height="933" decoding="async"></figure>
-        <figure><img src="img/amplify/balcony.jpg" alt="A singer performing from a doorway above the audience" width="1400" height="768" decoding="async"></figure>
-        <figure><img src="img/amplify/courtyard.jpg" alt="A band playing in a courtyard in front of a painted wall" width="1400" height="782" decoding="async"></figure>
         <figure><img src="img/amplify/seaside-1.jpg" alt="A singer with a lantern and a saxophonist performing by black wooden huts" width="1400" height="634" decoding="async"></figure>
+        <figure><img src="img/amplify/courtyard.jpg" alt="A band playing in a courtyard in front of a painted wall" width="1400" height="782" decoding="async"></figure>
+        <figure><img src="img/amplify/balcony.jpg" alt="A singer performing from a doorway above the audience" width="1400" height="768" decoding="async"></figure>
         <figure><img src="img/amplify/seaside-2.jpg" alt="The audience at a seaside concert, one wearing an Amplify Live shirt" width="1400" height="685" decoding="async"></figure>
       </div>
     </div>
@@ -542,17 +556,16 @@ footer .wrap{padding-block:20px}
         <p class="al-part"><span lang="en">What I've learned</span><span lang="da">Det har jeg lært</span></p>
         <p class="lead" lang="en">I started the project in May 2025 and lead it today. Building it has taught me how the music industry works from the inside, what it takes to keep a volunteer-driven community going, and <strong class="al-hl">not least, how to start a concept from scratch</strong>.</p>
         <p class="lead" lang="da">Jeg startede projektet i maj 2025 og leder det i dag. Arbejdet har lært mig, hvordan musikbranchen fungerer indefra, hvad der skal til for at holde et frivilligt fællesskab kørende, og <strong class="al-hl">ikke mindst, det at starte et koncept fra bunden</strong>.</p>
-        <p class="al-hint"><span lang="en">Select a skill to see what it involved.</span><span lang="da">Vælg en kompetence for at se, hvad den indebar.</span></p>
       </div>
       <ul class="al-skills">
-        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Founding &amp; governance</span><span lang="da">Stiftelse og drift</span></b><span class="al-desc"><span lang="en">Registered the association and set up its banking and admin.</span><span lang="da">Registrerede foreningen og satte bank og administration op.</span></span><span class="al-more" aria-hidden="true"></span></button></li>
-        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Fundraising</span><span lang="da">Fundraising</span></b><span class="al-desc"><span lang="en">Write foundation applications and manage the grant budgets, our only income.</span><span lang="da">Skriver fondsansøgninger og styrer budgetterne, vores eneste indtægt.</span></span><span class="al-more" aria-hidden="true"></span></button></li>
-        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Artist relations</span><span lang="da">Artistkontakt</span></b><span class="al-desc"><span lang="en">Scout and book emerging artists and stay their contact from first message to soundcheck.</span><span lang="da">Finder og booker nye artister og er deres kontakt fra første besked til soundcheck.</span></span><span class="al-more" aria-hidden="true"></span></button></li>
-        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Team leadership</span><span lang="da">Teamledelse</span></b><span class="al-desc"><span lang="en">Lead the team behind each concert and share out the roles.</span><span lang="da">Leder teamet bag hver koncert og fordeler rollerne.</span></span><span class="al-more" aria-hidden="true"></span></button></li>
-        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Production &amp; venue design</span><span lang="da">Produktion og rumdesign</span></b><span class="al-desc"><span lang="en">Shape the room, the look and the run of show for every event.</span><span lang="da">Former rummet, udtrykket og afviklingen af hvert event.</span></span><span class="al-more" aria-hidden="true"></span></button></li>
-        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Video &amp; communication</span><span lang="da">Video og kommunikation</span></b><span class="al-desc"><span lang="en">Plan the filmed sets and write bilingual posts in a shared tone of voice.</span><span lang="da">Planlægger optagelserne og skriver tosprogede opslag i en fælles tone of voice.</span></span><span class="al-more" aria-hidden="true"></span></button></li>
-        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Partnerships</span><span lang="da">Partnerskaber</span></b><span class="al-desc"><span lang="en">E.g. an upcycled merch workshop with Pop Up Lop, made from the audience's unworn clothes.</span><span lang="da">F.eks. en upcycling-merchworkshop med Pop Up Lop af publikums aflagte tøj.</span></span><span class="al-more" aria-hidden="true"></span></button></li>
-        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Law &amp; permits</span><span lang="da">Regler og tilladelser</span></b><span class="al-desc"><span lang="en">Handle the rules for events, venues and a grant-funded association.</span><span lang="da">Håndterer reglerne for events, spillesteder og en fondsfinansieret forening.</span></span><span class="al-more" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Founding &amp; governance</span><span lang="da">Stiftelse og drift</span></b><span class="al-desc"><span class="al-desc-in"><span lang="en">Registering the association, setting up banking and admin, and keeping it running.</span><span lang="da">At registrere foreningen, sætte bank og administration op og holde driften kørende.</span></span></span><span class="al-more" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Fundraising</span><span lang="da">Fundraising</span></b><span class="al-desc"><span class="al-desc-in"><span lang="en">Writing foundation applications and managing the budgets, our only income.</span><span lang="da">At skrive fondsansøgninger og styre budgetterne, vores eneste indtægt.</span></span></span><span class="al-more" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Artist relations</span><span lang="da">Artistkontakt</span></b><span class="al-desc"><span class="al-desc-in"><span lang="en">Reaching out, coordinating together, helping with requests, and being the contact from first message to soundcheck.</span><span lang="da">At række ud, koordinere i fællesskab, hjælpe med ønsker og være kontaktperson fra første besked til soundcheck.</span></span></span><span class="al-more" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Team leadership</span><span lang="da">Teamledelse</span></b><span class="al-desc"><span class="al-desc-in"><span lang="en">Bringing the crew together and sharing out the roles behind each concert.</span><span lang="da">At samle crewet og fordele arbejdsposterne bag hver koncert.</span></span></span><span class="al-more" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Production &amp; venue design</span><span lang="da">Produktion og rumdesign</span></b><span class="al-desc"><span class="al-desc-in"><span lang="en">Finding the stage, shaping the room and the look, and planning the run of show.</span><span lang="da">At finde scenen, forme rummet og udtrykket og planlægge afviklingen.</span></span></span><span class="al-more" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Video &amp; communication</span><span lang="da">Video og kommunikation</span></b><span class="al-desc"><span class="al-desc-in"><span lang="en">Planning the live sessions and writing bilingual posts in a shared tone of voice.</span><span lang="da">At planlægge live-sessions og skrive tosprogede opslag i en fælles tone of voice.</span></span></span><span class="al-more" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Partnerships</span><span lang="da">Partnerskaber</span></b><span class="al-desc"><span class="al-desc-in"><span lang="en">Building collaborations, e.g. an upcycled merch workshop with Pop Up Lop, using the audience's unworn clothes.</span><span lang="da">At skabe samarbejder, f.eks. en upcycling-merchworkshop med Pop Up Lop af publikums aflagte tøj.</span></span></span><span class="al-more" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Law &amp; permits</span><span lang="da">Regler og tilladelser</span></b><span class="al-desc"><span class="al-desc-in"><span lang="en">Getting to grips with the rules for events, venues and a grant-funded association.</span><span lang="da">At sætte sig ind i reglerne for events, spillesteder og en fondsfinansieret forening.</span></span></span><span class="al-more" aria-hidden="true"></span></button></li>
       </ul>
     </div>
     <div class="al-foot"></div>
@@ -563,7 +576,6 @@ footer .wrap{padding-block:20px}
     <div class="work-head">
       <div class="head">
         <h2><span lang="en">Projects &amp; sidequests</span><span lang="da">Projekter &amp; sidequests</span></h2>
-        <p lang="en">Pick a card to open the project.</p><p lang="da">Vælg et kort for at åbne projektet.</p>
       </div>
     </div>
     <ul class="wgrid wgrid-projects">
@@ -572,28 +584,28 @@ footer .wrap{padding-block:20px}
           <span class="wcover"><span class="wkind"><span lang="en">Programme lead</span><span lang="da">Programansvarlig</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Ung Kult Camp 2026</span></span></span>
           <span class="wmeta"><span class="wtype"><span lang="en">Project</span><span lang="da">Projekt</span></span><span><span lang="en">8 months</span><span lang="da">8 måneder</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span>Kulturmødet, Mors</span></p><p class="wbody" lang="en">I was responsible for part of the youth programme at Kulturmødet, the national culture festival on Mors. I found and hired the acts, handled their contracts and needs, built the physical festival space and ran the schedule and stages during the festival.</p><p class="wbody" lang="da">Jeg var ansvarlig for en del af ungeprogrammet på Kulturmødet på Mors. Jeg fandt og hyrede aktørerne, håndterede kontrakter og behov, byggede det fysiske festivalområde og styrede tidsplaner og scener under festivalen.</p><ul class="wskills"><li lang="en">Booking</li><li lang="en">Contracts</li><li lang="en">Site build</li><li lang="en">Festival operations</li><li lang="da">Booking</li><li lang="da">Kontrakter</li><li lang="da">Opbygning</li><li lang="da">Afvikling</li></ul></div>
+        <div class="wfull"><p class="wwhere"><span>Kulturmødet, Mors</span></p><p class="wbody" lang="en">I was responsible for part of the youth programme at Kulturmødet, the national culture festival on Mors. I found and hired the acts, handled their contracts and needs, built the physical festival space and ran the schedule and stages during the festival.</p><p class="wbody" lang="da">Jeg var ansvarlig for en del af ungeprogrammet på Kulturmødet på Mors. Jeg fandt og hyrede aktørerne, håndterede kontrakter og behov, byggede det fysiske festivalområde og styrede tidsplaner og scener under festivalen.</p><p class="wsub" lang="en">What I did</p><p class="wsub" lang="da">Det lavede jeg</p><ul class="wdid"><li lang="en">Found and hired the acts for the programme</li><li lang="en">Communicated their needs and handled the contracts</li><li lang="en">Built the physical festival space</li><li lang="en">Ran the acts, time schedules and spaces during the festival</li><li lang="da">Fandt og hyrede aktørerne til programmet</li><li lang="da">Kommunikerede deres behov og håndterede kontrakterne</li><li lang="da">Byggede det fysiske festivalområde</li><li lang="da">Styrede aktører, tidsplaner og områder under festivalen</li></ul><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Booking</li><li lang="en">Contracts</li><li lang="en">Site build</li><li lang="en">Festival operations</li><li lang="da">Booking</li><li lang="da">Kontrakter</li><li lang="da">Opbygning</li><li lang="da">Afvikling</li></ul></div>
       </li>
       <li class="wcard project" id="p-pkdk" data-kind="project" data-c="ink">
         <button type="button" class="wbtn" aria-haspopup="dialog">
           <span class="wcover"><span class="wkind"><span lang="en">Research placement</span><span lang="da">Researchpraktik</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Permakultur Danmark</span></span></span>
           <span class="wmeta"><span class="wtype"><span lang="en">Project</span><span lang="da">Projekt</span></span><span><span lang="en">4 months</span><span lang="da">4 måneder</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span lang="en">Kaospilot, semester 4</span><span lang="da">Kaospilot, 4. semester</span></p><p class="wbody" lang="en">I studied permaculture and worked out how its principles translate into leadership, so organisations can be built with a regenerative mindset instead of an extractive one.</p><p class="wbody" lang="da">Jeg undersøgte permakultur og hvordan dens principper kan oversættes til ledelse, så organisationer kan bygges med et regenerativt mindset i stedet for et udnyttende.</p><ul class="wskills"><li lang="en">Research</li><li lang="en">Regenerative leadership</li><li lang="en">Organisational development</li><li lang="da">Research</li><li lang="da">Regenerativ ledelse</li><li lang="da">Organisationsudvikling</li></ul></div>
+        <div class="wfull"><p class="wwhere"><span lang="en">Kaospilot, semester 4</span><span lang="da">Kaospilot, 4. semester</span></p><p class="wbody" lang="en">I studied permaculture and worked out how its principles translate into leadership, so organisations can be built with a regenerative mindset instead of an extractive one.</p><p class="wbody" lang="da">Jeg undersøgte permakultur og hvordan dens principper kan oversættes til ledelse, så organisationer kan bygges med et regenerativt mindset i stedet for et udnyttende.</p><p class="wsub" lang="en">What I did</p><p class="wsub" lang="da">Det lavede jeg</p><ul class="wdid"><li lang="en">Researched permaculture principles and practices</li><li lang="en">Translated them into ways of leading and organising</li><li lang="en">Wrote my placement report on inspiring a regenerative mindset in organisational development</li><li lang="da">Undersøgte permakulturens principper og praksisser</li><li lang="da">Oversatte dem til måder at lede og organisere på</li><li lang="da">Skrev min praktikrapport om at inspirere et regenerativt mindset i organisationsudvikling</li></ul><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Research</li><li lang="en">Regenerative leadership</li><li lang="en">Organisational development</li><li lang="da">Research</li><li lang="da">Regenerativ ledelse</li><li lang="da">Organisationsudvikling</li></ul></div>
       </li>
       <li class="wcard project" id="p-ggg" data-kind="project" data-c="blue">
         <button type="button" class="wbtn" aria-haspopup="dialog">
           <span class="wcover"><span class="wkind"><span lang="en">Internship</span><span lang="da">Praktik</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Girls Got Game</span></span></span>
           <span class="wmeta"><span class="wtype"><span lang="en">Project</span><span lang="da">Projekt</span></span><span><span lang="en">3 months</span><span lang="da">3 måneder</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span lang="en">Community platform</span><span lang="da">Fællesskabsplatform</span></p><p class="wbody" lang="en">I built an organising tool in Notion that gives members and owners one digital platform for the community, and helped sharpen the project&#x27;s vision, mission and goals.</p><p class="wbody" lang="da">Jeg byggede et organiseringsværktøj i Notion, der giver medlemmer og ejere én digital platform for fællesskabet, og var med til at skærpe projektets vision, mission og mål.</p><ul class="wskills"><li lang="en">Digital community</li><li lang="en">Notion systems</li><li lang="en">Strategy</li><li lang="da">Digitalt fællesskab</li><li lang="da">Notion-systemer</li><li lang="da">Strategi</li></ul></div>
+        <div class="wfull"><p class="wwhere"><span lang="en">Community platform</span><span lang="da">Fællesskabsplatform</span></p><p class="wbody" lang="en">I built an organising tool in Notion that gives members and owners one digital platform for the community, and helped sharpen the project&#x27;s vision, mission and goals.</p><p class="wbody" lang="da">Jeg byggede et organiseringsværktøj i Notion, der giver medlemmer og ejere én digital platform for fællesskabet, og var med til at skærpe projektets vision, mission og mål.</p><p class="wsub" lang="en">What I did</p><p class="wsub" lang="da">Det lavede jeg</p><ul class="wdid"><li lang="en">Built an organising tool in Notion for members and owners</li><li lang="en">Set it up as a shared digital community platform</li><li lang="en">Helped strengthen the vision, mission and goals</li><li lang="da">Byggede et organiseringsværktøj i Notion til medlemmer og ejere</li><li lang="da">Satte det op som en fælles digital fællesskabsplatform</li><li lang="da">Var med til at styrke vision, mission og mål</li></ul><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Digital community</li><li lang="en">Notion systems</li><li lang="en">Strategy</li><li lang="da">Digitalt fællesskab</li><li lang="da">Notion-systemer</li><li lang="da">Strategi</li></ul></div>
       </li>
-      <li class="wcard project" id="p-rizoma" data-kind="project" data-c="paper">
+      <li class="wcard project" id="p-rizoma" data-kind="project" data-c="soft">
         <button type="button" class="wbtn" aria-haspopup="dialog">
           <span class="wcover"><span class="wkind"><span lang="en">Systemic project</span><span lang="da">Systemisk projekt</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Rizoma</span></span></span>
           <span class="wmeta"><span class="wtype"><span lang="en">Project</span><span lang="da">Projekt</span></span><span><span lang="en">3 months</span><span lang="da">3 måneder</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span lang="en">Kaospilot, semester 5</span><span lang="da">Kaospilot, 5. semester</span></p><p class="wbody" lang="en">I mapped the internal systems of an association and looked at how the stories people tell inside it shape the way they work together.</p><p class="wbody" lang="da">Jeg kortlagde en forenings interne systemer og undersøgte, hvordan de fortællinger, folk fortæller internt, former måden, de arbejder sammen på.</p><ul class="wskills"><li lang="en">Systems mapping</li><li lang="en">Narratives</li><li lang="en">Organisational culture</li><li lang="da">Systemkortlægning</li><li lang="da">Fortællinger</li><li lang="da">Organisationskultur</li></ul></div>
+        <div class="wfull"><p class="wwhere"><span lang="en">Kaospilot, semester 5</span><span lang="da">Kaospilot, 5. semester</span></p><p class="wbody" lang="en">I mapped the internal systems of an association and looked at how the stories people tell inside it shape the way they work together.</p><p class="wbody" lang="da">Jeg kortlagde en forenings interne systemer og undersøgte, hvordan de fortællinger, folk fortæller internt, former måden, de arbejder sammen på.</p><p class="wsub" lang="en">What I did</p><p class="wsub" lang="da">Det lavede jeg</p><ul class="wdid"><li lang="en">Mapped the organisational structure of an association</li><li lang="en">Looked at how narratives shift the work culture</li><li lang="da">Kortlagde en forenings organisationsstruktur</li><li lang="da">Undersøgte, hvordan fortællinger flytter arbejdskulturen</li></ul><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Systems mapping</li><li lang="en">Narratives</li><li lang="en">Organisational culture</li><li lang="da">Systemkortlægning</li><li lang="da">Fortællinger</li><li lang="da">Organisationskultur</li></ul></div>
       </li>
     </ul>
     <div class="side-head">
@@ -606,35 +618,35 @@ footer .wrap{padding-block:20px}
           <span class="wcover"><span class="wkind"><span>Freelance</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span lang="en">UGC creator</span><span lang="da">UGC-creator</span></span></span>
           <span class="wmeta"><span class="wtype"><span>Sidequest</span></span><span><span lang="en">1.5 years</span><span lang="da">1,5 år</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span>Brands</span></p><p class="wbody" lang="en">I pitch brands, agree on style and tone of voice, then script, film and edit short-form video, backed by trend and market research.</p><p class="wbody" lang="da">Jeg kontakter brands, aftaler stil og tone of voice og skriver, filmer og klipper korte videoer, understøttet af trend- og markedsanalyse.</p><ul class="wskills"><li lang="en">Scripting</li><li lang="en">Filming</li><li lang="en">Editing</li><li lang="en">Trend research</li><li lang="da">Manus</li><li lang="da">Optagelse</li><li lang="da">Klipning</li><li lang="da">Trendanalyse</li></ul></div>
+        <div class="wfull"><p class="wwhere"><span>Brands</span></p><p class="wbody" lang="en">I pitch brands, agree on style and tone of voice, then script, film and edit short-form video, backed by trend and market research.</p><p class="wbody" lang="da">Jeg kontakter brands, aftaler stil og tone of voice og skriver, filmer og klipper korte videoer, understøttet af trend- og markedsanalyse.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Scripting</li><li lang="en">Filming</li><li lang="en">Editing</li><li lang="en">Trend research</li><li lang="da">Manus</li><li lang="da">Optagelse</li><li lang="da">Klipning</li><li lang="da">Trendanalyse</li></ul></div>
       </li>
       <li class="wcard side" id="a-rampen" data-kind="side" data-c="paper">
         <button type="button" class="wbtn" aria-haspopup="dialog">
           <span class="wcover"><span class="wkind"><span lang="en">Volunteer</span><span lang="da">Frivillig</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Rampen Ebeltoft</span></span></span>
           <span class="wmeta"><span class="wtype"><span>Sidequest</span></span><span><span lang="en">1 year</span><span lang="da">1 år</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span lang="en">Youth culture house</span><span lang="da">Ungdomskulturhus</span></p><p class="wbody" lang="en">Events and funding at a youth culture house. I booked and hosted the artists at Blue Ocean Music Festival 2024.</p><p class="wbody" lang="da">Events og fondsansøgninger i et ungdomskulturhus. Jeg bookede og tog mig af artisterne til Blue Ocean Music Festival 2024.</p><ul class="wskills"><li lang="en">Events</li><li lang="en">Funding</li><li lang="en">Artist booking</li><li lang="da">Events</li><li lang="da">Fondsansøgninger</li><li lang="da">Artistbooking</li></ul></div>
+        <div class="wfull"><p class="wwhere"><span lang="en">Youth culture house</span><span lang="da">Ungdomskulturhus</span></p><p class="wbody" lang="en">Events and funding at a youth culture house. I booked and hosted the artists at Blue Ocean Music Festival 2024.</p><p class="wbody" lang="da">Events og fondsansøgninger i et ungdomskulturhus. Jeg bookede og tog mig af artisterne til Blue Ocean Music Festival 2024.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Events</li><li lang="en">Funding</li><li lang="en">Artist booking</li><li lang="da">Events</li><li lang="da">Fondsansøgninger</li><li lang="da">Artistbooking</li></ul></div>
       </li>
       <li class="wcard side" id="a-plata" data-kind="side" data-c="paper">
         <button type="button" class="wbtn" aria-haspopup="dialog">
           <span class="wcover"><span class="wkind"><span>Startup</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span lang="en">UX intern, Plata</span><span lang="da">UX-praktikant, Plata</span></span></span>
           <span class="wmeta"><span class="wtype"><span>Sidequest</span></span><span><span lang="en">1 year</span><span lang="da">1 år</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span lang="en">UX design</span><span lang="da">UX-design</span></p><p class="wbody" lang="en">I coordinated designs and worked with user flows in a small startup team.</p><p class="wbody" lang="da">Jeg koordinerede design og arbejdede med brugerflows i et lille startupteam.</p><ul class="wskills"><li lang="en">UX</li><li lang="en">User flows</li><li lang="en">Figma</li><li lang="da">UX</li><li lang="da">Brugerflows</li><li lang="da">Figma</li></ul></div>
+        <div class="wfull"><p class="wwhere"><span lang="en">UX design</span><span lang="da">UX-design</span></p><p class="wbody" lang="en">I coordinated designs and worked with user flows in a small startup team.</p><p class="wbody" lang="da">Jeg koordinerede design og arbejdede med brugerflows i et lille startupteam.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">UX</li><li lang="en">User flows</li><li lang="en">Figma</li><li lang="da">UX</li><li lang="da">Brugerflows</li><li lang="da">Figma</li></ul></div>
       </li>
       <li class="wcard side" id="a-kulturloft" data-kind="side" data-c="paper">
         <button type="button" class="wbtn" aria-haspopup="dialog">
           <span class="wcover"><span class="wkind"><span lang="en">Course</span><span lang="da">Kursus</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Kulturloft</span></span></span>
           <span class="wmeta"><span class="wtype"><span>Sidequest</span></span><span><span lang="en">4 months</span><span lang="da">4 måneder</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span lang="en">Concert production</span><span lang="da">Koncertproduktion</span></p><p class="wbody" lang="en">I learned to plan, build and run a concert, ending with a show with Brimheim.</p><p class="wbody" lang="da">Jeg lærte at planlægge, bygge og afvikle en koncert, som sluttede med en koncert med Brimheim.</p><ul class="wskills"><li lang="en">Concert production</li><li lang="en">Facilitation</li><li lang="da">Koncertproduktion</li><li lang="da">Facilitering</li></ul></div>
+        <div class="wfull"><p class="wwhere"><span lang="en">Concert production</span><span lang="da">Koncertproduktion</span></p><p class="wbody" lang="en">I learned to plan, build and run a concert, ending with a show with Brimheim.</p><p class="wbody" lang="da">Jeg lærte at planlægge, bygge og afvikle en koncert, som sluttede med en koncert med Brimheim.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Concert production</li><li lang="en">Facilitation</li><li lang="da">Koncertproduktion</li><li lang="da">Facilitering</li></ul></div>
       </li>
       <li class="wcard side" id="a-admissions" data-kind="side" data-c="paper">
         <button type="button" class="wbtn" aria-haspopup="dialog">
           <span class="wcover"><span class="wkind"><span lang="en">Kaospilot admissions</span><span lang="da">Kaospilot-optag</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Interviewer</span></span></span>
           <span class="wmeta"><span class="wtype"><span>Sidequest</span></span><span><span lang="en">3-day workshop</span><span lang="da">Tredages workshop</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span>Kaospilot</span></p><p class="wbody" lang="en">I interviewed applicants at a three-day admissions workshop, assessing six competencies from leadership to resilience.</p><p class="wbody" lang="da">Jeg interviewede ansøgere på en tredages optagelsesworkshop og vurderede seks kompetencer fra lederskab til robusthed.</p><ul class="wskills"><li lang="en">Interviewing</li><li lang="en">Assessment</li><li lang="en">Facilitation</li><li lang="da">Interview</li><li lang="da">Vurdering</li><li lang="da">Facilitering</li></ul></div>
+        <div class="wfull"><p class="wwhere"><span>Kaospilot</span></p><p class="wbody" lang="en">I interviewed applicants at a three-day admissions workshop, assessing six competencies from leadership to resilience.</p><p class="wbody" lang="da">Jeg interviewede ansøgere på en tredages optagelsesworkshop og vurderede seks kompetencer fra lederskab til robusthed.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Interviewing</li><li lang="en">Assessment</li><li lang="en">Facilitation</li><li lang="da">Interview</li><li lang="da">Vurdering</li><li lang="da">Facilitering</li></ul></div>
       </li>
     </ul>
   </div>
@@ -648,23 +660,21 @@ footer .wrap{padding-block:20px}
       <ol class="sem">
         <li><span class="n">S1</span><span><b lang="en">Project management &amp; teamwork</b><b lang="da">Projektledelse og teamwork</b></span></li>
         <li><span class="n">S2</span><span><b lang="en">Enterprising</b><b lang="da">Entreprenørskab</b> <span lang="en">· building our own concept, leading through agency</span><span lang="da">· eget koncept, ledelse gennem handlekraft</span></span></li>
-        <li><span class="n">S3</span><span><b lang="en">New contexts</b><b lang="da">Nye kontekster</b> <span lang="en">· complex work environments, associations as a model</span><span lang="da">· komplekse arbejdsmiljøer, foreningen som model</span></span></li>
+        <li><span class="n">S3</span><span><b>Outpost</b> <span lang="en">· leadership abroad, in Lisbon for me</span><span lang="da">· ledelse i udlandet, i Lissabon for mit vedkommende</span></span></li>
         <li><span class="n">S4</span><span><b lang="en">Placement</b><b lang="da">Praktik</b> <span lang="en">· Permakultur Danmark</span><span lang="da">· Permakultur Danmark</span></span></li>
         <li><span class="n">S5</span><span><b lang="en">Systemic work</b><b lang="da">Systemisk arbejde</b> <span lang="en">· root causes in connected systems</span><span lang="da">· grundårsager i forbundne systemer</span></span></li>
-        <li class="now"><span class="n">S6</span><span><b lang="en">Internship &amp; Pilot Project</b><b lang="da">Praktik og pilotprojekt</b> <span lang="en">· from Feb 2027</span><span lang="da">· fra feb. 2027</span></span></li>
+        <li class="now"><span class="n">S6</span><span><b lang="en">Internship &amp; Pilot Project</b><b lang="da">Praktik og pilotprojekt</b> <span lang="en">· from Feb 2027</span><span lang="da">· fra feb. 2027</span><span class="open" lang="en">This is the semester still missing a project. <a href="#contact">Could it be yours?</a></span><span class="open" lang="da">Det er det semester, der stadig mangler et projekt. <a href="#contact">Kunne det være jeres?</a></span></span></li>
       </ol>
     </div>
     <div>
       <h2><span lang="en">Background</span><span lang="da">Baggrund</span></h2>
       <ul class="tl">
         <li id="b-frost"><span class="y">2023–24</span><span><b lang="en">Kitchen manager, Huset Frost</b><b lang="da">Køkkenleder, Huset Frost</b><span lang="en">Ran the kitchen and café</span><span lang="da">Ansvarlig for køkken og café</span></span></li>
-        <li><span class="y">2021–23</span><span><b lang="en">Shop lead, Emmerys Copenhagen</b><b lang="da">Butiksansvarlig, Emmerys København</b><span lang="en">Bakery and café</span><span lang="da">Bageri og café</span></span></li>
+        <li><span class="y">2021–23</span><span><b lang="en">Shop assistant, Emmerys Copenhagen</b><b lang="da">Butiksmedarbejder, Emmerys København</b><span lang="en">Bakery and café</span><span lang="da">Bageri og café</span></span></li>
         <li><span class="y">2020–21</span><span><b>Olivers Garage</b><span>Café</span></span></li>
         <li><span class="y">2020–23</span><span><b>Niels Brock</b><span lang="en">Business high school, UX design</span><span lang="da">Handelsgymnasium, UX-design</span></span></li>
         <li><span class="y">2019–20</span><span><b>Klejtrup Musikefterskole</b><span lang="en">Music boarding school</span><span lang="da">Musikefterskole</span></span></li>
       </ul>
-      <p class="extra" lang="en"><b>Languages</b> Danish (native), English (fluent) · <b>Tools</b> Figma, Canva, Notion, AI, video editing</p>
-      <p class="extra" lang="da"><b>Sprog</b> dansk (modersmål), engelsk (flydende) · <b>Værktøjer</b> Figma, Canva, Notion, AI, videoredigering</p>
     </div>
   </div>
 </section>
@@ -680,7 +690,6 @@ footer .wrap{padding-block:20px}
   </div>
   <div class="wrap lgal">
     <div class="lgal-bar">
-      <p class="label"><span lang="en">Four lessons · scroll sideways</span><span lang="da">Fire erfaringer · scroll til siden</span></p>
       <div class="lgal-ctrl">
         <button type="button" class="wd-step" id="lgal-prev" aria-label="Previous lesson"><span aria-hidden="true">←</span></button>
         <button type="button" class="wd-step" id="lgal-next" aria-label="Next lesson"><span aria-hidden="true">→</span></button>
@@ -740,6 +749,16 @@ footer .wrap{padding-block:20px}
     <h3 class="wd-title" id="wd-title"></h3>
     <p class="wd-meta" id="wd-meta"></p>
     <div class="wd-content" id="wd-content"></div>
+  </div>
+</div>
+<div class="wpeek" id="wpeek" role="dialog" aria-modal="true" aria-labelledby="wp-title" hidden>
+  <div class="wp-backdrop" data-close></div>
+  <div class="wp-card" id="wp-card">
+    <button type="button" class="wp-close" id="wp-close"><span class="sr" lang="en">Close</span><span class="sr" lang="da">Luk</span><span aria-hidden="true">×</span></button>
+    <p class="wd-kind" id="wp-kind"></p>
+    <h3 class="wp-title" id="wp-title"></h3>
+    <p class="wd-meta" id="wp-meta"></p>
+    <div class="wp-content" id="wp-content"></div>
   </div>
 </div>
 <footer><div class="wrap">Anne Magdalene Helles Borgen · 2026</div></footer>
@@ -831,10 +850,12 @@ footer .wrap{padding-block:20px}
   var dKind=document.getElementById('wd-kind'),dTitle=document.getElementById('wd-title'),dMeta=document.getElementById('wd-meta'),
       dContent=document.getElementById('wd-content'),dPos=document.getElementById('wd-pos'),
       closeBtn=document.getElementById('wd-close'),prevBtn=document.getElementById('wd-prev'),nextBtn=document.getElementById('wd-next');
+  var peek=document.getElementById('wpeek'),pCard=document.getElementById('wp-card'),pKind=document.getElementById('wp-kind'),pTitle=document.getElementById('wp-title'),
+      pMeta=document.getElementById('wp-meta'),pContent=document.getElementById('wp-content'),pClose=document.getElementById('wp-close'),peeked=null;
   var EASE=[0.28,0.02,0.1,0.99],current=null,busy=false;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)');
   function canAnimate(){return !!(M&&M.animateView&&document.startViewTransition)&&!reduce.matches}
-  function visible(){return [].slice.call(grid.querySelectorAll('.wcard')).filter(function(c){return c.offsetParent!==null})}
+  function visible(){return [].slice.call(grid.querySelectorAll('.wcard.project'))}
   function fill(card){
     detail.setAttribute('data-c',card.dataset.c);
     dKind.innerHTML=card.querySelector('.wkind').innerHTML;
@@ -846,7 +867,7 @@ footer .wrap{padding-block:20px}
   }
   function lock(on){
     root.classList.toggle('wlock',on);
-    [].forEach.call(document.body.children,function(el){if(el!==detail&&el.tagName!=='SCRIPT'&&el.tagName!=='STYLE')el.inert=on});
+    [].forEach.call(document.body.children,function(el){if(el!==detail&&el!==peek&&el.tagName!=='SCRIPT'&&el.tagName!=='STYLE')el.inert=on});
   }
   function point(e,el){
     if(e&&e.detail>0&&(e.clientX||e.clientY))return [e.clientX,e.clientY];
@@ -861,7 +882,34 @@ footer .wrap{padding-block:20px}
     if(from&&to)b=b.add(from,to).crop(false);
     return Promise.resolve(b).then(function(a){return a&&a.finished}).catch(function(){}).then(function(){busy=false});
   }
+  // sidequests open in a centred peek card that grows out of the clicked card
+  function openPeek(card){
+    if(busy)return;
+    var update=function(){
+      pKind.innerHTML=card.querySelector('.wkind').innerHTML;
+      pTitle.innerHTML=card.querySelector('.wtitle').innerHTML;
+      pMeta.innerHTML=card.querySelector('.wtype').innerHTML+' · '+card.querySelector('.wmeta > span:last-child').innerHTML+' · '+card.querySelector('.wwhere').innerHTML;
+      pContent.innerHTML=card.querySelector('.wfull').innerHTML;
+      peek.hidden=false;lock(true);peeked=card;pCard.scrollTop=0;
+    };
+    if(!canAnimate()){update();pClose.focus({preventScroll:true});return}
+    busy=true;
+    Promise.resolve(M.animateView(update,{duration:0.45,ease:EASE}).new({opacity:[0,1]},{duration:0.25}).add(card.querySelector('.wcover'),pCard))
+      .then(function(a){return a&&a.finished}).catch(function(){}).then(function(){busy=false;pClose.focus({preventScroll:true})});
+  }
+  function closePeek(){
+    if(busy||!peeked)return;
+    var card=peeked;
+    var update=function(){peek.hidden=true;lock(false);peeked=null};
+    if(!canAnimate()){update();card.querySelector('.wbtn').focus({preventScroll:true});return}
+    busy=true;
+    Promise.resolve(M.animateView(update,{duration:0.4,ease:EASE}).new({opacity:[0,1]},{duration:0.2}).add(pCard,card.querySelector('.wcover')))
+      .then(function(a){return a&&a.finished}).catch(function(){}).then(function(){busy=false;card.querySelector('.wbtn').focus({preventScroll:true})});
+  }
+  pClose.addEventListener('click',closePeek);
+  peek.querySelector('[data-close]').addEventListener('click',closePeek);
   function open(card,e){
+    if(card.classList.contains('side')){openPeek(card);return}
     if(busy)return;
     run(function(){fill(card);detail.hidden=false;lock(true)},point(e,card.querySelector('.wbtn')),card.querySelector('.wtitle'),dTitle)
       .then(function(){closeBtn.focus({preventScroll:true})});
@@ -883,6 +931,7 @@ footer .wrap{padding-block:20px}
   prevBtn.addEventListener('click',function(e){step(-1,e)});
   nextBtn.addEventListener('click',function(e){step(1,e)});
   document.addEventListener('keydown',function(e){
+    if(!peek.hidden){if(e.key==='Escape'){e.preventDefault();closePeek()}return}
     if(detail.hidden)return;
     if(e.key==='Escape'){e.preventDefault();close(null)}
     else if(e.key==='ArrowRight')step(1,null);

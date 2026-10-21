@@ -53,7 +53,7 @@ Sections get 128 px of vertical padding on desktop and 72 px on phones. The cont
 
 - **Buttons:** primary is a filled `--primary` pill; secondary is a 1.5 px `--text` outline; quiet is an underlined link. All have a 44 px minimum height, a visible 3 px focus ring and lift 1 px on hover.
 - **Chips:** proof buttons with a border and a `→`. Clicking or tapping one goes straight to the project: it opens its gallery page, or scrolls to the section. Hover or keyboard focus shows a short preview popover.
-- **Skills table:** a 4 × 2 grid. The first cell is the inverted heading cell (`--text` background); the seven skills each get a cell with a condensed-caps title, a short coral bar, the text and proof chips at the bottom. It becomes two columns on tablets and one on phones.
+- **Skills table:** the static title "What I bring to the table" sits in a sticky column on the left, beside a two-column table of the seven skills. The last skill spans both columns. Each cell has a condensed-caps title, a short coral bar, the text and proof chips at the bottom. On tablets the title moves above the table; on phones the table is one column.
 - **Pass:** the hero signature. It is a white card with a lanyard slot, a coral "All access" strip, the photo and the name and availability. It is tilted −2° on desktop and flat on phones.
 - **Running order:** label/value rows with a mono label column. It is used for the hero facts, the projects, Kaospilot and the background.
 - **Navigation:** a sticky top bar with the name, section links (hidden on phones) and the EN/DA toggle. The page has a skip link.
@@ -62,12 +62,14 @@ Sections get 128 px of vertical padding on desktop and 72 px on phones. The cont
 ## Imagery and icons
 
 - Photos are real and unfiltered: the fairground portrait sits in the pass, and the night-street photo sits in About.
-- Amplify Live uses its own logo (`img/amplify/amplify-live-logo.svg`, a lime circle with a transparent background) next to the wordmark, plus five concert photos in a mosaic (one large, four small) under its live sessions. Photos are saved at 1400 px wide.
+- Amplify Live uses its own logo (`img/amplify/amplify-live-logo.svg`, a lime circle with a transparent background) next to the wordmark, plus five concert photos in one row under its live sessions. Photos are saved at 1400 px wide.
 - There is no icon set. Markers are small round dots in `--accent`, used like stage lights.
 
 ## Work gallery (added with Motion)
 
-- **Projects and sidequests** are two groups, so their different weight is visible. Projects are large dotted cover cards in `blue`, `coral`, `ink` or `paper`, two per row. Sidequests sit below their own "Sidequests" heading as small, quiet `paper` cards, five per row. There are no filters.
+- **Projects and sidequests** are two groups, so their different weight is visible. Projects are large dotted cover cards in `coral`, `ink`, `blue` or `soft` (`--primary-soft` with `--primary` text), two per row; a project never uses `paper`, which is reserved for sidequests. Sidequests sit below their own "Sidequests" heading as small, quiet `paper` cards, five per row. There are no filters.
+- **Sidequests open in a peek:** a centred card (max 540 px) over a dimmed, blurred backdrop. It grows out of the clicked card with `animateView` and closes on ×, the backdrop or Esc.
+- **Project pages** show an intro paragraph, a "What I did" list and a "Skills" heading above the skill pills.
 - **Opening a card** runs Motion's page wipe: `animateView()` grows a `clip-path` circle from the click point (0.6 s, easeIn) while the card title morphs into the detail title (0.45 s, ease `[0.28, 0.02, 0.1, 0.99]`). Closing reverses this from the close button.
 - **The detail view** is a full-screen panel in the card's cover colour. It has a back button, previous/next arrows, and support for the Esc and arrow keys. The rest of the page is made `inert` while it's open.
 - **Library:** Motion 13.5.1 (UMD build). The artifact preview loads it from jsDelivr; the live site self-hosts it in `vendor/`. Everything falls back to instant changes without the View Transition API or when reduced motion is on.
@@ -77,9 +79,13 @@ Sections get 128 px of vertical padding on desktop and 72 px on phones. The cont
 The section has four labelled parts, each marked with a lime mono label and a short rule:
 1. **The concept:** what Amplify Live is.
 2. **What artists get:** the lime band.
-3. **Live sessions:** three white video cards linking to YouTube, the channel link and the photo mosaic.
-4. **What I've learned:** a reflective paragraph, with the key phrase underlined in lime, next to a grid of skill tiles. Each tile shows only its heading. On hover (pointer devices), keyboard focus or tap, the tile turns lime and reveals its description.
+3. **Live sessions:** three white video cards linking to YouTube, the channel link and a row of five photos. The order is chosen so photos from the same concert never sit next to each other.
+4. **What I've learned:** a reflective paragraph, with the key phrase underlined in lime, next to a grid of skill tiles. The tiles are compact and show only their heading. On hover (pointer devices), keyboard focus or tap, a tile turns lime and expands to reveal its description, which is written in the "doing" form ("At række ud, koordinere …").
 
 ## Lessons gallery ("What shaped how I work")
 
 The four lessons form a horizontal scroll-snap gallery of tall cards, using the same cover colours as the work gallery. It has previous/next buttons, and a progress bar driven by Motion's `scroll()` on the track's horizontal scroll. In print it becomes a 2 × 2 grid.
+
+## Kaospilot semesters
+
+The running-order list ends with S6 highlighted in `--accent` (coral) with dark text, with the line "This is the semester still missing a project. Could it be yours?" linking to Contact.
