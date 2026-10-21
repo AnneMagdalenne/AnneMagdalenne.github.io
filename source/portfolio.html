@@ -261,13 +261,20 @@ html.wlock{overflow:hidden}
 .wd-close:hover,.wd-step:hover{background:color-mix(in srgb,currentColor 14%,transparent)}
 .wd-nav{display:flex;align-items:center;gap:10px}
 .wd-pos{font:500 .75rem/1 var(--mono);letter-spacing:.08em;opacity:.8;font-variant-numeric:tabular-nums}
-.wd-body{padding-block:clamp(32px,8vh,96px) 96px;max-width:980px}
+.wd-body{padding-block:clamp(24px,5vh,64px) 96px;max-width:1160px}
+.wd-head{display:block}
+.wd-head.has-media{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:24px 48px;align-items:end}
+.wd-head.has-media .wd-title{font-size:clamp(2.8rem,6vw,6rem)}
+.wd-media .wimg{margin:0;max-width:none;aspect-ratio:4/3}
+@media screen and (max-width:800px){.wd-head.has-media{grid-template-columns:minmax(0,1fr)}.wd-media{order:-1}.wd-media .wimg{aspect-ratio:16/9}}
+.worg{font-size:clamp(1.15rem,1.8vw,1.35rem);line-height:1.5;max-width:40em}
+.wd-content .worg + .worg + .wsub{margin-top:26px}
 .wd-kind{font:500 .78rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.09em;opacity:.85}
 .wd-title{font-stretch:68%;font-weight:800;text-transform:uppercase;font-size:clamp(3rem,10vw,8rem);line-height:.86;letter-spacing:-.01em;margin-top:14px;width:fit-content;max-width:100%}
 .wd-meta{margin-top:22px;font:500 .8rem/1.5 var(--mono);text-transform:uppercase;letter-spacing:.08em;opacity:.85}
-.wd-content{margin-top:36px;padding-top:28px;border-top:1.5px solid currentColor;max-width:46em}
+.wd-content{margin-top:32px;padding-top:24px;border-top:1.5px solid currentColor;max-width:46em}
 .wd-content .wwhere{display:none}
-.wd-content .wbody{font-size:clamp(1.15rem,1.8vw,1.4rem);line-height:1.5;max-width:34em}
+.wd-content .wbody{font-size:1.08rem;line-height:1.6;max-width:40em;opacity:.92}
 .wskills{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
 .wskills li{font-weight:600;font-size:.9rem;padding:7px 14px;border-radius:999px;border:1.5px solid currentColor}
 .wimg{margin:0 0 28px;aspect-ratio:16/9;max-width:46em;border-radius:var(--r-card);overflow:hidden}
@@ -296,7 +303,7 @@ html.is-site .wimg:not(.has-img){display:none}
 ::view-transition-group(*){animation-timing-function:cubic-bezier(.28,.02,.1,.99)}
 
 /* kaospilot + other roles: own band colour */
-#education{border-top:40px solid var(--primary-soft)}
+#education{border-top:1px solid var(--border)}
 .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px}
 @media screen and (max-width:820px){.cols{grid-template-columns:minmax(0,1fr)}}
 .sem,.tl{list-style:none;margin:24px 0 0;padding:0;border-top:1.5px solid var(--text)}
@@ -406,6 +413,7 @@ footer .wrap{padding-block:20px}
   .wcover,.wcard.project .wcover{min-height:0!important;padding:12px 14px;gap:10px}
   .wtitle,.wcard.project .wtitle{font-size:1.9rem}
   .wfull{display:block;margin-top:6px;font-size:.92rem;color:var(--muted)}
+  .worg{display:none}
   .wfull .wwhere{display:none}
   .wskills{display:none}
   .story{grid-template-columns:150px minmax(0,1fr);gap:32px}
@@ -601,28 +609,28 @@ footer .wrap{padding-block:20px}
           <span class="wcover"><span class="wkind"><span lang="en">Programme lead</span><span lang="da">Programansvarlig</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Ung Kult Camp 2026</span></span></span>
           <span class="wmeta"><span class="wtype"><span lang="en">Project</span><span lang="da">Projekt</span></span><span><span lang="en">8 months</span><span lang="da">8 måneder</span></span></span>
         </button>
-        <div class="wfull"><figure class="wimg" data-img="img/projects/ukc.jpg"><span class="wimg-ph"><span lang="en">Room for a photo</span><span lang="da">Plads til et billede</span></span></figure><p class="wwhere"><span>Kulturmødet, Mors</span></p><p class="wbody" lang="en">I was responsible for part of the youth programme at Kulturmødet, the national culture festival on Mors. I found and hired the acts, handled their contracts and needs, built the physical festival space and ran the schedule and stages during the festival.</p><p class="wbody" lang="da">Jeg var ansvarlig for en del af ungeprogrammet på Kulturmødet på Mors. Jeg fandt og hyrede aktørerne, håndterede kontrakter og behov, byggede det fysiske festivalområde og styrede tidsplaner og scener under festivalen.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Booking</li><li lang="en">Contracts</li><li lang="en">Site build</li><li lang="en">Festival operations</li><li lang="da">Booking</li><li lang="da">Kontrakter</li><li lang="da">Opbygning</li><li lang="da">Afvikling</li></ul></div>
+        <div class="wfull"><figure class="wimg" data-img="img/projects/ukc.jpg"><span class="wimg-ph"><span lang="en">Room for a photo</span><span lang="da">Plads til et billede</span></span></figure><p class="wwhere"><span>Kulturmødet, Mors</span></p><p class="worg" lang="en">Ung Kult is a Danish youth culture organisation that creates art and culture activities for 15–30-year-olds, with a focus on cultural entrepreneurship. Ung Kult Camp runs its own programme during Kulturmødet, the annual culture meeting on Mors.</p><p class="worg" lang="da">Ung Kult er en dansk ungdomskulturorganisation, der skaber kunst- og kulturaktiviteter for 15–30-årige med fokus på kulturelt iværksætteri. Ung Kult Camp kører sit eget program under Kulturmødet, det årlige kulturmøde på Mors.</p><p class="wsub" lang="en">My role</p><p class="wsub" lang="da">Min rolle</p><p class="wbody" lang="en">I was responsible for part of the youth programme at Kulturmødet, the national culture festival on Mors. I found and hired the acts, handled their contracts and needs, built the physical festival space and ran the schedule and stages during the festival.</p><p class="wbody" lang="da">Jeg var ansvarlig for en del af ungeprogrammet på Kulturmødet på Mors. Jeg fandt og hyrede aktørerne, håndterede kontrakter og behov, byggede det fysiske festivalområde og styrede tidsplaner og scener under festivalen.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Booking</li><li lang="en">Contracts</li><li lang="en">Site build</li><li lang="en">Festival operations</li><li lang="da">Booking</li><li lang="da">Kontrakter</li><li lang="da">Opbygning</li><li lang="da">Afvikling</li></ul></div>
       </li>
       <li class="wcard project" id="p-pkdk" data-kind="project" data-c="ink">
         <button type="button" class="wbtn" aria-haspopup="dialog">
           <span class="wcover"><span class="wkind"><span lang="en">Research placement</span><span lang="da">Researchpraktik</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Permakultur Danmark</span></span></span>
           <span class="wmeta"><span class="wtype"><span lang="en">Project</span><span lang="da">Projekt</span></span><span><span lang="en">4 months</span><span lang="da">4 måneder</span></span></span>
         </button>
-        <div class="wfull"><figure class="wimg" data-img="img/projects/pkdk.jpg"><span class="wimg-ph"><span lang="en">Room for a photo</span><span lang="da">Plads til et billede</span></span></figure><p class="wwhere"><span lang="en">Kaospilot, semester 4</span><span lang="da">Kaospilot, 4. semester</span></p><p class="wbody" lang="en">I studied permaculture and worked out how its principles translate into leadership, so organisations can be built with a regenerative mindset instead of an extractive one.</p><p class="wbody" lang="da">Jeg undersøgte permakultur og hvordan dens principper kan oversættes til ledelse, så organisationer kan bygges med et regenerativt mindset i stedet for et udnyttende.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Research</li><li lang="en">Regenerative leadership</li><li lang="en">Organisational development</li><li lang="da">Research</li><li lang="da">Regenerativ ledelse</li><li lang="da">Organisationsudvikling</li></ul></div>
+        <div class="wfull"><figure class="wimg" data-img="img/projects/pkdk.jpg"><span class="wimg-ph"><span lang="en">Room for a photo</span><span lang="da">Plads til et billede</span></span></figure><p class="wwhere"><span lang="en">Kaospilot, semester 4</span><span lang="da">Kaospilot, 4. semester</span></p><p class="worg" lang="en">Permakultur Danmark is a Danish membership association that works to spread permaculture across Denmark through working groups, courses and education, local networks and a member magazine.</p><p class="worg" lang="da">Permakultur Danmark er en dansk medlemsforening, der arbejder for at udbrede permakultur i Danmark gennem arbejdsgrupper, kurser og uddannelse, lokale netværk og et medlemsblad.</p><p class="wsub" lang="en">My role</p><p class="wsub" lang="da">Min rolle</p><p class="wbody" lang="en">I studied permaculture and worked out how its principles translate into leadership, so organisations can be built with a regenerative mindset instead of an extractive one.</p><p class="wbody" lang="da">Jeg undersøgte permakultur og hvordan dens principper kan oversættes til ledelse, så organisationer kan bygges med et regenerativt mindset i stedet for et udnyttende.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Research</li><li lang="en">Regenerative leadership</li><li lang="en">Organisational development</li><li lang="da">Research</li><li lang="da">Regenerativ ledelse</li><li lang="da">Organisationsudvikling</li></ul></div>
       </li>
       <li class="wcard project" id="p-ggg" data-kind="project" data-c="blue">
         <button type="button" class="wbtn" aria-haspopup="dialog">
           <span class="wcover"><span class="wkind"><span lang="en">Internship</span><span lang="da">Praktik</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Girls Got Game</span></span></span>
           <span class="wmeta"><span class="wtype"><span lang="en">Project</span><span lang="da">Projekt</span></span><span><span lang="en">3 months</span><span lang="da">3 måneder</span></span></span>
         </button>
-        <div class="wfull"><figure class="wimg" data-img="img/projects/ggg.jpg"><span class="wimg-ph"><span lang="en">Room for a photo</span><span lang="da">Plads til et billede</span></span></figure><p class="wwhere"><span lang="en">Community platform</span><span lang="da">Fællesskabsplatform</span></p><p class="wbody" lang="en">I built an organising tool in Notion that gives members and owners one digital platform for the community, and helped sharpen the project&#x27;s vision, mission and goals.</p><p class="wbody" lang="da">Jeg byggede et organiseringsværktøj i Notion, der giver medlemmer og ejere én digital platform for fællesskabet, og var med til at skærpe projektets vision, mission og mål.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Digital community</li><li lang="en">Notion systems</li><li lang="en">Strategy</li><li lang="da">Digitalt fællesskab</li><li lang="da">Notion-systemer</li><li lang="da">Strategi</li></ul></div>
+        <div class="wfull"><figure class="wimg" data-img="img/projects/ggg.jpg"><span class="wimg-ph"><span lang="en">Room for a photo</span><span lang="da">Plads til et billede</span></span></figure><p class="wwhere"><span lang="en">Community platform</span><span lang="da">Fællesskabsplatform</span></p><p class="wsub" lang="en">My role</p><p class="wsub" lang="da">Min rolle</p><p class="wbody" lang="en">I built an organising tool in Notion that gives members and owners one digital platform for the community, and helped sharpen the project&#x27;s vision, mission and goals.</p><p class="wbody" lang="da">Jeg byggede et organiseringsværktøj i Notion, der giver medlemmer og ejere én digital platform for fællesskabet, og var med til at skærpe projektets vision, mission og mål.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Digital community</li><li lang="en">Notion systems</li><li lang="en">Strategy</li><li lang="da">Digitalt fællesskab</li><li lang="da">Notion-systemer</li><li lang="da">Strategi</li></ul></div>
       </li>
       <li class="wcard project" id="p-rizoma" data-kind="project" data-c="soft">
         <button type="button" class="wbtn" aria-haspopup="dialog">
           <span class="wcover"><span class="wkind"><span lang="en">Systemic project</span><span lang="da">Systemisk projekt</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Rizoma</span></span></span>
           <span class="wmeta"><span class="wtype"><span lang="en">Project</span><span lang="da">Projekt</span></span><span><span lang="en">3 months</span><span lang="da">3 måneder</span></span></span>
         </button>
-        <div class="wfull"><figure class="wimg" data-img="img/projects/rizoma.jpg"><span class="wimg-ph"><span lang="en">Room for a photo</span><span lang="da">Plads til et billede</span></span></figure><p class="wwhere"><span lang="en">Kaospilot, semester 3</span><span lang="da">Kaospilot, 3. semester</span></p><p class="wbody" lang="en">I mapped the internal systems of an association and looked at how the stories people tell inside it shape the way they work together. I then proposed possible interventions that could shape, strengthen and change how they work together internally.</p><p class="wbody" lang="da">Jeg kortlagde en forenings interne systemer og undersøgte, hvordan de fortællinger, folk fortæller internt, former måden, de arbejder sammen på. Derefter kom jeg med forslag til mulige interventioner, der kunne forme, styrke og ændre deres interne samarbejde.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Systems mapping</li><li lang="en">Narratives</li><li lang="en">Organisational culture</li><li lang="da">Systemkortlægning</li><li lang="da">Fortællinger</li><li lang="da">Organisationskultur</li></ul></div>
+        <div class="wfull"><figure class="wimg" data-img="img/projects/rizoma.jpg"><span class="wimg-ph"><span lang="en">Room for a photo</span><span lang="da">Plads til et billede</span></span></figure><p class="wwhere"><span lang="en">Kaospilot, semester 3</span><span lang="da">Kaospilot, 3. semester</span></p><p class="worg" lang="en">Rizoma is an integral cooperative in Lisbon. It started as a community grocery selling fair-priced, regional and seasonal food from ecologically responsible producers, and now also has sections for culture, housing, agriculture and services.</p><p class="worg" lang="da">Rizoma er et integralt kooperativ i Lissabon. Det startede som en fællesskabsdrevet købmand med fair priser på regionale sæsonvarer fra økologisk ansvarlige producenter og har i dag også sektioner for kultur, bolig, landbrug og services.</p><p class="wsub" lang="en">My role</p><p class="wsub" lang="da">Min rolle</p><p class="wbody" lang="en">I mapped the internal systems of an association and looked at how the stories people tell inside it shape the way they work together. I then proposed possible interventions that could shape, strengthen and change how they work together internally.</p><p class="wbody" lang="da">Jeg kortlagde en forenings interne systemer og undersøgte, hvordan de fortællinger, folk fortæller internt, former måden, de arbejder sammen på. Derefter kom jeg med forslag til mulige interventioner, der kunne forme, styrke og ændre deres interne samarbejde.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Systems mapping</li><li lang="en">Narratives</li><li lang="en">Organisational culture</li><li lang="da">Systemkortlægning</li><li lang="da">Fortællinger</li><li lang="da">Organisationskultur</li></ul></div>
       </li>
     </ul>
     <div class="side-head">
@@ -700,7 +708,7 @@ footer .wrap{padding-block:20px}
   <div class="wrap story">
     <figure class="q-photos">
       <img class="is-on" src="img/about/night-out.jpg" alt="Anne in a red jacket with her arms in the air on a street at night" width="614" height="768">
-      <img src="img/about/garden.jpg" alt="Anne in a patterned jacket in a green garden" width="800" height="1000">
+      <img src="night.jpg" alt="Anne in a cap with a pink flower behind her ear, on a lit street at night" width="800" height="1000">
       <img src="img/about/confetti.jpg" alt="Anne pressing a button as confetti falls against a teal wall" width="800" height="1000">
       <img src="img/about/cafe.jpg" alt="Anne smiling at a pavement café table" width="800" height="1000">
     </figure>
@@ -759,9 +767,14 @@ footer .wrap{padding-block:20px}
     </div>
   </div>
   <div class="wd-body wrap">
-    <p class="wd-kind" id="wd-kind"></p>
-    <h3 class="wd-title" id="wd-title"></h3>
-    <p class="wd-meta" id="wd-meta"></p>
+    <div class="wd-head" id="wd-head">
+      <div class="wd-headtext">
+        <p class="wd-kind" id="wd-kind"></p>
+        <h3 class="wd-title" id="wd-title"></h3>
+        <p class="wd-meta" id="wd-meta"></p>
+      </div>
+      <div class="wd-media" id="wd-media"></div>
+    </div>
     <div class="wd-content" id="wd-content"></div>
   </div>
 </div>
@@ -878,6 +891,9 @@ footer .wrap{padding-block:20px}
     dTitle.innerHTML=card.querySelector('.wtitle').innerHTML;
     dMeta.innerHTML=card.querySelector('.wtype').innerHTML+' · '+card.querySelector('.wmeta > span:last-child').innerHTML+' · '+card.querySelector('.wwhere').innerHTML;
     dContent.innerHTML=card.querySelector('.wfull').innerHTML;
+    var dMedia=document.getElementById('wd-media'),fig=dContent.querySelector('.wimg');dMedia.innerHTML='';
+    if(fig)dMedia.appendChild(fig);
+    document.getElementById('wd-head').classList.toggle('has-media',!!fig&&getComputedStyle(fig).display!=='none');
     var list=visible();dPos.textContent=(list.indexOf(card)+1)+' / '+list.length;
     detail.scrollTop=0;current=card;
   }
