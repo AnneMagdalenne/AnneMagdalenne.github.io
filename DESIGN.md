@@ -17,7 +17,7 @@ This direction comes from the brief and Anne's own world (events, festivals, Amp
 | `--accent` | #FF5A36 | #FF6B4A | The pass strip and small markers only; never body text |
 | `--success` | #1F8A4C | #4CC27F | "Available" status dot |
 
-Amplify Live keeps its own brand colors inside its section only: lime #D1FF00, near-black #181818 and white.
+Amplify Live keeps its own brand colors inside its section only: lime #D1FF00, near-black #181818 and white. Its wordmark heading and skill tiles use **Aileron ExtraBold** (CC0, embedded), as Amplify's brand font.
 Contrast: text on bg is 17:1, muted on bg is 6.3:1 and primary on bg is 6.9:1 (dark mode is comparable).
 
 ## Typography
@@ -52,7 +52,8 @@ Sections get 128 px of vertical padding on desktop and 72 px on phones. The cont
 ## Components
 
 - **Buttons:** primary is a filled `--primary` pill; secondary is a 1.5 px `--text` outline; quiet is an underlined link. All have a 44 px minimum height, a visible 3 px focus ring and lift 1 px on hover.
-- **Chips:** proof buttons in a white surface with a border. Hover or tap opens a project popover on `--text`/`--bg` inverse.
+- **Chips:** proof buttons with a border and a `→`. Clicking or tapping one goes straight to the project: it opens its gallery page, or scrolls to the section. Hover or keyboard focus shows a short preview popover.
+- **Skills table:** a 4 × 2 grid. The first cell is the inverted heading cell (`--text` background); the seven skills each get a cell with a condensed-caps title, a short coral bar, the text and proof chips at the bottom. It becomes two columns on tablets and one on phones.
 - **Pass:** the hero signature. It is a white card with a lanyard slot, a coral "All access" strip, the photo and the name and availability. It is tilted −2° on desktop and flat on phones.
 - **Running order:** label/value rows with a mono label column. It is used for the hero facts, the projects, Kaospilot and the background.
 - **Navigation:** a sticky top bar with the name, section links (hidden on phones) and the EN/DA toggle. The page has a skip link.
@@ -65,8 +66,18 @@ Sections get 128 px of vertical padding on desktop and 72 px on phones. The cont
 
 ## Work gallery (added with Motion)
 
-- **Projects and sidequests** share one gallery with filters (All / Projects / Sidequests). Each item is a card with a dotted cover in one of four styles, `blue`, `coral`, `ink` or `paper`, all taken from the tokens above. Projects span half the width; sidequests span a third, and the last two span half.
+- **Projects and sidequests** are two groups, so their different weight is visible. Projects are large dotted cover cards in `blue`, `coral`, `ink` or `paper`, two per row. Sidequests sit below their own "Sidequests" heading as small, quiet `paper` cards, five per row. There are no filters.
 - **Opening a card** runs Motion's page wipe: `animateView()` grows a `clip-path` circle from the click point (0.6 s, easeIn) while the card title morphs into the detail title (0.45 s, ease `[0.28, 0.02, 0.1, 0.99]`). Closing reverses this from the close button.
 - **The detail view** is a full-screen panel in the card's cover colour. It has a back button, previous/next arrows, and support for the Esc and arrow keys. The rest of the page is made `inert` while it's open.
-- **Filtering** uses `animateView` with staggered scale/opacity enter and exit (0.04 s stagger).
 - **Library:** Motion 13.5.1 (UMD build). The artifact preview loads it from jsDelivr; the live site self-hosts it in `vendor/`. Everything falls back to instant changes without the View Transition API or when reduced motion is on.
+
+## Amplify Live section
+
+The section has three labelled parts, each marked with a lime mono label and a short rule:
+1. **The concept:** what Amplify Live is.
+2. **What artists get:** the lime band.
+3. **What I've learned:** a reflective paragraph, with the key phrase underlined in lime, next to a grid of skill tiles. Each tile shows only its heading. On hover (pointer devices), keyboard focus or tap, the tile turns lime and reveals its description.
+
+## Lessons gallery ("What shaped how I work")
+
+The four lessons form a horizontal scroll-snap gallery of tall cards, using the same cover colours as the work gallery. It has previous/next buttons, and a progress bar driven by Motion's `scroll()` on the track's horizontal scroll. In print it becomes a 2 × 2 grid.
