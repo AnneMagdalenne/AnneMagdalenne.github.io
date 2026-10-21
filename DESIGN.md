@@ -62,6 +62,7 @@ Sections get 128 px of vertical padding on desktop and 72 px on phones. The cont
 ## Imagery and icons
 
 - Photos are real and unfiltered: the fairground portrait sits in the pass, and the night-street photo sits in About.
+- Amplify Live uses its own logo (`img/amplify/amplify-live-logo.svg`, a lime circle with a transparent background) next to the wordmark, plus five concert photos in a mosaic (one large, four small) under its live sessions. Photos are saved at 1400 px wide.
 - There is no icon set. Markers are small round dots in `--accent`, used like stage lights.
 
 ## Work gallery (added with Motion)
@@ -73,10 +74,11 @@ Sections get 128 px of vertical padding on desktop and 72 px on phones. The cont
 
 ## Amplify Live section
 
-The section has three labelled parts, each marked with a lime mono label and a short rule:
+The section has four labelled parts, each marked with a lime mono label and a short rule:
 1. **The concept:** what Amplify Live is.
 2. **What artists get:** the lime band.
-3. **What I've learned:** a reflective paragraph, with the key phrase underlined in lime, next to a grid of skill tiles. Each tile shows only its heading. On hover (pointer devices), keyboard focus or tap, the tile turns lime and reveals its description.
+3. **Live sessions:** three white video cards linking to YouTube, the channel link and the photo mosaic.
+4. **What I've learned:** a reflective paragraph, with the key phrase underlined in lime, next to a grid of skill tiles. Each tile shows only its heading. On hover (pointer devices), keyboard focus or tap, the tile turns lime and reveals its description.
 
 ## Lessons gallery ("What shaped how I work")
 

@@ -137,7 +137,7 @@ section > .wrap{padding-block:var(--sec)}
 .al .wrap{padding-block:var(--sec) 0}
 .al-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;align-items:end}
 .al .kicker{font:500 .75rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--al-lime)}
-.al h2{font-family:"Aileron",var(--font);font-stretch:normal;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(3rem,7vw,6rem);line-height:.88;margin-top:14px}
+.al h2{font-family:"Aileron",var(--font);font-stretch:normal;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(2.4rem,4.8vw,4.4rem);line-height:.88;margin-top:14px}
 .al h2 em{font-style:normal;color:var(--al-lime)}
 .al-part{font:600 .75rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--al-lime);display:flex;align-items:center;gap:10px;margin-bottom:12px}
 .al-part::before{content:"";width:22px;height:2px;background:currentColor}
@@ -152,6 +152,36 @@ section > .wrap{padding-block:var(--sec)}
 .offer .t + div{border-left:0}
 .offer b{display:block;font-size:1.05rem;line-height:1.2}
 .offer span{display:block;font-size:.9rem;margin-top:4px;line-height:1.4}
+/* Amplify media: logo, live sessions, photos */
+.al-brand{display:flex;align-items:center;gap:clamp(14px,2vw,24px);margin-top:14px}
+.al-brand h2{margin-top:0}
+.al-logo{width:clamp(84px,9vw,132px);height:auto;flex:none;transition:transform .6s cubic-bezier(.28,.02,.1,.99)}
+.al-brand:hover .al-logo{transform:rotate(-12deg)}
+.al-tag{font-family:"Aileron",var(--font);font-weight:800;font-size:clamp(1.3rem,2.2vw,1.75rem);line-height:1.15;letter-spacing:-.01em;color:var(--al-white);max-width:22em;margin-bottom:16px}
+.al-stats{list-style:none;margin:22px 0 0;padding:16px 0 0;display:flex;flex-wrap:wrap;gap:12px 32px;border-top:1px solid #333}
+.al-stats li{display:flex;align-items:baseline;gap:8px;font-size:.9rem;color:#BDBDBD}
+.al-stats b{font-family:"Aileron",var(--font);font-weight:800;font-size:1.6rem;color:var(--al-lime);line-height:1}
+.al-live{margin-top:72px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:24px 48px;align-items:start}
+.al-channel{display:inline-flex;align-items:center;min-height:44px;margin-top:16px;padding:0 18px;border:1.5px solid var(--al-lime);border-radius:999px;color:var(--al-lime);font-weight:600;text-decoration:none}
+.al-channel:hover{background:var(--al-lime);color:var(--al-black)}
+.al-videos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.al-video{display:flex;flex-direction:column;gap:14px;min-height:150px;height:100%;padding:18px;border-radius:var(--r-card);background:var(--al-white);color:var(--al-black);text-decoration:none;transition:background .2s,transform .2s}
+.al-video:hover{background:var(--al-lime);transform:translateY(-2px)}
+.al-play{width:38px;height:38px;border-radius:50%;background:var(--al-black);position:relative;flex:none}
+.al-play::after{content:"";position:absolute;left:15px;top:12px;border-left:11px solid var(--al-lime);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.al-vt{display:flex;flex-direction:column;gap:2px}
+.al-vt b{font-family:"Aileron",var(--font);font-weight:800;text-transform:uppercase;font-size:1.05rem;line-height:1.05}
+.al-vt > span{font-size:.9rem}
+.al-yt{margin-top:auto;font:500 .7rem/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;opacity:.7}
+.al-photos{grid-column:1 / -1;display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:10px;height:clamp(320px,42vw,520px)}
+.al-photos figure{margin:0;min-width:0;min-height:0;overflow:hidden;border-radius:var(--r-card)}
+.al-photos figure:first-child{grid-row:1 / span 2}
+.al-photos img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.28,.02,.1,.99)}
+.al-photos figure:hover img{transform:scale(1.04)}
+@media screen and (max-width:900px){.al-live{grid-template-columns:minmax(0,1fr);margin-top:56px}.al h2{font-size:clamp(2.6rem,10vw,4.4rem)}}
+@media screen and (max-width:640px){.al-videos{grid-template-columns:minmax(0,1fr)}.al-video{min-height:0;flex-direction:row;align-items:center}.al-yt{margin:0 0 0 auto}
+  .al-photos{grid-template-columns:1fr 1fr;grid-template-rows:auto;height:auto}.al-photos figure{aspect-ratio:4/3}.al-photos figure:first-child{grid-row:auto;grid-column:1 / -1;aspect-ratio:3/2}}
+@media (prefers-reduced-motion:reduce){.al-logo,.al-photos img,.al-video{transition:none}}
 .al-learn{margin-top:72px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:48px;align-items:start}
 .al-hint{margin-top:18px;font:500 .72rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:#8C8C8C}
 .al-skills{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
@@ -314,6 +344,10 @@ footer .wrap{padding-block:20px}
   .skills > *{padding:12px 12px 12px}
   .skill h3{font-size:1.3rem}
   .al-learn{margin-top:28px;grid-template-columns:minmax(0,1fr);gap:14px}
+  .al-live{margin-top:24px;grid-template-columns:minmax(0,1fr);gap:12px}
+  .al-video{min-height:0;padding:10px 12px}
+  .al-photos{height:220px}
+  .al-photos img{transition:none}
   .al-skills{grid-template-columns:repeat(4,minmax(0,1fr))}
   .al-skill{min-height:0;padding:10px 12px}
   .al-desc{opacity:1;transform:none;display:block}
@@ -453,14 +487,21 @@ footer .wrap{padding-block:20px}
   <div class="wrap">
     <div class="al-top">
       <div>
-        <p class="kicker"><span lang="en">Main project · Founder · Since May 2025</span><span lang="da">Hovedprojekt · Stifter · Siden maj 2025</span></p>
-        <h2>Amplify<br><em>Live</em></h2>
+        <p class="kicker"><span lang="en">Main project · Founder &amp; chair · Since May 2025</span><span lang="da">Hovedprojekt · Stifter og formand · Siden maj 2025</span></p>
+        <div class="al-brand"><img class="al-logo" src="img/amplify/amplify-live-logo.svg" alt="Amplify Live logo" width="158" height="142"><h2>Amplify<br><em>Live</em></h2></div>
       </div>
       <div>
         <p class="al-part"><span lang="en">The concept</span><span lang="da">Konceptet</span></p>
+        <p class="al-tag" lang="en">Unique pop-up stages for grassroots artists, with a professional live session to take with them.</p>
+        <p class="al-tag" lang="da">Unikke pop-up-scener for græsrodsartister, med en professionel live-session i bagagen.</p>
         <p class="lead" lang="en">Amplify Live is a non-profit association in Aarhus that gives emerging artists an intimate stage, professional live video and a way into the music industry. It runs entirely on foundation grants.</p>
         <p class="lead" lang="da">Amplify Live er en non-profit forening i Aarhus, der giver nye artister en intim scene, professionel livevideo og en vej ind i musikbranchen. Foreningen drives udelukkende af fondsmidler.</p>
         <p class="artists"><span lang="en">Artists include</span><span lang="da">Artister bl.a.</span> <b>ANBEROSE</b> · <b>SOPHUS</b> · <b>CHÆK</b> · <b>MONSUN</b> · <b>Lygtevenner</b></p>
+        <ul class="al-stats">
+          <li><b>3</b><span lang="en">live sessions</span><span lang="da">live-sessions</span></li>
+          <li><b>9</b><span lang="en">crew members, plus extra hands</span><span lang="da">i crewet, plus ekstra hænder</span></li>
+          <li><b>2025</b><span lang="en">founded in Aarhus</span><span lang="da">stiftet i Aarhus</span></li>
+        </ul>
       </div>
     </div>
     <div class="offer">
@@ -468,6 +509,26 @@ footer .wrap{padding-block:20px}
       <div><b lang="en">An intimate stage</b><b lang="da">En intim scene</b><span lang="en">Close-up concerts in Aarhus venues, for an audience that came to listen.</span><span lang="da">Tætte koncerter i Aarhus for et publikum, der er kommet for at lytte.</span></div>
       <div><b lang="en">Professional live video</b><b lang="da">Professionel livevideo</b><span lang="en">Filmed sets they can use to pitch to venues, festivals and labels.</span><span lang="da">Filmede koncerter, de kan bruge over for spillesteder, festivaler og labels.</span></div>
       <div><b lang="en">Guidance &amp; network</b><b lang="da">Sparring og netværk</b><span lang="en">Mentoring and contact with people already working in the industry.</span><span lang="da">Mentoring og kontakt til folk, der allerede arbejder i branchen.</span></div>
+    </div>
+    <div class="al-live">
+      <div class="al-live-head">
+        <p class="al-part"><span lang="en">Live sessions</span><span lang="da">Live-sessions</span></p>
+        <p class="lead" lang="en">Three live sessions so far, on a balcony, a rooftop and by the sea, plus several concerts without a session.</p>
+        <p class="lead" lang="da">Tre live-sessions indtil videre, på en altan, et tag og ved havnen, plus flere koncerter uden live-session.</p>
+        <a class="al-channel" href="https://www.youtube.com/@amplify__live" target="_blank" rel="noopener"><span lang="en">All videos on YouTube</span><span lang="da">Alle videoer på YouTube</span> ↗</a>
+      </div>
+      <ul class="al-videos">
+        <li><a class="al-video" href="https://www.youtube.com/watch?v=h4WnKVaH6rU&amp;t=1463s" target="_blank" rel="noopener"><span class="al-play" aria-hidden="true"></span><span class="al-vt"><b><span lang="en">Balcony Concert</span><span lang="da">Altankoncert</span></b><span><span lang="en">with</span><span lang="da">med</span> SOPHUS</span></span><span class="al-yt">YouTube ↗</span></a></li>
+        <li><a class="al-video" href="https://www.youtube.com/watch?v=bSEjZb2h7Z8" target="_blank" rel="noopener"><span class="al-play" aria-hidden="true"></span><span class="al-vt"><b><span lang="en">Rooftop Concert</span><span lang="da">Tagkoncert</span></b><span><span lang="en">with</span><span lang="da">med</span> Monsun</span></span><span class="al-yt">YouTube ↗</span></a></li>
+        <li><a class="al-video" href="https://www.youtube.com/watch?v=SjQj6zRdfbs" target="_blank" rel="noopener"><span class="al-play" aria-hidden="true"></span><span class="al-vt"><b><span lang="en">Seaside Concert</span><span lang="da">Havnekoncert</span></b><span><span lang="en">with</span><span lang="da">med</span> Anberose</span></span><span class="al-yt">YouTube ↗</span></a></li>
+      </ul>
+      <div class="al-photos">
+        <figure><img src="img/amplify/hosting.jpg" alt="Three hosts introducing a concert on a garden stage" width="1400" height="933" decoding="async"></figure>
+        <figure><img src="img/amplify/balcony.jpg" alt="A singer performing from a doorway above the audience" width="1400" height="768" decoding="async"></figure>
+        <figure><img src="img/amplify/courtyard.jpg" alt="A band playing in a courtyard in front of a painted wall" width="1400" height="782" decoding="async"></figure>
+        <figure><img src="img/amplify/seaside-1.jpg" alt="A singer with a lantern and a saxophonist performing by black wooden huts" width="1400" height="634" decoding="async"></figure>
+        <figure><img src="img/amplify/seaside-2.jpg" alt="The audience at a seaside concert, one wearing an Amplify Live shirt" width="1400" height="685" decoding="async"></figure>
+      </div>
     </div>
     <div class="al-learn">
       <div class="al-learn-text">
