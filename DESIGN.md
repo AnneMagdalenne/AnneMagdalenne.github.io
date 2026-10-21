@@ -54,7 +54,7 @@ Sections get 128 px of vertical padding on desktop and 72 px on phones. The cont
 - **Buttons:** primary is a filled `--primary` pill; secondary is a 1.5 px `--text` outline; quiet is an underlined link. All have a 44 px minimum height, a visible 3 px focus ring and lift 1 px on hover.
 - **Chips:** proof buttons with a border and a `→`. Clicking or tapping one goes straight to the project: it opens its gallery page, or scrolls to the section. Hover or keyboard focus shows a short preview popover.
 - **Skills table:** the static title "What I bring to the table" sits in a sticky column on the left, beside a two-column table of the seven skills. The last skill spans both columns. Each cell has a condensed-caps title, a short coral bar, the text and proof chips at the bottom. On tablets the title moves above the table; on phones the table is one column.
-- **Pass:** the hero signature. It is a white card with a lanyard slot, a coral "All access" strip, the photo and the name and availability. It is tilted −2° on desktop and flat on phones.
+- **Pass:** the hero signature. It hangs from a two-strap lanyard (a V meeting at the slot, like a neck lanyard). It is a white card with a lanyard slot, a coral "All access" strip, the photo and the name and availability. It is tilted −2° on desktop and flat on phones.
 - **Running order:** label/value rows with a mono label column. It is used for the hero facts, the projects, Kaospilot and the background.
 - **Navigation:** a sticky top bar with the name, section links (hidden on phones) and the EN/DA toggle. The page has a skip link.
 - **Footer:** one quiet line.
@@ -69,7 +69,7 @@ Sections get 128 px of vertical padding on desktop and 72 px on phones. The cont
 
 - **Projects and sidequests** are two groups, so their different weight is visible. Projects are large dotted cover cards in `coral`, `ink`, `blue` or `soft` (`--primary-soft` with `--primary` text), two per row; a project never uses `paper`, which is reserved for sidequests. Sidequests sit below their own "Sidequests" heading as small, quiet `paper` cards, five per row. There are no filters.
 - **Sidequests open in a peek:** a centred card (max 540 px) over a dimmed, blurred backdrop. It grows out of the clicked card with `animateView` and closes on ×, the backdrop or Esc.
-- **Project pages** show an intro paragraph, a "What I did" list and a "Skills" heading above the skill pills.
+- **Project pages** show a photo slot (16:9) at the top, then the description and a "Skills" heading above the skill pills. Until a photo is added, the slot shows a dashed "Room for a photo" placeholder in the artifact preview only; the live site hides empty slots. To add a photo, put it in `img/projects/<key>.jpg`, replace the placeholder with an `<img>` and add `has-img` to the figure.
 - **Opening a card** runs Motion's page wipe: `animateView()` grows a `clip-path` circle from the click point (0.6 s, easeIn) while the card title morphs into the detail title (0.45 s, ease `[0.28, 0.02, 0.1, 0.99]`). Closing reverses this from the close button.
 - **The detail view** is a full-screen panel in the card's cover colour. It has a back button, previous/next arrows, and support for the Esc and arrow keys. The rest of the page is made `inert` while it's open.
 - **Library:** Motion 13.5.1 (UMD build). The artifact preview loads it from jsDelivr; the live site self-hosts it in `vendor/`. Everything falls back to instant changes without the View Transition API or when reduced motion is on.
@@ -84,10 +84,10 @@ The section has four labelled parts, each marked with a lime mono label and a sh
 
 ## About me
 
-This is a black band (`#141418`, the same in both themes). It holds the night photo, a short personal intro, and the four lessons shown **one at a time** with no boxes: the quote (condensed caps with a coral opening quote mark), a short description, and where it was learned. A lesson changes every 6.5 s. The title resolves through random characters, in a home-made scramble that stands in for Motion+'s paid `scrambleText`, while the description fades in with Motion's `animate`. Four progress bars show the timing and can be clicked. Rotation pauses on hover, on focus, with the pause button, and in a background tab; it stays off with reduced motion. In print, all four lessons show.
+This is a black band (`#141418`, the same in both themes) with only the rotating lessons (the "About me" heading is kept for screen readers). A photo of Anne sits beside them and cross-fades to a new one with each lesson (`img/about/`). The four lessons show **one at a time** with no boxes: the quote (condensed caps with a coral opening quote mark), a short description, and where it was learned. A lesson changes every 10 s, and only while the section is on screen. The title resolves calmly through a few flickering letters at a time, in a home-made scramble that stands in for Motion+'s paid `scrambleText`, while the description fades in with Motion's `animate`. Four progress bars show the timing and can be clicked. Rotation pauses on hover, on focus, with the pause button, and in a background tab; it stays off with reduced motion. In print, all four lessons show.
 
 ## Kaospilot semesters
 
-The Kaospilot and "Other roles and school" section sits on its own `--primary-soft` band.
+The Kaospilot and "Other roles and school" section is separated from the gallery by a 40 px `--primary-soft` bar. It has no background colour of its own.
 
 The running-order list ends with S6 highlighted in `--accent` (coral) with dark text, with the line "This is the semester still missing a project. Could it be yours?" linking to Contact.

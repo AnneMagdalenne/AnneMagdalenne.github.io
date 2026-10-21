@@ -108,8 +108,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .facts span{font-weight:600;font-size:.98rem;line-height:1.35}
 .pass{position:relative;margin:0;justify-self:center;width:min(100%,350px)}
 .pass-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-pass);box-shadow:var(--shadow-pass);padding:14px 14px 18px;transform:rotate(-2.5deg)}
-.lanyard{position:absolute;left:50%;top:-578px;width:18px;height:600px;transform:translateX(-50%);border-radius:2px;
+.lanyard{position:absolute;left:50%;top:-578px;width:16px;height:600px;border-radius:2px;transform-origin:50% 100%;
   background:repeating-linear-gradient(180deg,var(--primary) 0 22px,color-mix(in srgb,var(--primary) 80%,#000) 22px 24px)}
+.lanyard.l{transform:translateX(-50%) translateX(-9px) rotate(9deg)}
+.lanyard.r{transform:translateX(-50%) translateX(9px) rotate(-9deg)}
 .slot{position:relative;z-index:1;display:block;width:60px;height:12px;border-radius:999px;margin:2px auto 12px;background:var(--bg);box-shadow:inset 0 1px 3px rgb(0 0 0 / .35)}
 .pass-strip{display:flex;justify-content:space-between;align-items:center;background:var(--accent);color:#141418;border-radius:6px;padding:8px 12px;font:500 .72rem/1 var(--mono);text-transform:uppercase;letter-spacing:.14em}
 .pass img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:62% 50%;border-radius:8px;margin-top:12px}
@@ -124,6 +126,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .pass{width:min(100%,320px)}
   .pass-card{transform:rotate(-1.5deg)}
   .lanyard{top:-62px;height:84px}
+  .lanyard.l{transform:translateX(-50%) translateX(-8px) rotate(14deg)}
+  .lanyard.r{transform:translateX(-50%) translateX(8px) rotate(-14deg)}
 }
 @media screen and (max-width:520px){.facts{grid-template-columns:1fr}.facts li:nth-child(even){padding-left:0;border-left:0}}
 /* sections */
@@ -186,7 +190,7 @@ section > .wrap{padding-block:var(--sec)}
 .arr::after{content:"";position:absolute;right:-1px;top:50%;width:14px;height:14px;border-top:2px solid var(--al-lime);border-right:2px solid var(--al-lime);transform:translateY(-50%) rotate(45deg)}
 .al-all{background:transparent;color:var(--al-lime);border:1.5px solid var(--al-lime)}
 .al-all:hover{color:var(--al-black)}
-.al-videos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.al-videos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .al-video{display:flex;flex-direction:column;gap:14px;min-height:150px;height:100%;padding:18px;border-radius:var(--r-card);background:var(--al-white);color:var(--al-black);text-decoration:none;transition:background .2s,transform .2s}
 .al-video:hover{background:var(--al-lime);transform:translateY(-2px)}
 .al-play{width:38px;height:38px;border-radius:50%;background:var(--al-black);position:relative;flex:none}
@@ -199,7 +203,7 @@ section > .wrap{padding-block:var(--sec)}
 .al-photos figure{margin:0;min-width:0;aspect-ratio:4/3;overflow:hidden;border-radius:var(--r-card)}
 .al-photos img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.28,.02,.1,.99)}
 .al-photos figure:hover img{transform:scale(1.04)}
-@media screen and (max-width:900px){.al-live{grid-template-columns:minmax(0,1fr);margin-top:56px}.al-videos{grid-template-columns:repeat(2,minmax(0,1fr))}.al-arrow{flex-direction:row;align-items:center}.arr{width:2px;height:44px;flex:none}.arr::after{right:auto;left:50%;top:auto;bottom:-1px;transform:translateX(-50%) rotate(135deg)}.al h2{font-size:clamp(2.6rem,10vw,4.4rem)}}
+@media screen and (max-width:900px){.al-live{grid-template-columns:minmax(0,1fr);margin-top:56px}.al-videos{grid-template-columns:repeat(3,minmax(0,1fr))}.al-arrow{flex-direction:row;align-items:center}.arr{width:2px;height:44px;flex:none}.arr::after{right:auto;left:50%;top:auto;bottom:-1px;transform:translateX(-50%) rotate(135deg)}.al h2{font-size:clamp(2.6rem,10vw,4.4rem)}}
 @media screen and (max-width:640px){.al-videos{grid-template-columns:minmax(0,1fr)}.al-video{min-height:0;flex-direction:row;align-items:center}.al-yt{margin:0 0 0 auto}
   .al-photos{grid-template-columns:1fr 1fr}.al-photos figure:first-child{grid-column:1 / -1;aspect-ratio:3/2}}
 @media (prefers-reduced-motion:reduce){.al-logo,.al-photos img,.al-video{transition:none}}
@@ -280,6 +284,14 @@ html.wlock{overflow:hidden}
 .wd-content .wbody{font-size:clamp(1.15rem,1.8vw,1.4rem);line-height:1.5;max-width:34em}
 .wskills{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
 .wskills li{font-weight:600;font-size:.9rem;padding:7px 14px;border-radius:999px;border:1.5px solid currentColor}
+.wimg{margin:0 0 28px;aspect-ratio:16/9;max-width:46em;border-radius:var(--r-card);overflow:hidden}
+.wimg img{display:block;width:100%;height:100%;object-fit:cover}
+.wimg-ph{display:grid;place-items:center;height:100%;border:1.5px dashed currentColor;border-radius:var(--r-card);opacity:.55;font:500 .78rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.08em}
+html.is-site .wimg:not(.has-img){display:none}
+.wcard .wfull .wimg{display:none}
+.wlink{margin-top:18px}
+.wlink a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid currentColor;font-weight:600;text-decoration:none}
+.wlink a:hover{background:color-mix(in srgb,currentColor 12%,transparent)}
 .wsub{font:500 .75rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.09em;opacity:.8;margin:30px 0 12px}
 .wdid{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .wdid li{position:relative;padding-left:24px;font-size:1.05rem;line-height:1.45}
@@ -297,8 +309,7 @@ html.wlock{overflow:hidden}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 ::view-transition-group(*){animation-timing-function:cubic-bezier(.28,.02,.1,.99)}
 /* kaospilot + other roles: own band colour */
-#education{background:var(--primary-soft)}
-#education .sem,#education .tl{border-top-color:var(--text)}
+#education{border-top:40px solid var(--primary-soft)}
 .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px}
 @media screen and (max-width:820px){.cols{grid-template-columns:minmax(0,1fr)}}
 .sem,.tl{list-style:none;margin:24px 0 0;padding:0;border-top:1.5px solid var(--text)}
@@ -317,9 +328,11 @@ html.wlock{overflow:hidden}
 .about{background:#141418;color:#F1F0EB;border-block:1px solid #2F2F38}
 .story{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.4fr);gap:64px;align-items:start}
 .story figure{margin:0}
-.story img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-card)}
-.story .intro{font-size:1.25rem;line-height:1.55;max-width:32em;margin-top:18px;color:#DAD9D3}
-.quotes{margin-top:44px;padding-top:28px;border-top:1px solid #34343D}
+.story{align-items:center}
+.q-photos{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:var(--r-card);background:#222}
+.q-photos img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.q-photos img.is-on{opacity:1}
+.quotes{padding-top:8px}
 .qlist{list-style:none;margin:0;padding:0;min-height:13.5rem}
 .q{display:none}
 .q.is-on{display:block}
@@ -334,7 +347,7 @@ html.wlock{overflow:hidden}
 .q-dot{position:relative}
 .q-fill{position:absolute;left:0;top:50%;height:3px;margin-top:-1.5px;width:100%;border-radius:2px;background:#F1F0EB;transform-origin:left;transform:scaleX(0)}
 .q-dot.is-done .q-fill{transform:scaleX(1);background:#6E6D76}
-.q-dot.is-on .q-fill{animation:qfill 6.5s linear forwards}
+.q-dot.is-on .q-fill{animation:qfill 10s linear forwards}
 .quotes.paused .q-dot.is-on .q-fill{animation-play-state:paused}
 @keyframes qfill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .q-pause{width:44px;height:44px;border-radius:50%;border:1.5px solid #6E6D76;background:transparent;color:#F1F0EB;cursor:pointer;display:grid;place-items:center}
@@ -375,7 +388,8 @@ footer .wrap{padding-block:20px}
   @page{size:A4;margin:0}
   html{font-size:11.5px}
   body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  body::before,.bar,.copy,#ppop,.site-only,.skip,.lanyard,.actions,.wdetail,.wplus,.al-more,.wpeek,.wsub,.wdid,.q-ctrl{display:none!important}
+  body::before,.bar,.copy,#ppop,.site-only,.skip,.lanyard,.actions,.wdetail,.wplus,.al-more,.wpeek,.wsub,.wdid,.q-ctrl,.wimg,.wlink{display:none!important}
+  .q-photos img{position:static;opacity:1;display:none}.q-photos img:first-child{display:block}.q-photos{aspect-ratio:auto}
   .q{display:block!important;margin-bottom:14px}.q-t{font-size:1.6rem}.q-t::before{display:none}.qlist{min-height:0}
   :root{--sec:30px}
   .hero{padding-block:24px 28px}
@@ -457,7 +471,7 @@ footer .wrap{padding-block:20px}
     </div>
     <figure class="pass">
       <div class="pass-card">
-        <span class="lanyard" aria-hidden="true"></span>
+        <span class="lanyard l" aria-hidden="true"></span><span class="lanyard r" aria-hidden="true"></span>
         <span class="slot" aria-hidden="true"></span>
         <p class="pass-strip"><span>All access</span><span>2027</span></p>
         <img src="portrait-fair.jpg" alt="Anne smiling at a busy night fairground with a lit ferris wheel behind her" width="900" height="1200">
@@ -551,7 +565,6 @@ footer .wrap{padding-block:20px}
         <li><a class="al-video" href="https://www.youtube.com/watch?v=h4WnKVaH6rU&amp;t=1463s" target="_blank" rel="noopener"><span class="al-play" aria-hidden="true"></span><span class="al-vt"><b><span lang="en">Balcony Concert</span><span lang="da">Altankoncert</span></b><span><span lang="en">with</span><span lang="da">med</span> SOPHUS</span></span><span class="al-yt">YouTube ↗</span></a></li>
         <li><a class="al-video" href="https://www.youtube.com/watch?v=bSEjZb2h7Z8" target="_blank" rel="noopener"><span class="al-play" aria-hidden="true"></span><span class="al-vt"><b><span lang="en">Rooftop Concert</span><span lang="da">Tagkoncert</span></b><span><span lang="en">with</span><span lang="da">med</span> Monsun</span></span><span class="al-yt">YouTube ↗</span></a></li>
         <li><a class="al-video" href="https://www.youtube.com/watch?v=SjQj6zRdfbs" target="_blank" rel="noopener"><span class="al-play" aria-hidden="true"></span><span class="al-vt"><b><span lang="en">Seaside Concert</span><span lang="da">Havnekoncert</span></b><span><span lang="en">with</span><span lang="da">med</span> Anberose</span></span><span class="al-yt">YouTube ↗</span></a></li>
-        <li><a class="al-video al-all" href="https://www.youtube.com/@amplify__live" target="_blank" rel="noopener"><span class="al-vt"><b><span lang="en">All videos</span><span lang="da">Alle videoer</span></b><span>@amplify__live</span></span><span class="al-yt">YouTube ↗</span></a></li>
       </ul>
       <div class="al-photos">
         <figure><img src="img/amplify/hosting.jpg" alt="Three hosts introducing a concert on a garden stage" width="1400" height="933" decoding="async"></figure>
@@ -594,33 +607,32 @@ footer .wrap{padding-block:20px}
           <span class="wcover"><span class="wkind"><span lang="en">Programme lead</span><span lang="da">Programansvarlig</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Ung Kult Camp 2026</span></span></span>
           <span class="wmeta"><span class="wtype"><span lang="en">Project</span><span lang="da">Projekt</span></span><span><span lang="en">8 months</span><span lang="da">8 måneder</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span>Kulturmødet, Mors</span></p><p class="wbody" lang="en">I was responsible for part of the youth programme at Kulturmødet, the national culture festival on Mors. I found and hired the acts, handled their contracts and needs, built the physical festival space and ran the schedule and stages during the festival.</p><p class="wbody" lang="da">Jeg var ansvarlig for en del af ungeprogrammet på Kulturmødet på Mors. Jeg fandt og hyrede aktørerne, håndterede kontrakter og behov, byggede det fysiske festivalområde og styrede tidsplaner og scener under festivalen.</p><p class="wsub" lang="en">What I did</p><p class="wsub" lang="da">Det lavede jeg</p><ul class="wdid"><li lang="en">Found and hired the acts for the programme</li><li lang="en">Communicated their needs and handled the contracts</li><li lang="en">Built the physical festival space</li><li lang="en">Ran the acts, time schedules and spaces during the festival</li><li lang="da">Fandt og hyrede aktørerne til programmet</li><li lang="da">Kommunikerede deres behov og håndterede kontrakterne</li><li lang="da">Byggede det fysiske festivalområde</li><li lang="da">Styrede aktører, tidsplaner og områder under festivalen</li></ul><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Booking</li><li lang="en">Contracts</li><li lang="en">Site build</li><li lang="en">Festival operations</li><li lang="da">Booking</li><li lang="da">Kontrakter</li><li lang="da">Opbygning</li><li lang="da">Afvikling</li></ul></div>
+        <div class="wfull"><figure class="wimg" data-img="img/projects/ukc.jpg"><span class="wimg-ph"><span lang="en">Room for a photo</span><span lang="da">Plads til et billede</span></span></figure><p class="wwhere"><span>Kulturmødet, Mors</span></p><p class="wbody" lang="en">I was responsible for part of the youth programme at Kulturmødet, the national culture festival on Mors. I found and hired the acts, handled their contracts and needs, built the physical festival space and ran the schedule and stages during the festival.</p><p class="wbody" lang="da">Jeg var ansvarlig for en del af ungeprogrammet på Kulturmødet på Mors. Jeg fandt og hyrede aktørerne, håndterede kontrakter og behov, byggede det fysiske festivalområde og styrede tidsplaner og scener under festivalen.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Booking</li><li lang="en">Contracts</li><li lang="en">Site build</li><li lang="en">Festival operations</li><li lang="da">Booking</li><li lang="da">Kontrakter</li><li lang="da">Opbygning</li><li lang="da">Afvikling</li></ul></div>
       </li>
       <li class="wcard project" id="p-pkdk" data-kind="project" data-c="ink">
         <button type="button" class="wbtn" aria-haspopup="dialog">
           <span class="wcover"><span class="wkind"><span lang="en">Research placement</span><span lang="da">Researchpraktik</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Permakultur Danmark</span></span></span>
           <span class="wmeta"><span class="wtype"><span lang="en">Project</span><span lang="da">Projekt</span></span><span><span lang="en">4 months</span><span lang="da">4 måneder</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span lang="en">Kaospilot, semester 4</span><span lang="da">Kaospilot, 4. semester</span></p><p class="wbody" lang="en">I studied permaculture and worked out how its principles translate into leadership, so organisations can be built with a regenerative mindset instead of an extractive one.</p><p class="wbody" lang="da">Jeg undersøgte permakultur og hvordan dens principper kan oversættes til ledelse, så organisationer kan bygges med et regenerativt mindset i stedet for et udnyttende.</p><p class="wsub" lang="en">What I did</p><p class="wsub" lang="da">Det lavede jeg</p><ul class="wdid"><li lang="en">Researched permaculture principles and practices</li><li lang="en">Translated them into ways of leading and organising</li><li lang="en">Wrote my placement report on inspiring a regenerative mindset in organisational development</li><li lang="da">Undersøgte permakulturens principper og praksisser</li><li lang="da">Oversatte dem til måder at lede og organisere på</li><li lang="da">Skrev min praktikrapport om at inspirere et regenerativt mindset i organisationsudvikling</li></ul><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Research</li><li lang="en">Regenerative leadership</li><li lang="en">Organisational development</li><li lang="da">Research</li><li lang="da">Regenerativ ledelse</li><li lang="da">Organisationsudvikling</li></ul></div>
+        <div class="wfull"><figure class="wimg" data-img="img/projects/pkdk.jpg"><span class="wimg-ph"><span lang="en">Room for a photo</span><span lang="da">Plads til et billede</span></span></figure><p class="wwhere"><span lang="en">Kaospilot, semester 4</span><span lang="da">Kaospilot, 4. semester</span></p><p class="wbody" lang="en">I studied permaculture and worked out how its principles translate into leadership, so organisations can be built with a regenerative mindset instead of an extractive one.</p><p class="wbody" lang="da">Jeg undersøgte permakultur og hvordan dens principper kan oversættes til ledelse, så organisationer kan bygges med et regenerativt mindset i stedet for et udnyttende.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Research</li><li lang="en">Regenerative leadership</li><li lang="en">Organisational development</li><li lang="da">Research</li><li lang="da">Regenerativ ledelse</li><li lang="da">Organisationsudvikling</li></ul></div>
       </li>
       <li class="wcard project" id="p-ggg" data-kind="project" data-c="blue">
         <button type="button" class="wbtn" aria-haspopup="dialog">
           <span class="wcover"><span class="wkind"><span lang="en">Internship</span><span lang="da">Praktik</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Girls Got Game</span></span></span>
           <span class="wmeta"><span class="wtype"><span lang="en">Project</span><span lang="da">Projekt</span></span><span><span lang="en">3 months</span><span lang="da">3 måneder</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span lang="en">Community platform</span><span lang="da">Fællesskabsplatform</span></p><p class="wbody" lang="en">I built an organising tool in Notion that gives members and owners one digital platform for the community, and helped sharpen the project&#x27;s vision, mission and goals.</p><p class="wbody" lang="da">Jeg byggede et organiseringsværktøj i Notion, der giver medlemmer og ejere én digital platform for fællesskabet, og var med til at skærpe projektets vision, mission og mål.</p><p class="wsub" lang="en">What I did</p><p class="wsub" lang="da">Det lavede jeg</p><ul class="wdid"><li lang="en">Built an organising tool in Notion for members and owners</li><li lang="en">Set it up as a shared digital community platform</li><li lang="en">Helped strengthen the vision, mission and goals</li><li lang="da">Byggede et organiseringsværktøj i Notion til medlemmer og ejere</li><li lang="da">Satte det op som en fælles digital fællesskabsplatform</li><li lang="da">Var med til at styrke vision, mission og mål</li></ul><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Digital community</li><li lang="en">Notion systems</li><li lang="en">Strategy</li><li lang="da">Digitalt fællesskab</li><li lang="da">Notion-systemer</li><li lang="da">Strategi</li></ul></div>
+        <div class="wfull"><figure class="wimg" data-img="img/projects/ggg.jpg"><span class="wimg-ph"><span lang="en">Room for a photo</span><span lang="da">Plads til et billede</span></span></figure><p class="wwhere"><span lang="en">Community platform</span><span lang="da">Fællesskabsplatform</span></p><p class="wbody" lang="en">I built an organising tool in Notion that gives members and owners one digital platform for the community, and helped sharpen the project&#x27;s vision, mission and goals.</p><p class="wbody" lang="da">Jeg byggede et organiseringsværktøj i Notion, der giver medlemmer og ejere én digital platform for fællesskabet, og var med til at skærpe projektets vision, mission og mål.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Digital community</li><li lang="en">Notion systems</li><li lang="en">Strategy</li><li lang="da">Digitalt fællesskab</li><li lang="da">Notion-systemer</li><li lang="da">Strategi</li></ul></div>
       </li>
       <li class="wcard project" id="p-rizoma" data-kind="project" data-c="soft">
         <button type="button" class="wbtn" aria-haspopup="dialog">
           <span class="wcover"><span class="wkind"><span lang="en">Systemic project</span><span lang="da">Systemisk projekt</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Rizoma</span></span></span>
           <span class="wmeta"><span class="wtype"><span lang="en">Project</span><span lang="da">Projekt</span></span><span><span lang="en">3 months</span><span lang="da">3 måneder</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span lang="en">Kaospilot, semester 5</span><span lang="da">Kaospilot, 5. semester</span></p><p class="wbody" lang="en">I mapped the internal systems of an association and looked at how the stories people tell inside it shape the way they work together.</p><p class="wbody" lang="da">Jeg kortlagde en forenings interne systemer og undersøgte, hvordan de fortællinger, folk fortæller internt, former måden, de arbejder sammen på.</p><p class="wsub" lang="en">What I did</p><p class="wsub" lang="da">Det lavede jeg</p><ul class="wdid"><li lang="en">Mapped the organisational structure of an association</li><li lang="en">Looked at how narratives shift the work culture</li><li lang="da">Kortlagde en forenings organisationsstruktur</li><li lang="da">Undersøgte, hvordan fortællinger flytter arbejdskulturen</li></ul><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Systems mapping</li><li lang="en">Narratives</li><li lang="en">Organisational culture</li><li lang="da">Systemkortlægning</li><li lang="da">Fortællinger</li><li lang="da">Organisationskultur</li></ul></div>
+        <div class="wfull"><figure class="wimg" data-img="img/projects/rizoma.jpg"><span class="wimg-ph"><span lang="en">Room for a photo</span><span lang="da">Plads til et billede</span></span></figure><p class="wwhere"><span lang="en">Kaospilot, semester 3</span><span lang="da">Kaospilot, 3. semester</span></p><p class="wbody" lang="en">I mapped the internal systems of an association and looked at how the stories people tell inside it shape the way they work together. I then proposed possible interventions that could shape, strengthen and change how they work together internally.</p><p class="wbody" lang="da">Jeg kortlagde en forenings interne systemer og undersøgte, hvordan de fortællinger, folk fortæller internt, former måden, de arbejder sammen på. Derefter kom jeg med forslag til mulige interventioner, der kunne forme, styrke og ændre deres interne samarbejde.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Systems mapping</li><li lang="en">Narratives</li><li lang="en">Organisational culture</li><li lang="da">Systemkortlægning</li><li lang="da">Fortællinger</li><li lang="da">Organisationskultur</li></ul></div>
       </li>
     </ul>
     <div class="side-head">
       <h3>Sidequests</h3>
-      <p lang="en">Smaller roles and side projects alongside school.</p><p lang="da">Mindre roller og projekter ved siden af studiet.</p>
     </div>
     <ul class="wgrid wgrid-side">
       <li class="wcard side" id="a-ugc" data-kind="side" data-c="paper">
@@ -628,14 +640,14 @@ footer .wrap{padding-block:20px}
           <span class="wcover"><span class="wkind"><span>Freelance</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span lang="en">UGC creator</span><span lang="da">UGC-creator</span></span></span>
           <span class="wmeta"><span class="wtype"><span>Sidequest</span></span><span><span lang="en">1.5 years</span><span lang="da">1,5 år</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span>Brands</span></p><p class="wbody" lang="en">I pitch brands, agree on style and tone of voice, then script, film and edit short-form video, backed by trend and market research.</p><p class="wbody" lang="da">Jeg kontakter brands, aftaler stil og tone of voice og skriver, filmer og klipper korte videoer, understøttet af trend- og markedsanalyse.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Scripting</li><li lang="en">Filming</li><li lang="en">Editing</li><li lang="en">Trend research</li><li lang="da">Manus</li><li lang="da">Optagelse</li><li lang="da">Klipning</li><li lang="da">Trendanalyse</li></ul></div>
+        <div class="wfull"><p class="wwhere"><span>Brands</span></p><p class="wbody" lang="en">I pitch brands, agree on style and tone of voice, then script, film and edit short-form video, backed by trend and market research.</p><p class="wbody" lang="da">Jeg kontakter brands, aftaler stil og tone of voice og skriver, filmer og klipper korte videoer, understøttet af trend- og markedsanalyse.</p><p class="wlink"><a href="https://annemagdalene-ugc.my.canva.site/" target="_blank" rel="noopener"><span lang="en">See my UGC portfolio</span><span lang="da">Se min UGC-portefølje</span> ↗</a></p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Scripting</li><li lang="en">Filming</li><li lang="en">Editing</li><li lang="en">Trend research</li><li lang="da">Manus</li><li lang="da">Optagelse</li><li lang="da">Klipning</li><li lang="da">Trendanalyse</li></ul></div>
       </li>
       <li class="wcard side" id="a-rampen" data-kind="side" data-c="paper">
         <button type="button" class="wbtn" aria-haspopup="dialog">
           <span class="wcover"><span class="wkind"><span lang="en">Volunteer</span><span lang="da">Frivillig</span></span><span class="wplus" aria-hidden="true"></span><span class="wtitle"><span>Rampen Ebeltoft</span></span></span>
           <span class="wmeta"><span class="wtype"><span>Sidequest</span></span><span><span lang="en">1 year</span><span lang="da">1 år</span></span></span>
         </button>
-        <div class="wfull"><p class="wwhere"><span lang="en">Youth culture house</span><span lang="da">Ungdomskulturhus</span></p><p class="wbody" lang="en">Events and funding at a youth culture house. I booked and hosted the artists at Blue Ocean Music Festival 2024.</p><p class="wbody" lang="da">Events og fondsansøgninger i et ungdomskulturhus. Jeg bookede og tog mig af artisterne til Blue Ocean Music Festival 2024.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Events</li><li lang="en">Funding</li><li lang="en">Artist booking</li><li lang="da">Events</li><li lang="da">Fondsansøgninger</li><li lang="da">Artistbooking</li></ul></div>
+        <div class="wfull"><p class="wwhere"><span lang="en">Youth culture house</span><span lang="da">Ungdomskulturhus</span></p><p class="wbody" lang="en">Events and funding at a youth culture house. I booked and hosted the artists at Blue Ocean Music Festival 2024.</p><p class="wbody" lang="da">Events og fondsansøgninger i et ungdomskulturhus. Jeg bookede og tog mig af artisterne til Blue Ocean Music Festival 2024.</p><p class="wsub">Skills</p><ul class="wskills"><li lang="en">Events</li><li lang="en">Funding</li><li lang="en">Artist booking</li><li lang="en">Youth engagement</li><li lang="da">Events</li><li lang="da">Fondsansøgninger</li><li lang="da">Artistbooking</li><li lang="da">Ungeinddragelse</li></ul></div>
       </li>
       <li class="wcard side" id="a-plata" data-kind="side" data-c="paper">
         <button type="button" class="wbtn" aria-haspopup="dialog">
@@ -690,11 +702,14 @@ footer .wrap{padding-block:20px}
 </section>
 <section class="about" id="about">
   <div class="wrap story">
-    <figure><img src="night.jpg" alt="Anne in a cap with a pink flower behind her ear, on a lit street at night" width="800" height="1000"></figure>
+    <figure class="q-photos">
+      <img class="is-on" src="img/about/night-out.jpg" alt="Anne in a red jacket with her arms in the air on a street at night" width="614" height="768">
+      <img src="img/about/garden.jpg" alt="Anne in a patterned jacket in a green garden" width="800" height="1000">
+      <img src="img/about/confetti.jpg" alt="Anne pressing a button as confetti falls against a teal wall" width="800" height="1000">
+      <img src="img/about/cafe.jpg" alt="Anne smiling at a pavement café table" width="800" height="1000">
+    </figure>
     <div>
-      <h2><span lang="en">About me</span><span lang="da">Om mig</span></h2>
-      <p class="intro" lang="en">I'm 22, half Estonian and half Danish, and I've lived in four countries: Morocco, Italy, Estonia and Denmark. I've always loved learning something new, and I'm quick at it.</p>
-      <p class="intro" lang="da">Jeg er 22 år, halvt estisk og halvt dansk, og har boet i fire lande: Marokko, Italien, Estland og Danmark. Jeg har altid elsket at lære noget nyt, og jeg er hurtig til det.</p>
+      <h2 class="sr"><span lang="en">About me</span><span lang="da">Om mig</span></h2>
       <div class="quotes" id="quotes">
         <ol class="qlist" aria-live="off">
           <li class="q is-on" id="q-0"><p class="q-t"><span lang="en">Community is the infrastructure</span><span lang="da">Fællesskabet er infrastrukturen</span></p>
@@ -703,10 +718,10 @@ footer .wrap{padding-block:20px}
           <li class="q" id="q-1"><p class="q-t"><span lang="en">Look behind the surface</span><span lang="da">Kig bag overfladen</span></p>
             <p class="q-d" lang="en">Problems usually sit in the structure: the flows, the money, the stories an organisation tells itself.</p><p class="q-d" lang="da">Problemer sidder som regel i strukturen: flowet, økonomien og de fortællinger, en organisation fortæller sig selv.</p>
             <p class="q-from" lang="en">Learned through UX and systemic work</p><p class="q-from" lang="da">Lært gennem UX og systemisk arbejde</p></li>
-          <li class="q" id="q-2"><p class="q-t"><span lang="en">Lead from the floor</span><span lang="da">Led fra gulvet</span></p>
+          <li class="q" id="q-2"><p class="q-t"><span lang="en">Hands-on leadership</span><span lang="da">Hands-on lederskab</span></p>
             <p class="q-d" lang="en">Running a kitchen taught me to stay calm under pressure, own mistakes and lead by doing the work too.</p><p class="q-d" lang="da">At lede et køkken lærte mig at bevare roen under pres, tage ansvar for fejl og lede ved selv at tage fat.</p>
             <p class="q-from" lang="en">Learned in cafés and as kitchen manager</p><p class="q-from" lang="da">Lært på caféer og som køkkenleder</p></li>
-          <li class="q" id="q-3"><p class="q-t"><span lang="en">Learn by doing</span><span lang="da">Lær ved at gøre</span></p>
+          <li class="q" id="q-3"><p class="q-t"><span lang="en">Learning by doing</span><span lang="da">Learning by doing</span></p>
             <p class="q-d" lang="en">I learn fastest with real stakes, so I take on responsibility early and reflect as I go.</p><p class="q-d" lang="da">Jeg lærer hurtigst, når noget er på spil, så jeg tager ansvar tidligt og reflekterer undervejs.</p>
             <p class="q-from" lang="en">Learned at Kaospilot</p><p class="q-from" lang="da">Lært på Kaospilot</p></li>
         </ol>
@@ -722,8 +737,8 @@ footer .wrap{padding-block:20px}
   <div class="wrap">
     <p class="label" style="color:var(--amber)"><span lang="en">Available from 1 February 2027</span><span lang="da">Klar fra 1. februar 2027</span></p>
     <h2 style="margin-top:10px"><span lang="en">Let's talk about your next project.</span><span lang="da">Lad os tale om jeres næste projekt.</span></h2>
-    <p class="sub" lang="en">Based in Aarhus and open to Copenhagen or abroad. I'll reply quickly.</p>
-    <p class="sub" lang="da">Jeg bor i Aarhus og er åben for København eller udlandet. Jeg svarer hurtigt.</p>
+    <p class="sub" lang="en">Based in Aarhus and open to Copenhagen or abroad.</p>
+    <p class="sub" lang="da">Jeg bor i Aarhus og er åben for København eller udlandet.</p>
     <ul class="clist">
       <li><span class="label">Email</span><a class="v" id="c-mail" href="mailto:anne.magdalene@borgen.ee">anne.magdalene@borgen.ee</a><button type="button" class="copy" data-copy="c-mail"><span lang="en">Copy</span><span lang="da">Kopiér</span></button></li>
       <li><span class="label"><span lang="en">Phone</span><span lang="da">Telefon</span></span><a class="v" id="c-tel" href="tel:+4560219758">+45 60 21 97 58</a><button type="button" class="copy" data-copy="c-tel"><span lang="en">Copy</span><span lang="da">Kopiér</span></button></li>
@@ -953,25 +968,31 @@ footer .wrap{padding-block:20px}
   if(quotes){
     var items=[].slice.call(quotes.querySelectorAll('.q')),qdots=[].slice.call(quotes.querySelectorAll('.q-dot')),
         pauseBtn=document.getElementById('q-pause'),qi=0,userPaused=false,hoverPaused=false,raf=null;
-    var CH='ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ0123456789#&*+/';
+    var CH='abcdefghijklmnopqrstuvwxyzæøå',photos=[].slice.call(document.querySelectorAll('.q-photos img'));
     function scramble(el){
-      var txt=el.dataset.txt||(el.dataset.txt=el.textContent),start=performance.now(),dur=Math.min(1100,350+txt.length*28);
+      var txt=el.dataset.txt||(el.dataset.txt=el.textContent),start=performance.now(),dur=Math.min(2200,900+txt.length*40),last=0,out=txt;
       cancelAnimationFrame(raf);
       (function frame(t){
-        var p=Math.min(1,(t-start)/dur),n=Math.floor(p*txt.length),out='';
-        for(var i=0;i<txt.length;i++){var c=txt[i];out+=(i<n||c===' ')?c:CH[(Math.random()*CH.length)|0]}
-        el.textContent=out;if(p<1)raf=requestAnimationFrame(frame);else el.textContent=txt;
+        var p=Math.min(1,(t-start)/dur),e=1-Math.pow(1-p,2),n=Math.floor(e*txt.length);
+        if(t-last>70||p>=1){last=t;out='';
+          // calmer: only the next few unresolved letters flicker; the rest stay blank until reached
+          for(var i=0;i<txt.length;i++){var c=txt[i];out+=(i<n||c===' ')?c:(i<n+4?CH[(Math.random()*CH.length)|0]:'\u00a0')}
+          el.textContent=out}
+        if(p<1)raf=requestAnimationFrame(frame);else el.textContent=txt;
       })(start);
     }
-    function setPaused(){quotes.classList.toggle('paused',userPaused||hoverPaused||document.hidden)}
+    var offscreen=true;
+    function setPaused(){quotes.classList.toggle('paused',userPaused||hoverPaused||offscreen||document.hidden)}
+    if('IntersectionObserver' in window){new IntersectionObserver(function(en){offscreen=!en[0].isIntersecting;setPaused()},{threshold:0.35}).observe(quotes)}else{offscreen=false}
+    setPaused();
     function go(i){
       items[qi].classList.remove('is-on');qdots[qi].classList.remove('is-on');qdots[qi].removeAttribute('aria-current');
       qi=(i+items.length)%items.length;
       qdots.forEach(function(d,k){d.classList.toggle('is-done',k<qi)});
-      items[qi].classList.add('is-on');var d=qdots[qi];d.classList.remove('is-on');void d.offsetWidth;d.classList.add('is-on');d.setAttribute('aria-current','true');
+      items[qi].classList.add('is-on');photos.forEach(function(ph,k){ph.classList.toggle('is-on',k===qi)});var d=qdots[qi];d.classList.remove('is-on');void d.offsetWidth;d.classList.add('is-on');d.setAttribute('aria-current','true');
       if(!reduce.matches){
         [].forEach.call(items[qi].querySelectorAll('.q-t > span'),function(sp){if(sp.offsetParent)scramble(sp)});
-        if(M&&M.animate)M.animate(items[qi].querySelectorAll('.q-d,.q-from'),{opacity:[0,1],transform:['translateY(8px)','none']},{duration:0.5,delay:M.stagger?M.stagger(0.08,{startDelay:0.25}):0.25});
+        if(M&&M.animate)M.animate(items[qi].querySelectorAll('.q-d,.q-from'),{opacity:[0,1],transform:['translateY(6px)','none']},{duration:0.9,ease:'easeOut',delay:M.stagger?M.stagger(0.12,{startDelay:0.5}):0.5});
       }
     }
     qdots.forEach(function(d,k){
