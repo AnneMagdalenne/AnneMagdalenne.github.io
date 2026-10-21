@@ -79,13 +79,15 @@ Sections get 128 px of vertical padding on desktop and 72 px on phones. The cont
 The section has four labelled parts, each marked with a lime mono label and a short rule:
 1. **The concept:** what Amplify Live is.
 2. **What artists get:** the lime band.
-3. **Live sessions:** three white video cards linking to YouTube, the channel link and a row of five photos. The order is chosen so photos from the same concert never sit next to each other.
+3. **Live sessions:** no text, just a lime label with a long arrow pointing at the cards (it points down on small screens). There are three white video cards plus a lime-outlined "All videos" card for the channel, and a row of five photos. The order is chosen so photos from the same concert never sit next to each other.
 4. **What I've learned:** a reflective paragraph, with the key phrase underlined in lime, next to a grid of skill tiles. The tiles are compact and show only their heading. On hover (pointer devices), keyboard focus or tap, a tile turns lime and expands to reveal its description, which is written in the "doing" form ("At række ud, koordinere …").
 
-## Lessons gallery ("What shaped how I work")
+## About me
 
-The four lessons form a horizontal scroll-snap gallery of tall cards, using the same cover colours as the work gallery. It has previous/next buttons, and a progress bar driven by Motion's `scroll()` on the track's horizontal scroll. In print it becomes a 2 × 2 grid.
+This is a black band (`#141418`, the same in both themes). It holds the night photo, a short personal intro, and the four lessons shown **one at a time** with no boxes: the quote (condensed caps with a coral opening quote mark), a short description, and where it was learned. A lesson changes every 6.5 s. The title resolves through random characters, in a home-made scramble that stands in for Motion+'s paid `scrambleText`, while the description fades in with Motion's `animate`. Four progress bars show the timing and can be clicked. Rotation pauses on hover, on focus, with the pause button, and in a background tab; it stays off with reduced motion. In print, all four lessons show.
 
 ## Kaospilot semesters
+
+The Kaospilot and "Other roles and school" section sits on its own `--primary-soft` band.
 
 The running-order list ends with S6 highlighted in `--accent` (coral) with dark text, with the line "This is the semester still missing a project. Could it be yours?" linking to Contact.
