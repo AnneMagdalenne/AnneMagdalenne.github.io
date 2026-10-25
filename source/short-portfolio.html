@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Anne Magdalene Helles Borgen · Short portfolio</title>
+<title>Anne Magdalene Helles Borgen · CV one-pager</title>
 <!--BASE-->
 <style>
 @font-face{font-family:"Archivo";src:url("fonts/archivo-latin-wdth-normal.woff2") format("woff2");font-weight:100 900;font-stretch:62% 125%}
@@ -11,7 +11,7 @@
 /*AILERON*/
 :root{
   --bg:#F4F4F1;--surface:#fff;--border:#DCDBD3;--muted:#5D5C65;--text:#141418;
-  --primary:#2B3FD6;--primary-soft:#E4E7FB;--accent:#FF5A36;--success:#1F8A4C;
+  --primary:#2B3FD6;--accent:#FF5A36;--success:#1F8A4C;
   --al-lime:#D1FF00;--al-ink:#181818;
   --font:"Archivo",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
 }
@@ -24,165 +24,117 @@ a{color:inherit;text-decoration:none}
 ul,ol{list-style:none}
 img{display:block}
 
-.page{width:210mm;height:297mm;padding:9mm 10mm 8mm;overflow:hidden;position:relative;
-  display:flex;flex-direction:column;gap:5mm;break-after:page;page-break-after:always}
-.p2{gap:4.4mm}
-.page:last-child{break-after:auto;page-break-after:auto}
-
+.page{width:210mm;height:297mm;padding:9mm 11mm 8mm;overflow:hidden;position:relative;display:flex;flex-direction:column;gap:3.7mm}
 .label{font-family:var(--mono);font-size:6.3pt;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1.3}
 .caps{font-stretch:68%;font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:.92}
-h2.caps{font-size:17pt}
-h3.caps{font-size:10pt;line-height:.98}
-.dot{display:inline-block;width:1.6mm;height:1.6mm;border-radius:50%;background:var(--accent);vertical-align:.25mm;margin-right:1.6mm}
-.sechead{display:flex;align-items:baseline;justify-content:space-between;gap:4mm;border-bottom:1px solid var(--border);padding-bottom:1.6mm;margin-bottom:2.6mm}
+h2.caps{font-size:15pt}
+.sechead{display:flex;align-items:baseline;justify-content:space-between;gap:4mm;border-bottom:1px solid var(--border);padding-bottom:1.4mm;margin-bottom:2.3mm}
 
 /* ---------- HERO ---------- */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) 38mm;gap:7mm;align-items:start}
-.hero h1{font-size:33pt;margin:1.6mm 0 2.2mm}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 36mm;gap:8mm;align-items:end}
+.hero h1{font-size:34pt;margin:1.6mm 0 2.6mm}
 .hero h1 span{display:block}
-.role{font-weight:600;font-size:9.4pt;margin-bottom:2mm}
-.role i{font-style:normal;color:var(--accent);padding:0 1mm}
-.pitch{font-size:9pt;line-height:1.42;max-width:118mm;margin-bottom:3mm}
-.reach{display:flex;flex-wrap:nowrap;gap:3.6mm;font-size:7.2pt;white-space:nowrap;padding:1.8mm 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.reach a{color:var(--primary);font-weight:600}
-.reach .k{font-family:var(--mono);font-size:5.9pt;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-right:1.2mm}
-.facts{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;column-gap:6mm;margin-top:2.4mm}
-.facts b{display:block;font-family:var(--mono);font-size:5.9pt;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
-.facts span{font-weight:600;font-size:7.6pt}
+.role{font-weight:600;font-size:10.5pt;margin-bottom:4mm}
+.role i{font-style:normal;color:var(--accent);padding:0 1.2mm}
+.facts{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;column-gap:7mm;padding-top:2.4mm;border-top:1px solid var(--border)}
+.facts b{display:block;font-family:var(--mono);font-size:6pt;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:.4mm}
+.facts span{font-weight:600;font-size:8pt}
 
-.pass{background:var(--surface);border-radius:3.4mm;padding:2.2mm 2.2mm 2.6mm;box-shadow:0 3mm 6mm -2.5mm rgb(20 20 24/.35);transform:rotate(-2deg);margin-top:3mm;position:relative}
-.pass .slot{display:block;width:9mm;height:1.6mm;border-radius:1mm;background:var(--bg);border:1px solid var(--border);margin:0 auto 2mm}
-.pass-strip{display:flex;justify-content:space-between;background:var(--accent);color:#fff;font-family:var(--mono);font-size:5.8pt;letter-spacing:.1em;text-transform:uppercase;padding:1mm 1.6mm;border-radius:1mm 1mm 0 0;font-weight:500}
-.pass img{width:100%;height:39mm;object-fit:cover;object-position:50% 30%}
-.pass-meta{padding-top:1.8mm}
-.pass-meta b{display:block;font-stretch:68%;font-weight:800;text-transform:uppercase;font-size:9pt;line-height:1}
-.pass-meta .r{display:block;font-size:6pt;color:var(--muted);margin-top:.6mm}
-.pass-meta .avail{display:flex;align-items:center;gap:1.2mm;font-family:var(--mono);font-size:5.3pt;letter-spacing:.03em;white-space:nowrap;text-transform:uppercase;margin-top:1.2mm}
+.pass{position:relative;margin:0 2mm 0 0}
+.lanyard{position:absolute;left:50%;bottom:calc(100% - 4.4mm);width:2.4mm;height:24mm;border-radius:.4mm;transform-origin:50% 100%;
+  background:repeating-linear-gradient(180deg,var(--primary) 0 3.6mm,#2232AB 3.6mm 3.9mm);z-index:0}
+.lanyard.l{transform:translateX(-50%) translateX(-1.4mm) rotate(-16deg)}
+.lanyard.r{transform:translateX(-50%) translateX(1.4mm) rotate(16deg)}
+.pass-card{position:relative;z-index:1;background:var(--surface);border:1px solid var(--border);border-radius:3.2mm;padding:2.2mm 2.2mm 2.6mm;box-shadow:0 3mm 6mm -2.5mm rgb(20 20 24/.35);transform:rotate(-2deg)}
+.slot{display:block;width:10mm;height:2mm;border-radius:2mm;margin:.2mm auto 2mm;background:var(--bg);box-shadow:inset 0 .2mm .5mm rgb(0 0 0/.35)}
+.pass-strip{display:flex;justify-content:space-between;background:var(--accent);color:var(--text);font-family:var(--mono);font-size:5.8pt;letter-spacing:.12em;text-transform:uppercase;padding:1.2mm 1.8mm;border-radius:1mm;font-weight:500}
+.pass img{width:100%;height:25.5mm;object-fit:cover;object-position:62% 40%;border-radius:1.4mm;margin-top:1.8mm}
+.pass-meta{padding-top:2mm}
+.pass-meta b{display:block;font-stretch:68%;font-weight:800;text-transform:uppercase;font-size:9.5pt;line-height:1}
+.pass-meta .r{display:block;font-size:6.1pt;color:var(--muted);margin-top:.7mm}
+.pass-meta .avail{display:flex;align-items:center;gap:1.2mm;font-family:var(--mono);font-size:5.1pt;letter-spacing:.02em;text-transform:uppercase;margin-top:1.3mm;white-space:nowrap}
 .pass-meta .avail:before{content:"";width:1.5mm;height:1.5mm;border-radius:50%;background:var(--success);flex:none}
 
 /* ---------- SKILLS ---------- */
-.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm}
-.skill{background:var(--surface);border:1px solid var(--border);border-radius:1.8mm;padding:2.4mm 2.6mm;display:flex;flex-direction:column}
-.skill h3{font-size:8.6pt}
-.skill .bar{display:block;width:6mm;height:.7mm;background:var(--accent);margin:1.4mm 0 1.4mm}
-.skill p{font-size:7pt;line-height:1.34;flex:1}
-.skill .proof{font-family:var(--mono);font-size:5.5pt;letter-spacing:.04em;text-transform:uppercase;color:var(--primary);margin-top:1.4mm;line-height:1.35}
-.skill .proof em{font-style:normal;color:var(--muted)}
-.qrcard{background:var(--primary);border-color:var(--primary);color:#fff;flex-direction:row;gap:2.4mm;align-items:center}
-.qrcard .qr{display:block;width:19mm;height:19mm;background:#fff;border-radius:1mm;padding:.8mm;flex:none}
-.qrcard .qr svg{width:100%;height:100%;display:block}
-.qrcard b{display:block;font-stretch:68%;font-weight:800;text-transform:uppercase;font-size:9pt;line-height:1}
-.qrcard span{display:block;font-size:6.4pt;margin-top:1mm;line-height:1.3}
-.qrcard a{font-family:var(--mono);font-size:5.6pt;display:block;margin-top:1.2mm;word-break:break-all}
+.skills{display:flex;flex-wrap:wrap;gap:1.5mm}
+.skills li{flex:1 1 auto;background:var(--surface);border:1px solid var(--border);border-radius:1.6mm;padding:1.9mm 2.1mm}
+.skills b{display:flex;align-items:center;gap:1.6mm;font-stretch:68%;font-weight:800;text-transform:uppercase;font-size:8.1pt;line-height:1;white-space:nowrap}
+.skills b:before{content:"";width:1.6mm;height:1.6mm;background:var(--accent);flex:none}
 
 /* ---------- AMPLIFY ---------- */
-.al{background:var(--al-ink);color:#fff;border-radius:2.6mm;padding:5mm 5.5mm 5mm;display:flex;flex-direction:column;gap:3.6mm}
-.al-label{font-family:var(--mono);font-size:6pt;letter-spacing:.08em;text-transform:uppercase;color:var(--al-lime);display:flex;align-items:center;gap:1.6mm}
-.al-label.rule:after{content:"";width:6mm;height:1px;background:var(--al-lime);opacity:.7}
-.al-top{display:grid;grid-template-columns:62mm 1fr;gap:6mm;align-items:start}
-.al-brand{display:flex;align-items:center;gap:3mm;margin-top:2mm}
-.al-brand img{width:15mm;height:auto}
-.al-brand h2{font-family:"Aileron",var(--font);font-weight:800;font-size:22pt;line-height:.88;text-transform:uppercase;letter-spacing:-.01em}
+.al{background:var(--al-ink);color:#fff;border-radius:2.6mm;padding:4mm 4mm 4mm 5mm;display:grid;grid-template-columns:42mm minmax(0,1fr) 42mm;gap:5mm;align-items:stretch}
+.al-kicker{font-family:var(--mono);font-size:5.9pt;letter-spacing:.08em;text-transform:uppercase;color:var(--al-lime);line-height:1.4}
+.al-brand{display:flex;align-items:center;gap:2.6mm;margin:3mm 0 3mm}
+.al-brand img{width:12mm;height:auto}
+.al-brand h2{font-family:"Aileron",var(--font);font-weight:800;font-size:17pt;line-height:.88;text-transform:uppercase;letter-spacing:-.01em}
 .al-brand h2 em{font-style:normal;color:var(--al-lime)}
-.al-tag{font-family:"Aileron",var(--font);font-weight:800;font-size:10.2pt;line-height:1.18;margin-bottom:1.6mm}
-.al-lead{font-size:7.7pt;line-height:1.42;color:#E6E6E6}
-.al-stats{display:flex;gap:6mm;margin-top:2.2mm}
-.al-stats li{display:flex;align-items:baseline;gap:1.4mm}
-.al-stats b{font-family:"Aileron",var(--font);font-weight:800;color:var(--al-lime);font-size:13pt;line-height:1}
-.al-stats span{font-size:6.6pt;color:#CFCFCF}
-.al-mid{display:grid;grid-template-columns:62mm 1fr;gap:6mm;align-items:start}
-.al-videos{display:flex;flex-direction:column;gap:1.4mm;margin-top:2mm}
-.al-video{display:flex;align-items:center;gap:2mm;background:#fff;color:var(--al-ink);border-radius:1.4mm;padding:1.6mm 2mm}
-.al-video .play{width:4.6mm;height:4.6mm;border-radius:50%;background:var(--al-ink);flex:none;position:relative}
-.al-video .play:after{content:"";position:absolute;left:1.8mm;top:1.2mm;border-left:1.5mm solid var(--al-lime);border-top:1.1mm solid transparent;border-bottom:1.1mm solid transparent}
-.al-video .vt{flex:1;font-size:6.6pt;line-height:1.2}
-.al-video .vt b{display:block;font-family:"Aileron",var(--font);font-weight:800;font-size:7.6pt;text-transform:uppercase}
-.al-video .yt{font-family:var(--mono);font-size:5.5pt;letter-spacing:.06em;text-transform:uppercase}
-.al-video.all{background:transparent;color:#fff;border:1px solid var(--al-lime)}
-.al-video.all .play{background:var(--al-lime)}
-.al-video.all .play:after{border-left-color:var(--al-ink)}
-.al-learn p.al-lead{margin:1.6mm 0 2.4mm}
-.al-hl{font-weight:600;color:#fff;background:linear-gradient(transparent 62%,rgb(209 255 0/.55) 62%)}
-.al-skills{display:grid;grid-template-columns:1fr 1fr;gap:1.4mm 2mm}
-.al-skills li{border-left:.7mm solid var(--al-lime);padding:.2mm 0 .2mm 2mm}
-.al-skills b{display:block;font-family:"Aileron",var(--font);font-weight:800;font-size:6.9pt;text-transform:uppercase;letter-spacing:.01em;color:#fff}
-.al-skills span{display:block;font-size:6.2pt;line-height:1.3;color:#C9C9C9}
-.al-photos{display:grid;grid-template-columns:repeat(5,1fr);gap:1.4mm}
-.al-photos img{width:100%;height:19mm;object-fit:cover;border-radius:1mm}
+.al-founder{display:inline-block;background:var(--al-lime);color:var(--al-ink);font-family:"Aileron",var(--font);font-weight:800;text-transform:uppercase;font-size:7pt;letter-spacing:.02em;padding:1mm 2.2mm;border-radius:5mm}
+.al-tag{font-family:"Aileron",var(--font);font-weight:800;font-size:9.6pt;line-height:1.18;margin-bottom:1.6mm}
+.al-lead{font-size:7.3pt;line-height:1.4;color:#E2E2E2}
+.al-stats{display:flex;gap:5mm;margin:1.8mm 0 2mm}
+.al-stats li{display:flex;align-items:baseline;gap:1.3mm}
+.al-stats b{font-family:"Aileron",var(--font);font-weight:800;color:var(--al-lime);font-size:12pt;line-height:1}
+.al-stats span{font-size:6.4pt;color:#CFCFCF}
+.al-sessions{display:flex;flex-wrap:wrap;align-items:center;gap:1.2mm}
+.al-sessions a{font-size:6.4pt;border:1px solid #4A4A4A;border-radius:5mm;padding:.6mm 1.8mm;color:#fff;white-space:nowrap}
+.al-sessions a b{font-weight:600}
+.al-sessions a.all{background:var(--al-lime);border-color:var(--al-lime);color:var(--al-ink);font-family:"Aileron",var(--font);font-weight:800;text-transform:uppercase;font-size:6.6pt}
+.al-photos{display:grid;grid-template-columns:1fr 1fr;gap:1.4mm;contain:size}
+.al-photos img{width:100%;height:100%;min-height:0;object-fit:cover;border-radius:1.2mm}
 
-/* ---------- PAGE 2 ---------- */
-.projects{display:grid;grid-template-columns:1fr 1fr;gap:2.6mm}
-.proj{background:var(--surface);border:1px solid var(--border);border-radius:1.8mm;display:grid;grid-template-columns:30mm 1fr;overflow:hidden}
-.proj .ph{display:flex;flex-direction:column;gap:.6mm;background:var(--bg);contain:size;min-height:34mm}
-.proj .ph img{width:100%;flex:1;min-height:0;object-fit:cover}
-.proj .tx{padding:2.2mm 3mm;display:flex;flex-direction:column}
+/* ---------- PROJECTS ---------- */
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:2.4mm}
+.proj{background:var(--surface);border:1px solid var(--border);border-radius:1.8mm;display:grid;grid-template-columns:23mm 1fr;overflow:hidden;position:relative}
+.proj:before{content:"";position:absolute;left:0;right:0;top:0;height:.9mm;z-index:1}
+.c-coral:before{background:var(--accent)}.c-ink:before{background:var(--text)}.c-blue:before{background:var(--primary)}.c-soft:before{background:#AEB7F2}.c-paper:before{background:var(--border)}
+.proj .ph{contain:size;min-height:22mm}
+.proj .ph img{width:100%;height:100%;object-fit:cover}
+.proj .tx{padding:2.3mm 2.8mm 2.4mm}
 .proj .kind{display:flex;justify-content:space-between;gap:2mm}
-.proj h3{font-size:11pt;margin:.9mm 0 .5mm}
-.proj .where{font-size:6.6pt;color:var(--muted);margin-bottom:1.4mm}
-.proj p.body{font-size:7pt;line-height:1.36;flex:1}
-.tags{display:flex;flex-wrap:wrap;gap:.9mm;margin-top:1.8mm}
-.tags li{font-size:5.9pt;border:1px solid var(--border);border-radius:5mm;padding:.25mm 1.6mm;color:var(--muted)}
-.proj.c-coral h3 .dot{background:var(--accent)}
-.proj .stripe{height:1mm;grid-column:1/-1}
-.c-coral .stripe{background:var(--accent)}.c-ink .stripe{background:var(--text)}.c-blue .stripe{background:var(--primary)}.c-soft .stripe{background:#AEB7F2}
+.proj h3{font-size:10.5pt;margin:.9mm 0 .4mm}
+.proj .where{font-size:6.5pt;color:var(--muted);margin-bottom:1.3mm}
+.proj p.body{font-size:7pt;line-height:1.36}
+.proj a{color:var(--primary);font-weight:600}
+.proj.small{grid-template-columns:1fr;grid-column:1/-1}
+.proj.small .tx{display:grid;grid-template-columns:44mm 1fr;gap:4mm;align-items:center;padding:2.2mm 3mm}
+.proj.small h3{margin:.6mm 0 0}
 
-.sides{display:grid;grid-template-columns:repeat(5,1fr);gap:2mm}
-.side{border:1px solid var(--border);border-radius:1.8mm;padding:1.9mm 2.4mm;background:var(--bg)}
-.side h3{font-size:8.4pt;margin:.8mm 0 1mm}
-.side p{font-size:6.5pt;line-height:1.33}
-.side a{color:var(--primary);font-weight:600}
-.side .dur{display:block;margin-top:1.2mm}
+/* ---------- BOTTOM ---------- */
+.bottom{display:grid;grid-template-columns:minmax(0,1fr) 72mm;gap:6mm;align-items:start}
+.kp{background:var(--primary);color:#fff;border-radius:1.8mm;padding:3mm 3.4mm;display:grid;grid-template-columns:auto 1fr;gap:1mm 4mm;margin-bottom:1.6mm}
+.kp .label{color:#C9CEF7;grid-column:1/-1}
+.kp h3{font-size:16pt;line-height:.9}
+.kp h3 small{display:block;font-family:var(--mono);font-weight:400;font-stretch:100%;font-size:6.3pt;letter-spacing:.06em;margin-top:1mm;color:#DDE0FA}
+.kp p{font-size:7.1pt;line-height:1.38}
+.kp p b{font-weight:600}
+.tl li{display:grid;grid-template-columns:13mm 1fr;gap:2mm;padding:1mm 0;border-bottom:1px solid var(--border);font-size:7.2pt;line-height:1.3}
+.tl .y{font-family:var(--mono);font-size:6.3pt;color:var(--muted);letter-spacing:.04em;padding-top:.2mm}
+.tl b{font-weight:600}
+.tl .sub{color:var(--muted)}
 
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:7mm}
-.sem li,.tl li{display:grid;grid-template-columns:12mm 1fr;gap:2mm;padding:1mm 0;border-bottom:1px solid var(--border);font-size:7.1pt;line-height:1.3}
-.sem .n,.tl .y{font-family:var(--mono);font-size:6.4pt;color:var(--muted);letter-spacing:.04em}
-.sem b,.tl b{font-weight:600}
-.tl .sub{display:block;color:var(--muted);font-size:6.6pt}
-.sem li.now{background:var(--accent);border-radius:1.2mm;border:0;padding:1.4mm 2mm;margin-top:1mm;color:var(--text)}
-.sem li.now .n{color:var(--text);font-weight:500}
-.sem .open{display:block;font-weight:600;margin-top:.4mm}
-.intro{font-size:7pt;color:var(--muted);margin:-1mm 0 1.4mm}
-
-.about{background:#141418;color:#fff;border-radius:2.6mm;padding:3.2mm 5mm;display:grid;grid-template-columns:repeat(4,1fr);gap:4mm}
-.about .q-t{font-stretch:68%;font-weight:800;text-transform:uppercase;font-size:10pt;line-height:.98}
-.about .q-t:before{content:"“";color:var(--accent);margin-right:.6mm}
-.about .q-d{font-size:6.7pt;line-height:1.35;color:#DADADA;margin-top:1.4mm}
-.about .q-from{font-family:var(--mono);font-size:5.5pt;letter-spacing:.06em;text-transform:uppercase;color:#9E9EA8;margin-top:1.2mm}
-.about-head{grid-column:1/-1;display:flex;justify-content:space-between;color:#9E9EA8;margin-bottom:-1.4mm}
-.about-head .label{color:#9E9EA8}
-
-.contact{display:grid;grid-template-columns:1fr auto;gap:6mm;align-items:center;border-top:2px solid var(--text);padding-top:2.4mm;margin-top:auto}
-.contact .label.amber{color:var(--accent);font-weight:500}
-.contact h2{font-size:15pt;margin:1mm 0 1.6mm}
-.clist{display:grid;grid-template-columns:auto 1fr;column-gap:3mm;row-gap:.6mm;font-size:7.3pt}
-.clist .label{align-self:center}
-.clist a{color:var(--primary);font-weight:600;word-spacing:.08em}
-.qrs{display:flex;gap:2.6mm}
-.qrs a{display:block;text-align:center;width:19mm}
-.qrs .qr{display:block;width:19mm;height:19mm;background:#fff;border:1px solid var(--border);border-radius:1mm;padding:.8mm}
-.qrs .qr svg{width:100%;height:100%;display:block}
-.qrs .label{display:block;margin-top:1mm;font-size:5.4pt;color:var(--text)}
-.pfoot{position:absolute;left:10mm;right:10mm;bottom:3.6mm;display:flex;justify-content:space-between;font-family:var(--mono);font-size:5.4pt;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.contact{margin-top:auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6mm;align-items:center;border-top:2px solid var(--text);padding-top:2.6mm}
+.contact .avail{color:var(--accent);font-weight:500}
+.contact .avail{margin-bottom:1.8mm}
+.clist{display:flex;flex-wrap:wrap;gap:1.2mm 6mm;font-size:7.6pt}
+.clist span.k{font-family:var(--mono);font-size:6pt;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:1.4mm}
+.clist a{color:var(--primary);font-weight:600}
+.more{display:flex;align-items:center;gap:3mm;background:var(--surface);border:1px solid var(--border);border-radius:1.8mm;padding:2mm 2.4mm 2mm 3.4mm}
+.more b{display:block;font-stretch:68%;font-weight:800;text-transform:uppercase;font-size:10pt;line-height:1}
+.more .sub{display:block;font-size:6.5pt;color:var(--muted);margin-top:.8mm}
+.more .url{display:block;color:var(--primary);font-weight:600;font-size:7.2pt;margin-top:1mm}
+.more .qr{display:block;width:15mm;height:15mm;flex:none}
+.more .qr svg{width:100%;height:100%;display:block}
 </style>
 </head>
 <body>
+<section class="page">
 
-<!-- ======================= PAGE 1 ======================= -->
-<section class="page p1">
   <header class="hero">
     <div>
-      <p class="label"><span lang="en">Project portfolio · Kaospilot, Team 31</span><span lang="da">Projektportefølje · Kaospilot, Hold 31</span></p>
+      <p class="label"><span lang="en">CV · Kaospilot, Team 31 · Aarhus</span><span lang="da">CV · Kaospilot, Hold 31 · Aarhus</span></p>
       <h1 class="caps"><span>Anne Magdalene</span><span>Helles Borgen</span></h1>
       <p class="role" lang="en">Event producer<i>/</i>Community builder<i>/</i>Systems thinker</p>
       <p class="role" lang="da">Eventproducent<i>/</i>Fællesskabsbygger<i>/</i>Systemisk tænker</p>
-      <p class="pitch" lang="en">I founded and lead a pop-up concert concept, coordinate festivals and events, and work with how organisations are built. I'm looking for an internship in culture, events or regenerative organisations.</p>
-      <p class="pitch" lang="da">Jeg har stiftet og leder et pop-up koncertkoncept, koordinerer festivaler og events og arbejder med, hvordan organisationer bygges. Jeg søger praktik inden for kultur, events eller regenerative organisationer.</p>
-      <div class="reach">
-        <a href="mailto:anne.magdalene@borgen.ee"><span class="k">Email</span>anne.magdalene@borgen.ee</a>
-        <a href="tel:+4560219758"><span class="k" lang="en">Phone</span><span class="k" lang="da">Tlf.</span>+45 60 21 97 58</a>
-        <a href="https://www.linkedin.com/in/anne-magdalene-helles-borgen-744077201/">LinkedIn ↗</a>
-        <a href="https://annemagdalenne.github.io/">annemagdalenne.github.io ↗</a>
-      </div>
       <ul class="facts">
         <li><b lang="en">Founder</b><b lang="da">Stifter</b><span lang="en">Amplify Live, since 2025</span><span lang="da">Amplify Live, siden 2025</span></li>
         <li><b lang="en">Programme lead</b><b lang="da">Programansvarlig</b><span>Ung Kult Camp, Kulturmødet 2026</span></li>
@@ -191,221 +143,127 @@ h3.caps{font-size:10pt;line-height:.98}
       </ul>
     </div>
     <figure class="pass">
-      <span class="slot"></span>
-      <p class="pass-strip"><span>All access</span><span>2027</span></p>
-      <img src="portrait-fair.jpg" alt="Anne at a night fairground">
-      <figcaption class="pass-meta">
-        <b>Anne M. H. Borgen</b>
-        <span class="r" lang="en">Kaospilot, Team 31 · Aarhus</span><span class="r" lang="da">Kaospilot, Hold 31 · Aarhus</span>
-        <span class="avail" lang="en">Available from 1 Feb 2027</span><span class="avail" lang="da">Ledig fra 1. feb. 2027</span>
-      </figcaption>
+      <span class="lanyard l"></span><span class="lanyard r"></span>
+      <div class="pass-card">
+        <span class="slot"></span>
+        <p class="pass-strip"><span>All access</span><span>2027</span></p>
+        <img src="portrait-fair.jpg" alt="Anne at a night fairground">
+        <figcaption class="pass-meta">
+          <b>Anne M. H. Borgen</b>
+          <span class="r" lang="en">Kaospilot, Team 31 · Aarhus</span><span class="r" lang="da">Kaospilot, Hold 31 · Aarhus</span>
+          <span class="avail" lang="en">Available from 1 Feb 2027</span><span class="avail" lang="da">Ledig fra 1. feb. 2027</span>
+        </figcaption>
+      </div>
     </figure>
   </header>
 
   <section>
-    <div class="sechead"><h2 class="caps"><span lang="en">What I bring to the table</span><span lang="da">Hvad jeg bringer til bords</span></h2><span class="label" lang="en">7 skills · with proof</span><span class="label" lang="da">7 kompetencer · med erfaring</span></div>
-    <div class="skills">
-      <article class="skill"><h3 class="caps"><span lang="en">Event &amp; festival production</span><span lang="da">Event- og festival&shy;produktion</span></h3><span class="bar"></span>
-        <p lang="en">From booking and contracts to building the site and running stages on the day.</p><p lang="da">Fra booking og kontrakter til opbygning af området og afvikling af scener på dagen.</p>
-        <p class="proof">Ung Kult Camp · Amplify Live · Blue Ocean Music Festival</p></article>
-      <article class="skill"><h3 class="caps"><span lang="en">Building organisations</span><span lang="da">At bygge organisationer</span></h3><span class="bar"></span>
-        <p lang="en">Starting things from zero and giving them structure, purpose and a community that stays.</p><p lang="da">At starte noget fra bunden og give det struktur, retning og et fællesskab, der bliver.</p>
-        <p class="proof">Amplify Live · Girls Got Game · Rampen</p></article>
-      <article class="skill"><h3 class="caps"><span lang="en">Systemic &amp; regenerative thinking</span><span lang="da">Systemisk og regenerativ tænkning</span></h3><span class="bar"></span>
-        <p lang="en">Mapping how structures, relations and narratives shape culture, and finding the root causes.</p><p lang="da">At kortlægge, hvordan strukturer, relationer og fortællinger former kulturen, og finde grundårsagerne.</p>
-        <p class="proof">Rizoma · Permakultur Danmark</p></article>
-      <article class="skill"><h3 class="caps"><span lang="en">Funding &amp; operations</span><span lang="da">Fondsmidler og drift</span></h3><span class="bar"></span>
-        <p lang="en">Grant applications, budgets, contracts, permits and the admin that keeps a project legal and alive.</p><p lang="da">Fondsansøgninger, budgetter, kontrakter, tilladelser og den administration, der holder et projekt lovligt og levende.</p>
-        <p class="proof">Amplify Live · Ung Kult Camp · Rampen</p></article>
-      <article class="skill"><h3 class="caps"><span lang="en">Content &amp; communication</span><span lang="da">Indhold og kommunikation</span></h3><span class="bar"></span>
-        <p lang="en">Scripting, filming and editing video, finding a tone of voice and writing in Danish and English.</p><p lang="da">Manus, optagelse og klipning af video, at finde en tone of voice og skrive på dansk og engelsk.</p>
-        <p class="proof">Freelance UGC · Amplify Live</p></article>
-      <article class="skill"><h3 class="caps"><span lang="en">Leadership &amp; facilitation</span><span lang="da">Ledelse og facilitering</span></h3><span class="bar"></span>
-        <p lang="en">Leading teams under pressure, running processes and assessing people fairly.</p><p lang="da">At lede teams under pres, styre processer og vurdere mennesker fair.</p>
-        <p class="proof"><span lang="en">Kitchen manager · Kaospilot admissions · Kulturloft</span><span lang="da">Køkkenleder · Kaospilot-optag · Kulturloft</span></p></article>
-      <article class="skill"><h3 class="caps"><span lang="en">Digital tools &amp; AI</span><span lang="da">Digitale værktøjer og AI</span></h3><span class="bar"></span>
-        <p lang="en">I design in Figma and Canva, build systems and databases in Notion, and use AI to speed up research, writing and planning.</p><p lang="da">Jeg designer i Figma og Canva, bygger systemer og databaser i Notion og bruger AI til at gøre research, skrivning og planlægning hurtigere.</p>
-        <p class="proof">Plata (UX) · Girls Got Game</p></article>
-      <a class="skill qrcard" href="https://annemagdalenne.github.io/">
-        <span class="qr">{{QR:site}}</span>
-        <span><b lang="en">The full portfolio</b><b lang="da">Hele porteføljen</b><span lang="en">Project pages, photos and the live sessions.</span><span lang="da">Projektsider, billeder og live-sessions.</span></span>
-      </a>
-    </div>
+    <div class="sechead"><h2 class="caps"><span lang="en">What I bring to the table</span><span lang="da">Hvad jeg bringer til bords</span></h2></div>
+    <ul class="skills">
+      <li><b lang="en">Event &amp; festival production</b><b lang="da">Event- og festivalproduktion</b></li>
+      <li><b lang="en">Building organisations</b><b lang="da">At bygge organisationer</b></li>
+      <li><b lang="en">Systemic &amp; regenerative thinking</b><b lang="da">Systemisk og regenerativ tænkning</b></li>
+      <li><b lang="en">Funding &amp; operations</b><b lang="da">Fondsmidler og drift</b></li>
+      <li><b lang="en">Artist relations</b><b lang="da">Artistkontakt</b></li>
+      <li><b lang="en">Content &amp; communication</b><b lang="da">Indhold og kommunikation</b></li>
+      <li><b lang="en">Leadership &amp; facilitation</b><b lang="da">Ledelse og facilitering</b></li>
+      <li><b lang="en">Partnerships</b><b lang="da">Partnerskaber</b></li>
+      <li><b lang="en">Digital tools &amp; AI</b><b lang="da">Digitale værktøjer og AI</b></li>
+    </ul>
   </section>
 
   <section class="al">
-    <div class="al-top">
-      <div>
-        <p class="al-label"><span lang="en">Main project · Founder &amp; chair · Since May 2025</span><span lang="da">Hovedprojekt · Stifter og formand · Siden maj 2025</span></p>
-        <div class="al-brand"><img src="img/amplify/amplify-live-logo.svg" alt="Amplify Live logo"><h2>Amplify<br><em>Live</em></h2></div>
-      </div>
-      <div>
-        <p class="al-tag" lang="en">Unique pop-up stages for grassroots artists, with a professional live session to take with them.</p>
-        <p class="al-tag" lang="da">Unikke pop-up-scener for græsrodsartister, med en professionel live-session i bagagen.</p>
-        <p class="al-lead" lang="en">Amplify Live is a non-profit association in Aarhus that gives emerging artists an intimate stage, professional live video and a way into the music industry. It runs entirely on foundation grants.</p>
-        <p class="al-lead" lang="da">Amplify Live er en non-profit forening i Aarhus, der giver nye artister en intim scene, professionel livevideo og en vej ind i musikbranchen. Foreningen drives udelukkende af fondsmidler.</p>
-        <ul class="al-stats">
-          <li><b>3</b><span lang="en">live sessions</span><span lang="da">live-sessions</span></li>
-          <li><b>9</b><span lang="en">crew members, plus extra hands</span><span lang="da">i crewet, plus ekstra hænder</span></li>
-          <li><b>2025</b><span lang="en">founded in Aarhus</span><span lang="da">stiftet i Aarhus</span></li>
-        </ul>
-      </div>
+    <div>
+      <p class="al-kicker"><span lang="en">Main project · since May 2025</span><span lang="da">Hovedprojekt · siden maj 2025</span></p>
+      <div class="al-brand"><img src="img/amplify/amplify-live-logo.svg" alt="Amplify Live logo"><h2>Amplify<br><em>Live</em></h2></div>
+      <span class="al-founder"><span lang="en">Founder &amp; chair</span><span lang="da">Stifter og formand</span></span>
     </div>
-    <div class="al-mid">
-      <div>
-        <p class="al-label rule"><span lang="en">Live sessions</span><span lang="da">Live-sessions</span></p>
-        <ul class="al-videos">
-          <li><a class="al-video" href="https://www.youtube.com/watch?v=h4WnKVaH6rU&amp;t=1463s"><span class="play"></span><span class="vt"><b><span lang="en">Balcony Concert</span><span lang="da">Altankoncert</span></b><span lang="en">with SOPHUS</span><span lang="da">med SOPHUS</span></span><span class="yt">YouTube ↗</span></a></li>
-          <li><a class="al-video" href="https://www.youtube.com/watch?v=bSEjZb2h7Z8"><span class="play"></span><span class="vt"><b><span lang="en">Rooftop Concert</span><span lang="da">Tagkoncert</span></b><span lang="en">with Monsun</span><span lang="da">med Monsun</span></span><span class="yt">YouTube ↗</span></a></li>
-          <li><a class="al-video" href="https://www.youtube.com/watch?v=SjQj6zRdfbs"><span class="play"></span><span class="vt"><b><span lang="en">Seaside Concert</span><span lang="da">Havnekoncert</span></b><span lang="en">with Anberose</span><span lang="da">med Anberose</span></span><span class="yt">YouTube ↗</span></a></li>
-          <li><a class="al-video all" href="https://www.youtube.com/@amplify__live"><span class="play"></span><span class="vt"><b><span lang="en">All videos</span><span lang="da">Alle videoer</span></b>youtube.com/@amplify__live</span><span class="yt">↗</span></a></li>
-        </ul>
-      </div>
-      <div class="al-learn">
-        <p class="al-label rule"><span lang="en">What I've learned</span><span lang="da">Det har jeg lært</span></p>
-        <p class="al-lead" lang="en">I started the project in May 2025 and lead it today. Building it has taught me how the music industry works from the inside, what it takes to keep a volunteer-driven community going, and <strong class="al-hl">not least, how to start a concept from scratch</strong>.</p>
-        <p class="al-lead" lang="da">Jeg startede projektet i maj 2025 og leder det i dag. Arbejdet har lært mig, hvordan musikbranchen fungerer indefra, hvad der skal til for at holde et frivilligt fællesskab kørende, og <strong class="al-hl">ikke mindst, det at starte et koncept fra bunden</strong>.</p>
-        <ul class="al-skills">
-          <li><b><span lang="en">Founding &amp; governance</span><span lang="da">Stiftelse og drift</span></b><span lang="en">Registering the association, banking, admin and keeping it running.</span><span lang="da">At registrere foreningen, bank, administration og holde driften kørende.</span></li>
-          <li><b>Fundraising</b><span lang="en">Foundation applications and budgets, our only income.</span><span lang="da">Fondsansøgninger og budgetter, vores eneste indtægt.</span></li>
-          <li><b><span lang="en">Artist relations</span><span lang="da">Artistkontakt</span></b><span lang="en">The contact from first message to soundcheck.</span><span lang="da">Kontaktperson fra første besked til soundcheck.</span></li>
-          <li><b><span lang="en">Team leadership</span><span lang="da">Teamledelse</span></b><span lang="en">Bringing the crew together and sharing out the roles.</span><span lang="da">At samle crewet og fordele arbejdsposterne.</span></li>
-          <li><b><span lang="en">Production &amp; venue design</span><span lang="da">Produktion og rumdesign</span></b><span lang="en">Finding the stage, shaping the room, planning the run of show.</span><span lang="da">At finde scenen, forme rummet og planlægge afviklingen.</span></li>
-          <li><b><span lang="en">Video &amp; communication</span><span lang="da">Video og kommunikation</span></b><span lang="en">Planning live sessions and writing bilingual posts.</span><span lang="da">At planlægge live-sessions og skrive tosprogede opslag.</span></li>
-          <li><b><span lang="en">Partnerships</span><span lang="da">Partnerskaber</span></b><span lang="en">E.g. an upcycled merch workshop with Pop Up Lop.</span><span lang="da">F.eks. en upcycling-merchworkshop med Pop Up Lop.</span></li>
-          <li><b><span lang="en">Law &amp; permits</span><span lang="da">Regler og tilladelser</span></b><span lang="en">The rules for events, venues and a grant-funded association.</span><span lang="da">Reglerne for events, spillesteder og en fondsfinansieret forening.</span></li>
-        </ul>
-      </div>
+    <div>
+      <p class="al-tag" lang="en">Unique pop-up stages for grassroots artists, with a professional live session to take with them.</p>
+      <p class="al-tag" lang="da">Unikke pop-up-scener for græsrodsartister, med en professionel live-session i bagagen.</p>
+      <p class="al-lead" lang="en">A non-profit association in Aarhus, run entirely on foundation grants.</p>
+      <p class="al-lead" lang="da">En non-profit forening i Aarhus, drevet udelukkende af fondsmidler.</p>
+      <ul class="al-stats">
+        <li><b>3</b><span lang="en">live sessions</span><span lang="da">live-sessions</span></li>
+        <li><b>9</b><span lang="en">crew members</span><span lang="da">i crewet</span></li>
+        <li><b>2025</b><span lang="en">founded</span><span lang="da">stiftet</span></li>
+      </ul>
+      <p class="al-sessions">
+        <a href="https://www.youtube.com/watch?v=h4WnKVaH6rU&amp;t=1463s"><b lang="en">Balcony</b><b lang="da">Altan</b> · SOPHUS</a>
+        <a href="https://www.youtube.com/watch?v=bSEjZb2h7Z8"><b lang="en">Rooftop</b><b lang="da">Tag</b> · Monsun</a>
+        <a href="https://www.youtube.com/watch?v=SjQj6zRdfbs"><b lang="en">Seaside</b><b lang="da">Havn</b> · Anberose</a>
+        <a class="all" href="https://www.youtube.com/@amplify__live"><span lang="en">All live sessions ↗</span><span lang="da">Alle live-sessions ↗</span></a>
+      </p>
     </div>
     <div class="al-photos">
-      <img src="img/amplify/hosting.jpg" alt="">
       <img src="img/amplify/seaside-1.jpg" alt="">
       <img src="img/amplify/courtyard.jpg" alt="">
-      <img src="img/amplify/balcony.jpg" alt="">
-      <img src="img/amplify/seaside-2.jpg" alt="">
     </div>
   </section>
-  <div class="pfoot"><span>Anne Magdalene Helles Borgen</span><span>annemagdalenne.github.io · 1/2</span></div>
-</section>
 
-<!-- ======================= PAGE 2 ======================= -->
-<section class="page p2">
   <section>
-    <div class="sechead"><h2 class="caps"><span lang="en">Projects</span><span lang="da">Projekter</span></h2><span class="label" lang="en">More photos and details on the website</span><span class="label" lang="da">Flere billeder og detaljer på hjemmesiden</span></div>
+    <div class="sechead"><h2 class="caps"><span lang="en">Projects</span><span lang="da">Projekter</span></h2></div>
     <div class="projects">
-      <article class="proj c-coral"><div class="ph"><img src="img/projects/ukc-1.jpg" alt="" style="object-position:50% 45%"><img src="img/projects/ukc-2.jpg" alt="" style="object-position:50% 55%"></div>
+      <article class="proj c-coral"><div class="ph"><img src="img/projects/ukc-2.jpg" alt="" style="object-position:50% 55%"></div>
         <div class="tx"><p class="kind label"><span><span lang="en">Programme lead</span><span lang="da">Programansvarlig</span></span><span lang="en">8 months</span><span lang="da">8 måneder</span></p>
-          <h3 class="caps"><span class="dot"></span>Ung Kult Camp 2026</h3><p class="where">Kulturmødet, Mors</p>
-          <p class="body" lang="en">I was responsible for part of the youth programme at Kulturmødet, the national culture festival on Mors. I found and hired the acts, handled their contracts and needs, built the physical festival space and ran the schedule and stages during the festival.</p>
-          <p class="body" lang="da">Jeg var ansvarlig for en del af ungeprogrammet på Kulturmødet på Mors. Jeg fandt og hyrede aktørerne, håndterede kontrakter og behov, byggede det fysiske festivalområde og styrede tidsplaner og scener under festivalen.</p>
-          <ul class="tags"><li lang="en">Booking</li><li lang="en">Contracts</li><li lang="en">Site build</li><li lang="en">Festival operations</li><li lang="da">Booking</li><li lang="da">Kontrakter</li><li lang="da">Opbygning</li><li lang="da">Afvikling</li></ul></div></article>
-      <article class="proj c-ink"><div class="ph"><img src="img/projects/pkdk-1.jpg" alt=""><img src="img/projects/pkdk-2.jpg" alt=""></div>
+          <h3 class="caps">Ung Kult Camp 2026</h3><p class="where">Kulturmødet, Mors</p>
+          <p class="body" lang="en">Part of the youth programme at the national culture festival: I hired the acts, handled their contracts and needs, built the festival space and ran the stages.</p>
+          <p class="body" lang="da">En del af ungeprogrammet på det nationale kulturmøde: Jeg hyrede aktørerne, håndterede kontrakter og behov, byggede festivalområdet og styrede scenerne.</p></div></article>
+      <article class="proj c-ink"><div class="ph"><img src="img/projects/pkdk-1.jpg" alt=""></div>
         <div class="tx"><p class="kind label"><span><span lang="en">Research placement</span><span lang="da">Researchpraktik</span></span><span lang="en">4 months</span><span lang="da">4 måneder</span></p>
-          <h3 class="caps"><span class="dot"></span>Permakultur Danmark</h3><p class="where"><span lang="en">Kaospilot, semester 4</span><span lang="da">Kaospilot, 4. semester</span></p>
-          <p class="body" lang="en">I studied permaculture and worked out how its principles translate into leadership, so organisations can be built with a regenerative mindset instead of an extractive one.</p>
-          <p class="body" lang="da">Jeg undersøgte permakultur og hvordan dens principper kan oversættes til ledelse, så organisationer kan bygges med et regenerativt mindset i stedet for et udnyttende.</p>
-          <ul class="tags"><li lang="en">Research</li><li lang="en">Regenerative leadership</li><li lang="en">Organisational development</li><li lang="da">Research</li><li lang="da">Regenerativ ledelse</li><li lang="da">Organisationsudvikling</li></ul></div></article>
+          <h3 class="caps">Permakultur Danmark</h3><p class="where"><span lang="en">Kaospilot, semester 4</span><span lang="da">Kaospilot, 4. semester</span></p>
+          <p class="body" lang="en">How permaculture principles translate into leadership, so organisations can be built with a regenerative mindset instead of an extractive one.</p>
+          <p class="body" lang="da">Hvordan permakulturens principper kan oversættes til ledelse, så organisationer kan bygges med et regenerativt mindset i stedet for et udnyttende.</p></div></article>
       <article class="proj c-blue"><div class="ph"><img src="img/projects/ggg.jpg" alt=""></div>
         <div class="tx"><p class="kind label"><span><span lang="en">Internship</span><span lang="da">Praktik</span></span><span lang="en">3 months</span><span lang="da">3 måneder</span></p>
-          <h3 class="caps"><span class="dot"></span>Girls Got Game</h3><p class="where"><span lang="en">Community platform</span><span lang="da">Fællesskabsplatform</span></p>
-          <p class="body" lang="en">I built an organising tool in Notion that gives members and owners one digital platform for the community, and helped sharpen the project's vision, mission and goals.</p>
-          <p class="body" lang="da">Jeg byggede et organiseringsværktøj i Notion, der giver medlemmer og ejere én digital platform for fællesskabet, og var med til at skærpe projektets vision, mission og mål.</p>
-          <ul class="tags"><li lang="en">Digital community</li><li lang="en">Notion systems</li><li lang="en">Strategy</li><li lang="da">Digitalt fællesskab</li><li lang="da">Notion-systemer</li><li lang="da">Strategi</li></ul></div></article>
+          <h3 class="caps">Girls Got Game</h3><p class="where"><span lang="en">Community platform</span><span lang="da">Fællesskabsplatform</span></p>
+          <p class="body" lang="en">I built a Notion platform for the community's members and owners, and helped sharpen the vision, mission and goals.</p>
+          <p class="body" lang="da">Jeg byggede en Notion-platform til fællesskabets medlemmer og ejere og var med til at skærpe vision, mission og mål.</p></div></article>
       <article class="proj c-soft"><div class="ph"><img src="img/projects/rizoma.jpg" alt=""></div>
         <div class="tx"><p class="kind label"><span><span lang="en">Systemic project</span><span lang="da">Systemisk projekt</span></span><span lang="en">3 months</span><span lang="da">3 måneder</span></p>
-          <h3 class="caps"><span class="dot"></span>Rizoma</h3><p class="where"><span lang="en">Cooperative in Lisbon · Kaospilot, semester 3</span><span lang="da">Kooperativ i Lissabon · Kaospilot, 3. semester</span></p>
-          <p class="body" lang="en">I mapped the internal systems of an association and looked at how the stories people tell inside it shape the way they work together, then proposed interventions that could strengthen and change how they work together internally.</p>
-          <p class="body" lang="da">Jeg kortlagde en forenings interne systemer og undersøgte, hvordan de fortællinger, folk fortæller internt, former måden, de arbejder sammen på, og kom med forslag til interventioner, der kunne styrke og ændre deres interne samarbejde.</p>
-          <ul class="tags"><li lang="en">Systems mapping</li><li lang="en">Narratives</li><li lang="en">Organisational culture</li><li lang="da">Systemkortlægning</li><li lang="da">Fortællinger</li><li lang="da">Organisationskultur</li></ul></div></article>
+          <h3 class="caps">Rizoma</h3><p class="where"><span lang="en">Cooperative in Lisbon · Kaospilot, semester 3</span><span lang="da">Kooperativ i Lissabon · Kaospilot, 3. semester</span></p>
+          <p class="body" lang="en">I mapped how the internal systems and stories of the cooperative shape the way people work together, and proposed interventions to strengthen it.</p>
+          <p class="body" lang="da">Jeg kortlagde, hvordan kooperativets interne systemer og fortællinger former samarbejdet, og foreslog interventioner, der kunne styrke det.</p></div></article>
+      <article class="proj small c-paper">
+        <div class="tx"><div><p class="kind label"><span>Freelance</span><span lang="en">1.5 years</span><span lang="da">1,5 år</span></p><h3 class="caps"><span lang="en">UGC creator</span><span lang="da">UGC-creator</span></h3></div>
+          <p class="body" lang="en">I pitch brands, agree on style and tone, then script, film and edit short-form video. <a href="https://annemagdalene-ugc.my.canva.site/">See my UGC portfolio ↗</a></p>
+          <p class="body" lang="da">Jeg kontakter brands, aftaler stil og tone og skriver, filmer og klipper korte videoer. <a href="https://annemagdalene-ugc.my.canva.site/">Se min UGC-portefølje ↗</a></p></div></article>
     </div>
   </section>
 
   <section>
-    <div class="sechead"><h2 class="caps">Sidequests</h2></div>
-    <div class="sides">
-      <article class="side"><p class="label">Freelance</p><h3 class="caps"><span lang="en">UGC creator</span><span lang="da">UGC-creator</span></h3>
-        <p lang="en">I pitch brands, agree on style and tone, then script, film and edit short-form video. <a href="https://annemagdalene-ugc.my.canva.site/">See my UGC portfolio ↗</a></p>
-        <p lang="da">Jeg kontakter brands, aftaler stil og tone og skriver, filmer og klipper korte videoer. <a href="https://annemagdalene-ugc.my.canva.site/">Se min UGC-portefølje ↗</a></p>
-        <span class="label dur" lang="en">1.5 years</span><span class="label dur" lang="da">1,5 år</span></article>
-      <article class="side"><p class="label"><span lang="en">Volunteer</span><span lang="da">Frivillig</span></p><h3 class="caps">Rampen Ebeltoft</h3>
-        <p lang="en">Events and funding at a youth culture house. I booked and hosted the artists at Blue Ocean Music Festival 2024.</p>
-        <p lang="da">Events og fondsansøgninger i et ungdomskulturhus. Jeg bookede og tog mig af artisterne til Blue Ocean Music Festival 2024.</p>
-        <span class="label dur" lang="en">1 year</span><span class="label dur" lang="da">1 år</span></article>
-      <article class="side"><p class="label">Startup</p><h3 class="caps"><span lang="en">UX intern, Plata</span><span lang="da">UX-praktikant, Plata</span></h3>
-        <p lang="en">I coordinated designs and worked with user flows in a small startup team.</p>
-        <p lang="da">Jeg koordinerede design og arbejdede med brugerflows i et lille startupteam.</p>
-        <span class="label dur" lang="en">1 year</span><span class="label dur" lang="da">1 år</span></article>
-      <article class="side"><p class="label"><span lang="en">Course</span><span lang="da">Kursus</span></p><h3 class="caps">Kulturloft</h3>
-        <p lang="en">I learned to plan, build and run a concert, ending with a show with Brimheim.</p>
-        <p lang="da">Jeg lærte at planlægge, bygge og afvikle en koncert, som sluttede med en koncert med Brimheim.</p>
-        <span class="label dur" lang="en">4 months</span><span class="label dur" lang="da">4 måneder</span></article>
-      <article class="side"><p class="label"><span lang="en">Kaospilot admissions</span><span lang="da">Kaospilot-optag</span></p><h3 class="caps">Interviewer</h3>
-        <p lang="en">I interviewed applicants at a three-day admissions workshop, assessing six competencies from leadership to resilience.</p>
-        <p lang="da">Jeg interviewede ansøgere på en tredages optagelsesworkshop og vurderede seks kompetencer fra lederskab til robusthed.</p>
-        <span class="label dur" lang="en">3-day workshop</span><span class="label dur" lang="da">Tredages workshop</span></article>
-    </div>
-  </section>
-
-  <section class="cols">
-    <div>
-      <div class="sechead"><h2 class="caps">Kaospilot, 2024–27</h2></div>
-      <p class="intro" lang="en">Enterprising leadership, learned through real projects with real clients.</p>
-      <p class="intro" lang="da">Entreprenant lederskab, lært gennem rigtige projekter med rigtige kunder.</p>
-      <ol class="sem">
-        <li><span class="n">S1</span><span><b lang="en">Project management &amp; teamwork</b><b lang="da">Projektledelse og teamwork</b></span></li>
-        <li><span class="n">S2</span><span><b lang="en">Enterprising</b><b lang="da">Entreprenørskab</b> <span lang="en">· building our own concept, leading through agency</span><span lang="da">· eget koncept, ledelse gennem handlekraft</span></span></li>
-        <li><span class="n">S3</span><span><b>Outpost</b> <span lang="en">· leadership abroad, in Lisbon for me</span><span lang="da">· ledelse i udlandet, i Lissabon for mit vedkommende</span></span></li>
-        <li><span class="n">S4</span><span><b lang="en">Placement</b><b lang="da">Praktik</b> · Permakultur Danmark</span></li>
-        <li><span class="n">S5</span><span><b lang="en">Systemic work</b><b lang="da">Systemisk arbejde</b> <span lang="en">· root causes in connected systems</span><span lang="da">· grundårsager i forbundne systemer</span></span></li>
-        <li class="now"><span class="n">S6</span><span><b lang="en">Internship &amp; Pilot Project</b><b lang="da">Praktik og pilotprojekt</b> <span lang="en">· from Feb 2027</span><span lang="da">· fra feb. 2027</span><span class="open" lang="en">This is the semester still missing a project. Could it be yours?</span><span class="open" lang="da">Det er det semester, der stadig mangler et projekt. Kunne det være jeres?</span></span></li>
-      </ol>
-    </div>
-    <div>
-      <div class="sechead"><h2 class="caps"><span lang="en">Other roles and school</span><span lang="da">Øvrige stillinger og skole</span></h2></div>
+    <div class="sechead"><h2 class="caps"><span lang="en">Other roles and school</span><span lang="da">Øvrige stillinger og skole</span></h2></div>
+    <div class="bottom">
+      <div class="kp">
+        <span class="label" lang="en">Education · 2024–27</span><span class="label" lang="da">Uddannelse · 2024–27</span>
+        <h3 class="caps">Kaospilot<small>Aarhus</small></h3>
+        <p lang="en"><b>Three years of enterprising leadership, learned through real projects with real clients</b>: project management, building our own concept, leading abroad in Lisbon, a placement and systemic work. It shaped how I work: hands-on, systemic and with real stakes.</p>
+        <p lang="da"><b>Tre år med entreprenant lederskab, lært gennem rigtige projekter med rigtige kunder</b>: projektledelse, eget koncept, ledelse i udlandet i Lissabon, praktik og systemisk arbejde. Det har formet, hvordan jeg arbejder: hands-on, systemisk og med noget på spil.</p>
+      </div>
       <ul class="tl">
-        <li><span class="y">2023–24</span><span><b lang="en">Kitchen manager, Huset Frost</b><b lang="da">Køkkenleder, Huset Frost</b><span class="sub" lang="en">Ran the kitchen and café</span><span class="sub" lang="da">Ansvarlig for køkken og café</span></span></li>
-        <li><span class="y">2021–23</span><span><b lang="en">Shop assistant, Emmerys Copenhagen</b><b lang="da">Butiksmedarbejder, Emmerys København</b><span class="sub" lang="en">Bakery and café</span><span class="sub" lang="da">Bageri og café</span></span></li>
-        <li><span class="y">2020–21</span><span><b>Olivers Garage</b><span class="sub">Café</span></span></li>
-        <li><span class="y">2020–23</span><span><b>Niels Brock</b><span class="sub" lang="en">Business high school, UX design</span><span class="sub" lang="da">Handelsgymnasium, UX-design</span></span></li>
-        <li><span class="y">2019–20</span><span><b>Klejtrup Musikefterskole</b><span class="sub" lang="en">Music boarding school</span><span class="sub" lang="da">Musikefterskole</span></span></li>
+        <li><span class="y">2023–24</span><span><b lang="en">Kitchen manager, Huset Frost</b><b lang="da">Køkkenleder, Huset Frost</b> <span class="sub" lang="en">· kitchen and café</span><span class="sub" lang="da">· køkken og café</span></span></li>
+        <li><span class="y">2021–23</span><span><b lang="en">Shop assistant, Emmerys</b><b lang="da">Butiksmedarbejder, Emmerys</b> <span class="sub" lang="en">· bakery and café</span><span class="sub" lang="da">· bageri og café</span></span></li>
+        <li><span class="y">2020–21</span><span><b>Olivers Garage</b> <span class="sub">· café</span></span></li>
+        <li><span class="y">2020–23</span><span><b>Niels Brock</b> <span class="sub" lang="en">· business high school, UX</span><span class="sub" lang="da">· handelsgymnasium, UX</span></span></li>
+        <li><span class="y">2019–20</span><span><b>Klejtrup Musikefterskole</b></span></li>
       </ul>
     </div>
   </section>
 
-  <section class="about">
-    <div class="about-head"><span class="label" lang="en">About me · what I work by</span><span class="label" lang="da">Om mig · det arbejder jeg ud fra</span></div>
-    <div><p class="q-t"><span lang="en">Community is the infrastructure</span><span lang="da">Fællesskabet er infrastrukturen</span></p>
-      <p class="q-d" lang="en">People stay for the people. So I design for belonging first and build the programme around it.</p><p class="q-d" lang="da">Folk bliver for menneskernes skyld. Derfor designer jeg for tilhørsforhold først og bygger programmet omkring det.</p>
-      <p class="q-from" lang="en">Learned at efterskole and Rampen</p><p class="q-from" lang="da">Lært på efterskole og i Rampen</p></div>
-    <div><p class="q-t"><span lang="en">Look behind the surface</span><span lang="da">Kig bag overfladen</span></p>
-      <p class="q-d" lang="en">Problems usually sit in the structure: the flows, the money, the stories an organisation tells itself.</p><p class="q-d" lang="da">Problemer sidder som regel i strukturen: flowet, økonomien og de fortællinger, en organisation fortæller sig selv.</p>
-      <p class="q-from" lang="en">Learned through UX and systemic work</p><p class="q-from" lang="da">Lært gennem UX og systemisk arbejde</p></div>
-    <div><p class="q-t"><span lang="en">Hands-on leadership</span><span lang="da">Hands-on lederskab</span></p>
-      <p class="q-d" lang="en">Running a kitchen taught me to stay calm under pressure, own mistakes and lead by doing the work too.</p><p class="q-d" lang="da">At lede et køkken lærte mig at bevare roen under pres, tage ansvar for fejl og lede ved selv at tage fat.</p>
-      <p class="q-from" lang="en">Learned in cafés and as kitchen manager</p><p class="q-from" lang="da">Lært på caféer og som køkkenleder</p></div>
-    <div><p class="q-t"><span>Learning by doing</span></p>
-      <p class="q-d" lang="en">I learn fastest with real stakes, so I take on responsibility early and reflect as I go.</p><p class="q-d" lang="da">Jeg lærer hurtigst, når noget er på spil, så jeg tager ansvar tidligt og reflekterer undervejs.</p>
-      <p class="q-from" lang="en">Learned at Kaospilot</p><p class="q-from" lang="da">Lært på Kaospilot</p></div>
-  </section>
-
   <section class="contact">
     <div>
-      <p class="label amber"><span lang="en">Available from 1 February 2027</span><span lang="da">Klar fra 1. februar 2027</span></p>
-      <h2 class="caps"><span lang="en">Let's talk about your next project.</span><span lang="da">Lad os tale om jeres næste projekt.</span></h2>
-      <div class="clist">
-        <span class="label">Email</span><a href="mailto:anne.magdalene@borgen.ee">anne.magdalene@borgen.ee</a>
-        <span class="label"><span lang="en">Phone</span><span lang="da">Telefon</span></span><a href="tel:+4560219758">+45 60 21 97 58</a>
-        <span class="label"><span lang="en">Location</span><span lang="da">Lokation</span></span><span lang="en">Based in Aarhus, open to Copenhagen or abroad</span><span lang="da">Bor i Aarhus, åben for København eller udlandet</span>
-      </div>
+      <p class="label avail"><span lang="en">Available for an internship from 1 February 2027</span><span lang="da">Klar til praktik fra 1. februar 2027</span></p>
+            <p class="clist">
+        <a href="mailto:anne.magdalene@borgen.ee"><span class="k">Email</span>anne.magdalene@borgen.ee</a>
+        <a href="tel:+4560219758"><span class="k" lang="en">Phone</span><span class="k" lang="da">Tlf.</span>+45 60 21 97 58</a>
+        <a href="https://www.linkedin.com/in/anne-magdalene-helles-borgen-744077201/"><span class="k">LinkedIn</span>Anne Magdalene Helles Borgen ↗</a>
+      </p>
     </div>
-    <div class="qrs">
-      <a href="https://annemagdalenne.github.io/"><span class="qr">{{QR:site}}</span><span class="label">Portfolio</span></a>
-      <a href="https://www.linkedin.com/in/anne-magdalene-helles-borgen-744077201/"><span class="qr">{{QR:linkedin}}</span><span class="label">LinkedIn</span></a>
-      <a href="https://www.youtube.com/@amplify__live"><span class="qr">{{QR:youtube}}</span><span class="label">Live sessions</span></a>
-      <a href="https://annemagdalene-ugc.my.canva.site/"><span class="qr">{{QR:ugc}}</span><span class="label"><span lang="en">UGC portfolio</span><span lang="da">UGC-portefølje</span></span></a>
-    </div>
+    <a class="more" href="https://annemagdalenne.github.io/">
+      <span><b lang="en">Read more on my website</b><b lang="da">Læs mere på min hjemmeside</b><span class="sub" lang="en">Full project pages, photos and live sessions</span><span class="sub" lang="da">Projektsider, billeder og live-sessions</span><span class="url">annemagdalenne.github.io ↗</span></span>
+      <span class="qr">{{QR:site}}</span>
+    </a>
   </section>
-  <div class="pfoot"><span>Anne Magdalene Helles Borgen</span><span>annemagdalenne.github.io · 2/2</span></div>
 </section>
 
 <script>
