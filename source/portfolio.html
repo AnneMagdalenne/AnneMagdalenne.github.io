@@ -423,6 +423,90 @@ footer .wrap{padding-block:20px}
   #work{break-before:page}
   .skill,.q,.sem li,.tl li,.offer,.al-skill,.clist{break-inside:avoid}
 }
+
+/* Amplify Live: a "Scroll for more" label replaces the pointer (mouse and trackpad only),
+   in the style of cultureworks.dk. Links and buttons keep the normal pointer. */
+.al-cursor{display:none}
+@media (hover:hover) and (pointer:fine){
+  .al-cursor{display:block;position:fixed;left:0;top:0;z-index:25;pointer-events:none;background:var(--al-lime);color:var(--al-black);font:800 .72rem/1 "Aileron",var(--font);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;padding:5px 7px 4px;opacity:0;scale:.8;translate:-200px -200px;transition:opacity .18s,scale .18s}
+  .al-cursor.is-on{opacity:1;scale:1}
+  .al.cursor-on,.al.cursor-on *{cursor:none}
+  .al.cursor-on :is(a,button,[role="button"]),.al.cursor-on :is(a,button,[role="button"]) *{cursor:pointer}
+}
+@media (prefers-reduced-motion:reduce){.al-cursor{transition:none}}
+
+/* Full-screen sections: on laptops and desktops each section fills the screen
+   below the nav bar, and one scroll or swipe moves exactly one section
+   (CSS scroll snap, no script). Phones and print keep normal scrolling. */
+@media screen and (min-width:1024px) and (min-height:600px){
+  :root{--barh:61px;--foot:61px;--screen:calc(100svh - var(--barh));--sec:clamp(28px,5.5vh,64px)}
+  html{scroll-snap-type:y mandatory;scroll-padding-top:var(--barh)}
+  .hero,#skills,.al-screen,#work,.duo,.contact{scroll-snap-align:start;scroll-snap-stop:always;min-height:var(--screen);display:flex;flex-direction:column;justify-content:center}
+  .hero > .wrap,#skills > .wrap,#work > .wrap,.contact > .wrap{width:100%}
+  .contact{min-height:calc(var(--screen) - var(--foot))}
+
+  .hero{padding-block:clamp(20px,4vh,48px)}
+  .hero h1{font-size:clamp(3.25rem,min(6.4vw,10.5vh),6.25rem);margin-top:12px}
+  .role{margin-top:clamp(12px,2vh,22px)}
+  .actions{margin-top:clamp(16px,2.6vh,30px)}
+  .reach{margin-top:clamp(10px,1.6vh,20px)}
+  .facts{margin-top:clamp(16px,2.6vh,36px);grid-template-columns:repeat(4,minmax(0,1fr));max-width:none}
+  .facts li,.facts li:nth-child(even){padding:10px 12px 10px 0;border-left:0}
+  .facts li + li{padding-left:12px;border-left:1px solid var(--border)}
+  .pass{width:min(320px,40vh)}
+
+  #skills > .wrap{grid-template-columns:minmax(0,1fr);gap:clamp(16px,3vh,32px)}
+  .skills-head{position:static}
+  .skills{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .skills > .skill:last-child{grid-column:span 2}
+  .skills > *{padding:clamp(14px,2.2vh,22px) 18px clamp(12px,2vh,18px)}
+  .skill{gap:8px}
+  .skill h3{font-size:clamp(1.2rem,1.6vw,1.45rem)}
+  .skill h3 .sq{margin-bottom:10px}
+  .skill p{font-size:.9rem;line-height:1.5}
+  .proof{gap:5px;padding-top:6px}
+  .proof .label{width:auto;margin:0 4px 0 0}
+  .pchip{font-size:.76rem;min-height:28px;padding:2px 8px;gap:5px}
+
+  .al .wrap{padding-block:0}
+  .al-foot{display:none}
+  .al-screen{padding-block:var(--sec)}
+  .offer{margin-top:clamp(28px,5vh,56px)}
+  .al-live{margin-top:0}
+  .al-video{min-height:0;gap:10px;padding:14px 16px}
+  .al-photos figure{aspect-ratio:16/10}
+  .al-learn{margin-top:clamp(24px,4.5vh,56px)}
+
+  .work-head{margin-bottom:clamp(16px,2.6vh,28px)}
+  .wgrid-projects{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .wcard.project .wcover{min-height:clamp(190px,30vh,300px)}
+  .wcard.project .wtitle{font-size:clamp(1.8rem,2.5vw,2.5rem)}
+  .side-head{margin:clamp(24px,4vh,48px) 0 14px}
+
+  /* Kaospilot + other roles (left) and the About quotes (right) share one screen */
+  .duo{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);max-width:1160px;margin:0 auto;padding-inline:16px;border-top:1px solid var(--border)}
+  .duo > section{display:flex;flex-direction:column;justify-content:center;border:0;min-width:0}
+  .duo > section > .wrap{max-width:none;margin:0;padding-inline:0;width:100%}
+  .duo #education > .wrap{padding-right:clamp(28px,3.6vw,56px)}
+  .duo .about{box-shadow:0 0 0 100vmax #141418;clip-path:inset(0 -100vmax 0 0)}
+  .duo .about > .wrap{padding-left:clamp(28px,3.6vw,56px)}
+  .duo .cols{grid-template-columns:minmax(0,1fr);gap:clamp(14px,3vh,36px)}
+  .duo section > .wrap{padding-block:clamp(20px,4vh,56px)}
+  .duo h2{font-size:clamp(1.6rem,min(2.7vw,4.6vh),2.4rem)}
+  .duo #education p{font-size:.92rem;margin-top:4px!important}
+  .sem,.tl{margin-top:clamp(10px,1.8vh,20px)}
+  .sem li,.tl li{grid-template-columns:64px minmax(0,1fr);padding:clamp(4px,.95vh,11px) 0;font-size:.95rem;line-height:1.4}
+  .sem .n,.tl .y{white-space:nowrap}
+  .sem li.now{margin-top:8px;padding:clamp(10px,1.6vh,14px) 14px}
+  .sem li.now .open{margin-top:4px;font-size:.95rem}
+  .tl span span{display:inline}
+  .tl span span::before{content:" · "}
+  .duo .story{grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(20px,2.6vw,36px)}
+  .duo .q-t{font-size:clamp(1.7rem,2.5vw,2.6rem)}
+  .duo .q-d{font-size:.98rem;margin-top:12px}
+  .duo .qlist{min-height:12.5rem}
+  .duo .q-ctrl{margin-top:16px}
+}
 </style>
 
 <a class="skip" href="#skills"><span lang="en">Skip to content</span><span lang="da">Spring til indhold</span></a>
@@ -538,6 +622,7 @@ footer .wrap{padding-block:20px}
 
 <section class="al" id="amplify">
   <div class="wrap">
+    <div class="al-screen">
     <div class="al-top">
       <div>
         <p class="kicker"><span lang="en">Main project · Founder &amp; chair · Since May 2025</span><span lang="da">Hovedprojekt · Stifter og formand · Siden maj 2025</span></p>
@@ -560,6 +645,8 @@ footer .wrap{padding-block:20px}
       <div><b lang="en">An intimate stage</b><b lang="da">En intim scene</b><span lang="en">Trying out unique pop-up stages for a curious audience, perhaps for the first time.</span><span lang="da">At afprøve unikke pop-up-scener for et nysgerrigt publikum – evt. for første gang.</span></div>
       <div><b lang="en">Professional live video</b><b lang="da">Professionel livevideo</b><span lang="en">A live session from their concert that they can use in future applications.</span><span lang="da">Live-session fra deres koncert, som kan bruges i fremtidige ansøgninger.</span></div>
     </div>
+    </div>
+    <div class="al-screen">
     <div class="al-live">
       <div class="al-live-head">
         <p class="al-arrow"><span class="al-arrow-t"><span lang="en">Live sessions</span><span lang="da">Live-sessions</span></span><span class="arr" aria-hidden="true"></span></p>
@@ -594,7 +681,9 @@ footer .wrap{padding-block:20px}
         <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Law &amp; permits</span><span lang="da">Regler og tilladelser</span></b><span class="al-desc"><span class="al-desc-in"><span lang="en">Getting to grips with the rules for events, venues and a grant-funded association.</span><span lang="da">At sætte sig ind i reglerne for events, spillesteder og en fondsfinansieret forening.</span></span></span><span class="al-more" aria-hidden="true"></span></button></li>
       </ul>
     </div>
+    </div>
     <div class="al-foot"></div>
+    <div class="al-cursor" aria-hidden="true"><span lang="en">Scroll for more</span><span lang="da">Scroll for mere</span></div>
   </div>
 </section>
 
@@ -678,6 +767,7 @@ footer .wrap{padding-block:20px}
   </div>
 </section>
 
+<div class="duo">
 <section id="education">
   <div class="wrap cols">
     <div>
@@ -739,6 +829,7 @@ footer .wrap{padding-block:20px}
     </div>
   </div>
 </section>
+</div>
 
 <section class="contact" id="contact">
   <div class="wrap">
@@ -1028,4 +1119,84 @@ footer .wrap{padding-block:20px}
   }
 })();
 </script>
-
+<script>
+/* One scroll or swipe = one section (laptop/desktop only, matches the CSS snap block).
+   A gesture is a run of wheel events; each gesture moves exactly one screen, and
+   trackpad momentum after it is swallowed. Screens taller than the window scroll normally. */
+(function(){
+  var mq=matchMedia('screen and (min-width:1024px) and (min-height:600px)');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)');
+  var root=document.documentElement, bar=document.querySelector('.bar');
+  var sel='.hero,#skills,.al-screen,#work,.duo,.contact';
+  var lastT=0,lastAbs=0,navT=-1e4,used=false,native=false,acc=0,idx=0;
+  function screens(){return [].slice.call(document.querySelectorAll(sel))}
+  function barH(){return bar?bar.getBoundingClientRect().height:0}
+  function nearest(list){
+    var h=barH(),best=0,d=1e9;
+    list.forEach(function(el,i){var t=Math.abs(el.getBoundingClientRect().top-h);if(t<d){d=t;best=i}});
+    return best;
+  }
+  function go(list,i){
+    i=Math.max(0,Math.min(list.length-1,i));idx=i;
+    var top=list[i].getBoundingClientRect().top+scrollY-barH();
+    if(i===list.length-1)top=root.scrollHeight-innerHeight;
+    scrollTo({top:top,behavior:reduce.matches?'auto':'smooth'});
+  }
+  function scrollable(t){
+    for(;t&&t!==document.body;t=t.parentElement){
+      if(t.closest&&t.closest('.wdetail,.wpeek'))return true;
+      var o=getComputedStyle(t).overflowY;
+      if((o==='auto'||o==='scroll')&&t.scrollHeight>t.clientHeight)return true;
+    }
+    return false;
+  }
+  addEventListener('wheel',function(e){
+    if(!mq.matches||e.ctrlKey||root.classList.contains('wlock'))return;
+    if(Math.abs(e.deltaX)>Math.abs(e.deltaY)||scrollable(e.target))return;
+    var now=performance.now(),abs=Math.abs(e.deltaY),gap=now-lastT;lastT=now;
+    var fresh=gap>140||(now-navT>450&&abs>lastAbs*1.6&&abs>12);
+    lastAbs=abs;
+    var list=screens();if(!list.length)return;
+    if(fresh){
+      used=false;acc=0;
+      if(now-navT>900)idx=nearest(list);
+      var r=list[idx].getBoundingClientRect(),h=barH();
+      // a screen taller than the window: let the browser scroll inside it
+      native=(e.deltaY>0&&r.bottom>innerHeight+2)||(e.deltaY<0&&r.top<h-2);
+    }
+    if(native)return;
+    e.preventDefault();
+    if(used)return;
+    acc+=e.deltaY;
+    if(Math.abs(acc)>=20){used=true;navT=now;go(list,idx+(acc>0?1:-1))}
+  },{passive:false});
+})();
+</script>
+<script>
+/* Amplify Live cursor label: follows the pointer with a little easing; hidden over links and
+   buttons, outside the section and while a project view is open. */
+(function(){
+  var al=document.getElementById('amplify'),lab=al&&al.querySelector('.al-cursor');if(!lab)return;
+  var fine=matchMedia('(hover:hover) and (pointer:fine)'),reduce=matchMedia('(prefers-reduced-motion: reduce)');
+  var root=document.documentElement,x=0,y=0,tx=0,ty=0,px=-1,py=-1,raf=0,on=false;
+  function clickable(el){return el.closest('a,button,[role="button"],input,select,textarea,label,summary')}
+  function update(){
+    var el=px<0?null:document.elementFromPoint(px,py);
+    var show=!!(el&&al.contains(el)&&!clickable(el)&&!root.classList.contains('wlock'));
+    if(show&&!on){x=tx;y=ty;place()}
+    on=show;al.classList.toggle('cursor-on',show);lab.classList.toggle('is-on',show);
+  }
+  function place(){lab.style.translate=(x-lab.offsetWidth/2)+'px '+(y-lab.offsetHeight/2)+'px'}
+  function tick(){
+    var k=reduce.matches?1:.35;x+=(tx-x)*k;y+=(ty-y)*k;place();
+    raf=(Math.abs(tx-x)>.3||Math.abs(ty-y)>.3)?requestAnimationFrame(tick):0;
+  }
+  addEventListener('pointermove',function(e){
+    if(!fine.matches||e.pointerType!=='mouse')return;
+    tx=px=e.clientX;ty=py=e.clientY;update();
+    if(on&&!raf)raf=requestAnimationFrame(tick);
+  },{passive:true});
+  addEventListener('scroll',update,{passive:true});
+  root.addEventListener('mouseleave',function(){px=-1;update()});
+})();
+</script>

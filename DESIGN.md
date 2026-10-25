@@ -82,6 +82,20 @@ The section has four labelled parts, each marked with a lime mono label and a sh
 3. **Live sessions:** no text, just a lime label with a long arrow pointing at the cards (it points down on small screens). There are three white video cards plus a lime-outlined "All videos" card for the channel, and a row of five photos. The order is chosen so photos from the same concert never sit next to each other.
 4. **What I've learned:** a reflective paragraph, with the key phrase underlined in lime, next to a grid of skill tiles. The tiles are compact and show only their heading. On hover (pointer devices), keyboard focus or tap, a tile turns lime and expands to reveal its description, which is written in the "doing" form ("At række ud, koordinere …").
 
+## Full-screen sections (laptop and desktop)
+
+On screens at least 1024 px wide and 600 px tall, every section fills the window below the nav bar, and one scroll gesture moves exactly one section, like a slide.
+
+- **Screens (7):** hero, skills, Amplify Live part 1 (concept and what artists get), Amplify Live part 2 (live sessions, photos and what I've learned), projects and sidequests, Kaospilot and other roles beside About, and Contact (with the footer). The contact screen is shorter by the footer's height, so the last screen shows both.
+- **Kaospilot + About screen:** Kaospilot and "Other roles and school" are stacked on the left (each role on one line), and the black About band becomes the right half, running to the right edge of the window. On phones they stay two separate sections.
+- **How it works:** CSS scroll snap (`mandatory`, `scroll-snap-stop: always`) handles the keyboard, scrollbar and menu links. A small script makes each wheel notch or trackpad swipe (including its momentum) move one screen, which plain CSS snap does not guarantee. If a screen is taller than a small window, it scrolls normally until its end. Open project views and peeks scroll on their own.
+- **Layout on these screens:** spacing scales with the window height. The skills title sits above a four-column table (the last skill spans two columns), and the proof chips are compact. The four projects sit in one row with smaller cover titles. The hero facts are one row of four.
+- **Fit:** every screen fits from 1280×720 to 1920×1080 in both languages. Phones and print keep normal scrolling and the original layout.
+
+## Amplify Live cursor
+
+On devices with a mouse or trackpad, the pointer inside the Amplify Live section is replaced by a small label, in the style of cultureworks.dk: a sharp-cornered lime tag with near-black Aileron caps reading "Scroll for more" ("Scroll for mere" in Danish). It follows the pointer with light easing (none with reduced motion). Over links and buttons the normal pointer returns and the label hides, and it hides outside the section and while a project view is open. Touch devices never show it.
+
 ## About me
 
 This is a black band (`#141418`, the same in both themes) with only the rotating lessons (the "About me" heading is kept for screen readers). A photo of Anne sits beside them and cross-fades to a new one with each lesson (`img/about/`). The four lessons show **one at a time** with no boxes: the quote (condensed caps with a coral opening quote mark), a short description, and where it was learned. A lesson changes every 10 s, and only while the section is on screen. The title resolves calmly through a few flickering letters at a time, in a home-made scramble that stands in for Motion+'s paid `scrambleText`, while the description fades in with Motion's `animate`. Four progress bars show the timing and can be clicked. Rotation pauses on hover, on focus, with the pause button, and in a background tab; it stays off with reduced motion. In print, all four lessons show.
