@@ -32,7 +32,7 @@ h2.caps{font-size:15pt}
 
 /* ---------- HERO ---------- */
 .hero{display:grid;grid-template-columns:minmax(0,1fr) 36mm;gap:8mm;align-items:end}
-.hero h1{font-size:34pt;margin:1.6mm 0 2.6mm}
+.hero h1{font-size:34pt;margin:0 0 2.6mm}
 .hero h1 span{display:block}
 .role{font-weight:600;font-size:10.5pt;margin-bottom:4mm}
 .role i{font-style:normal;color:var(--accent);padding:0 1.2mm}
@@ -45,8 +45,8 @@ h2.caps{font-size:15pt}
   background:repeating-linear-gradient(180deg,var(--primary) 0 3.6mm,#2232AB 3.6mm 3.9mm);z-index:0}
 .lanyard.l{transform:translateX(-50%) translateX(-1.4mm) rotate(-16deg)}
 .lanyard.r{transform:translateX(-50%) translateX(1.4mm) rotate(16deg)}
-.pass-card{position:relative;z-index:1;background:var(--surface);border:1px solid var(--border);border-radius:3.2mm;padding:2.2mm 2.2mm 2.6mm;box-shadow:0 3mm 6mm -2.5mm rgb(20 20 24/.35);transform:rotate(-2deg)}
-.slot{display:block;width:10mm;height:2mm;border-radius:2mm;margin:.2mm auto 2mm;background:var(--bg);box-shadow:inset 0 .2mm .5mm rgb(0 0 0/.35)}
+.pass-card{position:relative;z-index:1;background:var(--surface);border:1px solid var(--border);border-radius:3.2mm;padding:2.2mm 2.2mm 2.6mm;transform:rotate(-2deg)}
+.slot{display:block;width:10mm;height:2mm;border-radius:2mm;margin:.2mm auto 2mm;background:var(--bg);border:1px solid #C9C8C0;border-top-width:.5mm}
 .pass-strip{display:flex;justify-content:space-between;background:var(--accent);color:var(--text);font-family:var(--mono);font-size:5.8pt;letter-spacing:.12em;text-transform:uppercase;padding:1.2mm 1.8mm;border-radius:1mm;font-weight:500}
 .pass img{width:100%;height:25.5mm;object-fit:cover;object-position:62% 40%;border-radius:1.4mm;margin-top:1.8mm}
 .pass-meta{padding-top:2mm}
@@ -58,8 +58,8 @@ h2.caps{font-size:15pt}
 /* ---------- SKILLS ---------- */
 .skills{display:flex;flex-wrap:wrap;gap:1.5mm}
 .skills li{flex:1 1 auto;background:var(--surface);border:1px solid var(--border);border-radius:1.6mm;padding:1.9mm 2.1mm}
-.skills b{display:flex;align-items:center;gap:1.6mm;font-stretch:68%;font-weight:800;text-transform:uppercase;font-size:8.1pt;line-height:1;white-space:nowrap}
-.skills b:before{content:"";width:1.6mm;height:1.6mm;background:var(--accent);flex:none}
+.skills b{display:block;font-stretch:68%;font-weight:800;text-transform:uppercase;font-size:8.1pt;line-height:1;white-space:nowrap}
+.skills b:before{content:"";display:inline-block;width:.7em;height:.7em;background:var(--accent);margin-right:1.6mm;vertical-align:baseline}
 
 /* ---------- AMPLIFY ---------- */
 .al{background:var(--al-ink);color:#fff;border-radius:2.6mm;padding:4mm 4mm 4mm 5mm;display:grid;grid-template-columns:42mm minmax(0,1fr) 42mm;gap:5mm;align-items:stretch}
@@ -68,7 +68,8 @@ h2.caps{font-size:15pt}
 .al-brand img{width:12mm;height:auto}
 .al-brand h2{font-family:"Aileron",var(--font);font-weight:800;font-size:17pt;line-height:.88;text-transform:uppercase;letter-spacing:-.01em}
 .al-brand h2 em{font-style:normal;color:var(--al-lime)}
-.al-founder{display:inline-block;background:var(--al-lime);color:var(--al-ink);font-family:"Aileron",var(--font);font-weight:800;text-transform:uppercase;font-size:7pt;letter-spacing:.02em;padding:1mm 2.2mm;border-radius:5mm}
+.al-founder{display:block;border-top:1px solid #3A3A3A;padding-top:2mm;font-family:"Aileron",var(--font);font-weight:800;text-transform:uppercase;font-size:9pt;line-height:1;color:var(--al-lime)}
+.al-founder small{display:block;font-family:var(--mono);font-weight:400;font-size:5.9pt;letter-spacing:.08em;color:#A9A9A9;margin-bottom:1mm}
 .al-tag{font-family:"Aileron",var(--font);font-weight:800;font-size:9.6pt;line-height:1.18;margin-bottom:1.6mm}
 .al-lead{font-size:7.3pt;line-height:1.4;color:#E2E2E2}
 .al-stats{display:flex;gap:5mm;margin:1.8mm 0 2mm}
@@ -76,7 +77,7 @@ h2.caps{font-size:15pt}
 .al-stats b{font-family:"Aileron",var(--font);font-weight:800;color:var(--al-lime);font-size:12pt;line-height:1}
 .al-stats span{font-size:6.4pt;color:#CFCFCF}
 .al-sessions{display:flex;flex-wrap:wrap;align-items:center;gap:1.2mm}
-.al-sessions a{font-size:6.4pt;border:1px solid #4A4A4A;border-radius:5mm;padding:.6mm 1.8mm;color:#fff;white-space:nowrap}
+.al-sessions a{font-size:6.4pt;border:1px solid #4A4A4A;border-radius:.8mm;padding:.6mm 1.8mm;color:#fff;white-space:nowrap}
 .al-sessions a b{font-weight:600}
 .al-sessions a.all{background:var(--al-lime);border-color:var(--al-lime);color:var(--al-ink);font-family:"Aileron",var(--font);font-weight:800;text-transform:uppercase;font-size:6.6pt}
 .al-photos{display:grid;grid-template-columns:1fr 1fr;gap:1.4mm;contain:size}
@@ -96,7 +97,8 @@ h2.caps{font-size:15pt}
 .proj p.body{font-size:7pt;line-height:1.36}
 .proj a{color:var(--primary);font-weight:600}
 .proj.small{grid-template-columns:1fr;grid-column:1/-1}
-.proj.small .tx{display:grid;grid-template-columns:44mm 1fr;gap:4mm;align-items:center;padding:2.2mm 3mm}
+.proj.small .tx{display:grid;grid-template-columns:44mm 1fr auto;gap:4mm;align-items:center;padding:2.2mm 3mm}
+.proj.small .dur{align-self:start}
 .proj.small h3{margin:.6mm 0 0}
 
 /* ---------- BOTTOM ---------- */
@@ -131,7 +133,6 @@ h2.caps{font-size:15pt}
 
   <header class="hero">
     <div>
-      <p class="label"><span lang="en">CV · Kaospilot, Team 31 · Aarhus</span><span lang="da">CV · Kaospilot, Hold 31 · Aarhus</span></p>
       <h1 class="caps"><span>Anne Magdalene</span><span>Helles Borgen</span></h1>
       <p class="role" lang="en">Event producer<i>/</i>Community builder<i>/</i>Systems thinker</p>
       <p class="role" lang="da">Eventproducent<i>/</i>Fællesskabsbygger<i>/</i>Systemisk tænker</p>
@@ -176,13 +177,13 @@ h2.caps{font-size:15pt}
     <div>
       <p class="al-kicker"><span lang="en">Main project · since May 2025</span><span lang="da">Hovedprojekt · siden maj 2025</span></p>
       <div class="al-brand"><img src="img/amplify/amplify-live-logo.svg" alt="Amplify Live logo"><h2>Amplify<br><em>Live</em></h2></div>
-      <span class="al-founder"><span lang="en">Founder &amp; chair</span><span lang="da">Stifter og formand</span></span>
+      <p class="al-founder"><small lang="en">My role</small><small lang="da">Min rolle</small><span lang="en">Founder &amp; chair</span><span lang="da">Stifter og formand</span></p>
     </div>
     <div>
       <p class="al-tag" lang="en">Unique pop-up stages for grassroots artists, with a professional live session to take with them.</p>
       <p class="al-tag" lang="da">Unikke pop-up-scener for græsrodsartister, med en professionel live-session i bagagen.</p>
-      <p class="al-lead" lang="en">A non-profit association in Aarhus, run entirely on foundation grants.</p>
-      <p class="al-lead" lang="da">En non-profit forening i Aarhus, drevet udelukkende af fondsmidler.</p>
+      <p class="al-lead" lang="en">A non-profit association in Aarhus, run entirely by young people.</p>
+      <p class="al-lead" lang="da">En non-profit forening i Aarhus, drevet udelukkende af unge.</p>
       <ul class="al-stats">
         <li><b>3</b><span lang="en">live sessions</span><span lang="da">live-sessions</span></li>
         <li><b>9</b><span lang="en">crew members</span><span lang="da">i crewet</span></li>
@@ -225,9 +226,10 @@ h2.caps{font-size:15pt}
           <p class="body" lang="en">I mapped how the internal systems and stories of the cooperative shape the way people work together, and proposed interventions to strengthen it.</p>
           <p class="body" lang="da">Jeg kortlagde, hvordan kooperativets interne systemer og fortællinger former samarbejdet, og foreslog interventioner, der kunne styrke det.</p></div></article>
       <article class="proj small c-paper">
-        <div class="tx"><div><p class="kind label"><span>Freelance</span><span lang="en">1.5 years</span><span lang="da">1,5 år</span></p><h3 class="caps"><span lang="en">UGC creator</span><span lang="da">UGC-creator</span></h3></div>
+        <div class="tx"><div><p class="label">Freelance</p><h3 class="caps"><span lang="en">UGC creator</span><span lang="da">UGC-creator</span></h3></div>
           <p class="body" lang="en">I pitch brands, agree on style and tone, then script, film and edit short-form video. <a href="https://annemagdalene-ugc.my.canva.site/">See my UGC portfolio ↗</a></p>
-          <p class="body" lang="da">Jeg kontakter brands, aftaler stil og tone og skriver, filmer og klipper korte videoer. <a href="https://annemagdalene-ugc.my.canva.site/">Se min UGC-portefølje ↗</a></p></div></article>
+          <p class="body" lang="da">Jeg kontakter brands, aftaler stil og tone og skriver, filmer og klipper korte videoer. <a href="https://annemagdalene-ugc.my.canva.site/">Se min UGC-portefølje ↗</a></p>
+          <p class="label dur"><span lang="en">1.5 years</span><span lang="da">1,5 år</span></p></div></article>
     </div>
   </section>
 
