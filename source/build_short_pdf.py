@@ -1,7 +1,7 @@
 """Build the condensed 2-page A4 portfolio PDFs (EN + DA) from source/short-portfolio.html.
 Needs: pip install segno playwright && python3 -m playwright install chromium
 Usage (from the repo root): python3 source/build_short_pdf.py [--png]
-Writes Anne-Magdalene-Helles-Borgen-Short-EN.pdf / -DA.pdf in the repo root.
+Writes Anne-Magdalene-Helles-Borgen-CV-EN.pdf / -DA.pdf in the repo root (the downloads on the live site).
 Fails if any page's content is taller than A4."""
 import re, sys, pathlib, tempfile
 import segno
@@ -49,7 +49,7 @@ with sync_playwright() as p:
         for r in report:
             print(lang.upper(), 'page', r['page'], 'spare', r['spare_mm'], 'mm')
             ok &= r['spare_mm'] >= 0
-        out = ROOT / f'Anne-Magdalene-Helles-Borgen-Short-{lang.upper()}.pdf'
+        out = ROOT / f'Anne-Magdalene-Helles-Borgen-CV-{lang.upper()}.pdf'
         page.pdf(path=str(out), format='A4', print_background=True, prefer_css_page_size=True)
         print('wrote', out.name)
         if '--png' in sys.argv:
