@@ -424,14 +424,25 @@ footer .wrap{padding-block:20px}
   .skill,.q,.sem li,.tl li,.offer,.al-skill,.clist{break-inside:avoid}
 }
 
+/* Amplify Live: a "Scroll for more" label replaces the pointer (mouse and trackpad only),
+   in the style of cultureworks.dk. Links and buttons keep the normal pointer. */
+.al-cursor{display:none}
+@media (hover:hover) and (pointer:fine){
+  .al-cursor{display:block;position:fixed;left:0;top:0;z-index:25;pointer-events:none;background:var(--al-lime);color:var(--al-black);font:800 .72rem/1 "Aileron",var(--font);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;padding:5px 7px 4px;opacity:0;scale:.8;translate:-200px -200px;transition:opacity .18s,scale .18s}
+  .al-cursor.is-on{opacity:1;scale:1}
+  .al.cursor-on,.al.cursor-on *{cursor:none}
+  .al.cursor-on :is(a,button,[role="button"]),.al.cursor-on :is(a,button,[role="button"]) *{cursor:pointer}
+}
+@media (prefers-reduced-motion:reduce){.al-cursor{transition:none}}
+
 /* Full-screen sections: on laptops and desktops each section fills the screen
    below the nav bar, and one scroll or swipe moves exactly one section
    (CSS scroll snap, no script). Phones and print keep normal scrolling. */
 @media screen and (min-width:1024px) and (min-height:600px){
   :root{--barh:61px;--foot:61px;--screen:calc(100svh - var(--barh));--sec:clamp(28px,5.5vh,64px)}
   html{scroll-snap-type:y mandatory;scroll-padding-top:var(--barh)}
-  .hero,#skills,.al-screen,#work,#education,.about,.contact{scroll-snap-align:start;scroll-snap-stop:always;min-height:var(--screen);display:flex;flex-direction:column;justify-content:center}
-  .hero > .wrap,#skills > .wrap,#work > .wrap,#education > .wrap,.about > .wrap,.contact > .wrap{width:100%}
+  .hero,#skills,.al-screen,#work,.duo,.contact{scroll-snap-align:start;scroll-snap-stop:always;min-height:var(--screen);display:flex;flex-direction:column;justify-content:center}
+  .hero > .wrap,#skills > .wrap,#work > .wrap,.contact > .wrap{width:100%}
   .contact{min-height:calc(var(--screen) - var(--foot))}
 
   .hero{padding-block:clamp(20px,4vh,48px)}
@@ -471,6 +482,30 @@ footer .wrap{padding-block:20px}
   .wcard.project .wcover{min-height:clamp(190px,30vh,300px)}
   .wcard.project .wtitle{font-size:clamp(1.8rem,2.5vw,2.5rem)}
   .side-head{margin:clamp(24px,4vh,48px) 0 14px}
+
+  /* Kaospilot + other roles (left) and the About quotes (right) share one screen */
+  .duo{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);max-width:1160px;margin:0 auto;padding-inline:16px;border-top:1px solid var(--border)}
+  .duo > section{display:flex;flex-direction:column;justify-content:center;border:0;min-width:0}
+  .duo > section > .wrap{max-width:none;margin:0;padding-inline:0;width:100%}
+  .duo #education > .wrap{padding-right:clamp(28px,3.6vw,56px)}
+  .duo .about{box-shadow:0 0 0 100vmax #141418;clip-path:inset(0 -100vmax 0 0)}
+  .duo .about > .wrap{padding-left:clamp(28px,3.6vw,56px)}
+  .duo .cols{grid-template-columns:minmax(0,1fr);gap:clamp(14px,3vh,36px)}
+  .duo section > .wrap{padding-block:clamp(20px,4vh,56px)}
+  .duo h2{font-size:clamp(1.6rem,min(2.7vw,4.6vh),2.4rem)}
+  .duo #education p{font-size:.92rem;margin-top:4px!important}
+  .sem,.tl{margin-top:clamp(10px,1.8vh,20px)}
+  .sem li,.tl li{grid-template-columns:64px minmax(0,1fr);padding:clamp(4px,.95vh,11px) 0;font-size:.95rem;line-height:1.4}
+  .sem .n,.tl .y{white-space:nowrap}
+  .sem li.now{margin-top:8px;padding:clamp(10px,1.6vh,14px) 14px}
+  .sem li.now .open{margin-top:4px;font-size:.95rem}
+  .tl span span{display:inline}
+  .tl span span::before{content:" · "}
+  .duo .story{grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(20px,2.6vw,36px)}
+  .duo .q-t{font-size:clamp(1.7rem,2.5vw,2.6rem)}
+  .duo .q-d{font-size:.98rem;margin-top:12px}
+  .duo .qlist{min-height:12.5rem}
+  .duo .q-ctrl{margin-top:16px}
 }
 </style>
 
@@ -648,6 +683,7 @@ footer .wrap{padding-block:20px}
     </div>
     </div>
     <div class="al-foot"></div>
+    <div class="al-cursor" aria-hidden="true"><span lang="en">Scroll for more</span><span lang="da">Scroll for mere</span></div>
   </div>
 </section>
 
@@ -731,6 +767,7 @@ footer .wrap{padding-block:20px}
   </div>
 </section>
 
+<div class="duo">
 <section id="education">
   <div class="wrap cols">
     <div>
@@ -792,6 +829,7 @@ footer .wrap{padding-block:20px}
     </div>
   </div>
 </section>
+</div>
 
 <section class="contact" id="contact">
   <div class="wrap">
@@ -1089,7 +1127,7 @@ footer .wrap{padding-block:20px}
   var mq=matchMedia('screen and (min-width:1024px) and (min-height:600px)');
   var reduce=matchMedia('(prefers-reduced-motion: reduce)');
   var root=document.documentElement, bar=document.querySelector('.bar');
-  var sel='.hero,#skills,.al-screen,#work,#education,.about,.contact';
+  var sel='.hero,#skills,.al-screen,#work,.duo,.contact';
   var lastT=0,lastAbs=0,navT=-1e4,used=false,native=false,acc=0,idx=0;
   function screens(){return [].slice.call(document.querySelectorAll(sel))}
   function barH(){return bar?bar.getBoundingClientRect().height:0}
@@ -1132,5 +1170,33 @@ footer .wrap{padding-block:20px}
     acc+=e.deltaY;
     if(Math.abs(acc)>=20){used=true;navT=now;go(list,idx+(acc>0?1:-1))}
   },{passive:false});
+})();
+</script>
+<script>
+/* Amplify Live cursor label: follows the pointer with a little easing; hidden over links and
+   buttons, outside the section and while a project view is open. */
+(function(){
+  var al=document.getElementById('amplify'),lab=al&&al.querySelector('.al-cursor');if(!lab)return;
+  var fine=matchMedia('(hover:hover) and (pointer:fine)'),reduce=matchMedia('(prefers-reduced-motion: reduce)');
+  var root=document.documentElement,x=0,y=0,tx=0,ty=0,px=-1,py=-1,raf=0,on=false;
+  function clickable(el){return el.closest('a,button,[role="button"],input,select,textarea,label,summary')}
+  function update(){
+    var el=px<0?null:document.elementFromPoint(px,py);
+    var show=!!(el&&al.contains(el)&&!clickable(el)&&!root.classList.contains('wlock'));
+    if(show&&!on){x=tx;y=ty;place()}
+    on=show;al.classList.toggle('cursor-on',show);lab.classList.toggle('is-on',show);
+  }
+  function place(){lab.style.translate=(x-lab.offsetWidth/2)+'px '+(y-lab.offsetHeight/2)+'px'}
+  function tick(){
+    var k=reduce.matches?1:.35;x+=(tx-x)*k;y+=(ty-y)*k;place();
+    raf=(Math.abs(tx-x)>.3||Math.abs(ty-y)>.3)?requestAnimationFrame(tick):0;
+  }
+  addEventListener('pointermove',function(e){
+    if(!fine.matches||e.pointerType!=='mouse')return;
+    tx=px=e.clientX;ty=py=e.clientY;update();
+    if(on&&!raf)raf=requestAnimationFrame(tick);
+  },{passive:true});
+  addEventListener('scroll',update,{passive:true});
+  root.addEventListener('mouseleave',function(){px=-1;update()});
 })();
 </script>

@@ -86,10 +86,15 @@ The section has four labelled parts, each marked with a lime mono label and a sh
 
 On screens at least 1024 px wide and 600 px tall, every section fills the window below the nav bar, and one scroll gesture moves exactly one section, like a slide.
 
-- **Screens:** hero, skills, Amplify Live part 1 (concept and what artists get), Amplify Live part 2 (live sessions, photos and what I've learned), projects and sidequests, Kaospilot and other roles, About and Contact (with the footer). The contact screen is shorter by the footer's height, so the last screen shows both.
+- **Screens (7):** hero, skills, Amplify Live part 1 (concept and what artists get), Amplify Live part 2 (live sessions, photos and what I've learned), projects and sidequests, Kaospilot and other roles beside About, and Contact (with the footer). The contact screen is shorter by the footer's height, so the last screen shows both.
+- **Kaospilot + About screen:** Kaospilot and "Other roles and school" are stacked on the left (each role on one line), and the black About band becomes the right half, running to the right edge of the window. On phones they stay two separate sections.
 - **How it works:** CSS scroll snap (`mandatory`, `scroll-snap-stop: always`) handles the keyboard, scrollbar and menu links. A small script makes each wheel notch or trackpad swipe (including its momentum) move one screen, which plain CSS snap does not guarantee. If a screen is taller than a small window, it scrolls normally until its end. Open project views and peeks scroll on their own.
 - **Layout on these screens:** spacing scales with the window height. The skills title sits above a four-column table (the last skill spans two columns), and the proof chips are compact. The four projects sit in one row with smaller cover titles. The hero facts are one row of four.
 - **Fit:** every screen fits from 1280×720 to 1920×1080 in both languages. Phones and print keep normal scrolling and the original layout.
+
+## Amplify Live cursor
+
+On devices with a mouse or trackpad, the pointer inside the Amplify Live section is replaced by a small label, in the style of cultureworks.dk: a sharp-cornered lime tag with near-black Aileron caps reading "Scroll for more" ("Scroll for mere" in Danish). It follows the pointer with light easing (none with reduced motion). Over links and buttons the normal pointer returns and the label hides, and it hides outside the section and while a project view is open. Touch devices never show it.
 
 ## About me
 
