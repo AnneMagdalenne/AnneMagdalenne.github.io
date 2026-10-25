@@ -423,6 +423,55 @@ footer .wrap{padding-block:20px}
   #work{break-before:page}
   .skill,.q,.sem li,.tl li,.offer,.al-skill,.clist{break-inside:avoid}
 }
+
+/* Full-screen sections: on laptops and desktops each section fills the screen
+   below the nav bar, and one scroll or swipe moves exactly one section
+   (CSS scroll snap, no script). Phones and print keep normal scrolling. */
+@media screen and (min-width:1024px) and (min-height:600px){
+  :root{--barh:61px;--foot:61px;--screen:calc(100svh - var(--barh));--sec:clamp(28px,5.5vh,64px)}
+  html{scroll-snap-type:y mandatory;scroll-padding-top:var(--barh)}
+  .hero,#skills,.al-screen,#work,#education,.about,.contact{scroll-snap-align:start;scroll-snap-stop:always;min-height:var(--screen);display:flex;flex-direction:column;justify-content:center}
+  .hero > .wrap,#skills > .wrap,#work > .wrap,#education > .wrap,.about > .wrap,.contact > .wrap{width:100%}
+  .contact{min-height:calc(var(--screen) - var(--foot))}
+
+  .hero{padding-block:clamp(20px,4vh,48px)}
+  .hero h1{font-size:clamp(3.25rem,min(6.4vw,10.5vh),6.25rem);margin-top:12px}
+  .role{margin-top:clamp(12px,2vh,22px)}
+  .actions{margin-top:clamp(16px,2.6vh,30px)}
+  .reach{margin-top:clamp(10px,1.6vh,20px)}
+  .facts{margin-top:clamp(16px,2.6vh,36px);grid-template-columns:repeat(4,minmax(0,1fr));max-width:none}
+  .facts li,.facts li:nth-child(even){padding:10px 12px 10px 0;border-left:0}
+  .facts li + li{padding-left:12px;border-left:1px solid var(--border)}
+  .pass{width:min(320px,40vh)}
+
+  #skills > .wrap{grid-template-columns:minmax(0,1fr);gap:clamp(16px,3vh,32px)}
+  .skills-head{position:static}
+  .skills{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .skills > .skill:last-child{grid-column:span 2}
+  .skills > *{padding:clamp(14px,2.2vh,22px) 18px clamp(12px,2vh,18px)}
+  .skill{gap:8px}
+  .skill h3{font-size:clamp(1.2rem,1.6vw,1.45rem)}
+  .skill h3 .sq{margin-bottom:10px}
+  .skill p{font-size:.9rem;line-height:1.5}
+  .proof{gap:5px;padding-top:6px}
+  .proof .label{width:auto;margin:0 4px 0 0}
+  .pchip{font-size:.76rem;min-height:28px;padding:2px 8px;gap:5px}
+
+  .al .wrap{padding-block:0}
+  .al-foot{display:none}
+  .al-screen{padding-block:var(--sec)}
+  .offer{margin-top:clamp(28px,5vh,56px)}
+  .al-live{margin-top:0}
+  .al-video{min-height:0;gap:10px;padding:14px 16px}
+  .al-photos figure{aspect-ratio:16/10}
+  .al-learn{margin-top:clamp(24px,4.5vh,56px)}
+
+  .work-head{margin-bottom:clamp(16px,2.6vh,28px)}
+  .wgrid-projects{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .wcard.project .wcover{min-height:clamp(190px,30vh,300px)}
+  .wcard.project .wtitle{font-size:clamp(1.8rem,2.5vw,2.5rem)}
+  .side-head{margin:clamp(24px,4vh,48px) 0 14px}
+}
 </style>
 
 <a class="skip" href="#skills"><span lang="en">Skip to content</span><span lang="da">Spring til indhold</span></a>
@@ -538,6 +587,7 @@ footer .wrap{padding-block:20px}
 
 <section class="al" id="amplify">
   <div class="wrap">
+    <div class="al-screen">
     <div class="al-top">
       <div>
         <p class="kicker"><span lang="en">Main project · Founder &amp; chair · Since May 2025</span><span lang="da">Hovedprojekt · Stifter og formand · Siden maj 2025</span></p>
@@ -560,6 +610,8 @@ footer .wrap{padding-block:20px}
       <div><b lang="en">An intimate stage</b><b lang="da">En intim scene</b><span lang="en">Trying out unique pop-up stages for a curious audience, perhaps for the first time.</span><span lang="da">At afprøve unikke pop-up-scener for et nysgerrigt publikum – evt. for første gang.</span></div>
       <div><b lang="en">Professional live video</b><b lang="da">Professionel livevideo</b><span lang="en">A live session from their concert that they can use in future applications.</span><span lang="da">Live-session fra deres koncert, som kan bruges i fremtidige ansøgninger.</span></div>
     </div>
+    </div>
+    <div class="al-screen">
     <div class="al-live">
       <div class="al-live-head">
         <p class="al-arrow"><span class="al-arrow-t"><span lang="en">Live sessions</span><span lang="da">Live-sessions</span></span><span class="arr" aria-hidden="true"></span></p>
@@ -593,6 +645,7 @@ footer .wrap{padding-block:20px}
         <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Partnerships</span><span lang="da">Partnerskaber</span></b><span class="al-desc"><span class="al-desc-in"><span lang="en">Building collaborations, e.g. an upcycled merch workshop with Pop Up Lop, using the audience's unworn clothes.</span><span lang="da">At skabe samarbejder, f.eks. en upcycling-merchworkshop med Pop Up Lop af publikums aflagte tøj.</span></span></span><span class="al-more" aria-hidden="true"></span></button></li>
         <li><button type="button" class="al-skill" aria-expanded="false"><b><span lang="en">Law &amp; permits</span><span lang="da">Regler og tilladelser</span></b><span class="al-desc"><span class="al-desc-in"><span lang="en">Getting to grips with the rules for events, venues and a grant-funded association.</span><span lang="da">At sætte sig ind i reglerne for events, spillesteder og en fondsfinansieret forening.</span></span></span><span class="al-more" aria-hidden="true"></span></button></li>
       </ul>
+    </div>
     </div>
     <div class="al-foot"></div>
   </div>
@@ -1028,4 +1081,56 @@ footer .wrap{padding-block:20px}
   }
 })();
 </script>
-
+<script>
+/* One scroll or swipe = one section (laptop/desktop only, matches the CSS snap block).
+   A gesture is a run of wheel events; each gesture moves exactly one screen, and
+   trackpad momentum after it is swallowed. Screens taller than the window scroll normally. */
+(function(){
+  var mq=matchMedia('screen and (min-width:1024px) and (min-height:600px)');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)');
+  var root=document.documentElement, bar=document.querySelector('.bar');
+  var sel='.hero,#skills,.al-screen,#work,#education,.about,.contact';
+  var lastT=0,lastAbs=0,navT=-1e4,used=false,native=false,acc=0,idx=0;
+  function screens(){return [].slice.call(document.querySelectorAll(sel))}
+  function barH(){return bar?bar.getBoundingClientRect().height:0}
+  function nearest(list){
+    var h=barH(),best=0,d=1e9;
+    list.forEach(function(el,i){var t=Math.abs(el.getBoundingClientRect().top-h);if(t<d){d=t;best=i}});
+    return best;
+  }
+  function go(list,i){
+    i=Math.max(0,Math.min(list.length-1,i));idx=i;
+    var top=list[i].getBoundingClientRect().top+scrollY-barH();
+    if(i===list.length-1)top=root.scrollHeight-innerHeight;
+    scrollTo({top:top,behavior:reduce.matches?'auto':'smooth'});
+  }
+  function scrollable(t){
+    for(;t&&t!==document.body;t=t.parentElement){
+      if(t.closest&&t.closest('.wdetail,.wpeek'))return true;
+      var o=getComputedStyle(t).overflowY;
+      if((o==='auto'||o==='scroll')&&t.scrollHeight>t.clientHeight)return true;
+    }
+    return false;
+  }
+  addEventListener('wheel',function(e){
+    if(!mq.matches||e.ctrlKey||root.classList.contains('wlock'))return;
+    if(Math.abs(e.deltaX)>Math.abs(e.deltaY)||scrollable(e.target))return;
+    var now=performance.now(),abs=Math.abs(e.deltaY),gap=now-lastT;lastT=now;
+    var fresh=gap>140||(now-navT>450&&abs>lastAbs*1.6&&abs>12);
+    lastAbs=abs;
+    var list=screens();if(!list.length)return;
+    if(fresh){
+      used=false;acc=0;
+      if(now-navT>900)idx=nearest(list);
+      var r=list[idx].getBoundingClientRect(),h=barH();
+      // a screen taller than the window: let the browser scroll inside it
+      native=(e.deltaY>0&&r.bottom>innerHeight+2)||(e.deltaY<0&&r.top<h-2);
+    }
+    if(native)return;
+    e.preventDefault();
+    if(used)return;
+    acc+=e.deltaY;
+    if(Math.abs(acc)>=20){used=true;navT=now;go(list,idx+(acc>0?1:-1))}
+  },{passive:false});
+})();
+</script>
